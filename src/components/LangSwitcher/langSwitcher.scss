@@ -1,0 +1,50 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
+/* Variables */
+$bg-body: #141414;
+$main-text-color: #D9D9D9;
+$main-blue: #09C2FD;
+$main-font: "Roboto Slab", serif;
+
+.lang-btn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  right: 0;
+
+  button {
+    background: none;
+    border: none;
+    color: $main-text-color;
+    cursor: pointer;
+    font-size: 1rem;
+
+    &.selected {
+      color: $main-blue;
+    }
+  }
+
+  span {
+    color: $main-text-color;
+    margin: 0 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .lang-btn {
+    margin-top: 1rem;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    right: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .lang-btn {
+    button {
+      font-size: 0.875rem;
+    }
+  }
+}
