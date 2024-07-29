@@ -56,7 +56,7 @@ const Navbar = () => {
             href="#work" 
             onMouseEnter={() => handleMouseEnter('Work')} 
             onMouseLeave={handleMouseLeave}
-            onClick={() => handleClick('EXPERIENCE SECTORS')}
+            onClick={() => handleClick('WORK')}
             className="nav-link"
           >
             <FaBriefcase className={getIconClassName('Work')} />

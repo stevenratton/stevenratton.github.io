@@ -2,6 +2,10 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from '../LangSwitcher/LangSwitcher.jsx';
 import '../Home/home.scss';
+import { FiPhoneCall } from "react-icons/fi";
+import { TiThListOutline } from "react-icons/ti";
+import { IoIosArrowForward } from "react-icons/io";
+
 
 const Home = ({ selectedLanguage, changeLanguage }) => {
   const { t, i18n } = useTranslation();
@@ -16,6 +20,7 @@ const Home = ({ selectedLanguage, changeLanguage }) => {
           changeLanguage={changeLanguage} 
         />
       </div>
+
       <div className='home-content'>
         {isEnglish ? (
           <>
@@ -31,6 +36,17 @@ const Home = ({ selectedLanguage, changeLanguage }) => {
         )}
         <p> Business Analyst <span className='separator'> ● </span> UX Designer </p>
         <img src='/images/certified.svg' alt='Logo certified' className='certified' />
+
+        <div className='btn-home'>
+          <div className='btn-contact'>
+            <button className='btn-call'> <FiPhoneCall /> {t('contactMe')} <IoIosArrowForward /> </button>
+          </div>
+          <div className='btn-contact'>
+            <button className='btn-call' onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>
+              <TiThListOutline /> {t('wishlist')} <IoIosArrowForward />
+            </button>
+          </div>
+        </div>
       </div>
     </section>
   );
