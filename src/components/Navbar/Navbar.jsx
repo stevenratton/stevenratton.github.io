@@ -29,6 +29,7 @@ const Navbar = () => {
 
   return (
     <div>
+      <div className="navbar-text">
       <div className="hover-text-container">
         <div className="hover-text">{clickedText || hoveredText}</div>
       </div>
@@ -81,6 +82,7 @@ const Navbar = () => {
           </a>
         </div>
       </nav>
+      </div>
     </div>
   );
 };
