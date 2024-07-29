@@ -11,9 +11,11 @@ $main-font: "Roboto Slab", serif;
 /* START NAVBAR */
 .hover-text-container {
   position: fixed;
-  top: 10px;
-  width: 100%;
-  text-align: center;
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  width: auto;
+  text-align: left;
   z-index: 1000;
   pointer-events: none;
 }
@@ -86,3 +88,74 @@ $main-font: "Roboto Slab", serif;
 
 
 
+
+
+
+
+
+/* START NAVBAR 
+
+
+.hover-text {
+  font-size: 16px;
+  color: $main-blue;
+  transition: opacity 0.3s;
+  opacity: 1;
+}
+
+.navbar {
+  z-index: 3;
+  background-image: url('/images/b-border.webp');
+  background-position: 50%;
+  background-size: cover;
+  position: fixed;
+  top: 50%;
+  left: 2%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.3% 0.7%;
+  width: 3%;
+  height: 50%;
+  border-radius: 20px;
+}
+
+.navbar-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  background-color: #141414;
+  border-radius: 15px;
+  padding: 10% 0; /* Reduced padding for better icon alignment
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: $main-text-color;
+}
+
+.icon {
+  font-size: 24px;
+  transition: color 0.3s;
+}
+
+.icon.hovered {
+  color: #00BFFF;
+}
+
+.icon.clicked {
+  color: #00BFFF;
+}
+
+.navbar-logo {
+  width: 40px;
+  height: auto;
+}
+*/
