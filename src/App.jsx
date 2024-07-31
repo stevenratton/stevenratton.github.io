@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import Home from './sections/Home.jsx';
+import SinglePage from './pages/SinglePage';
 import './App.scss';
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home 
+        <Route path="/" element={<SinglePage 
           selectedLanguage={selectedLanguage} 
           changeLanguage={changeLanguage}
         />} />
