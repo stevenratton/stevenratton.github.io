@@ -12,11 +12,10 @@ const About = ({ selectedLanguage, changeLanguage }) => {
         selectedLanguage={selectedLanguage} 
         changeLanguage={changeLanguage}
       />
+      
       <div className='about-content'>
         <div className='about-avatar'>
-        
           <img src='/images/avatar.svg' alt='avatar' className='avatar' />
-        
         </div>
         <div className='about-text'>
           <p> {t('about1')}<span className='colored-text'>{t('about2')}</span> {t('about3')} </p>

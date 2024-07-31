@@ -12,7 +12,7 @@ const Home = ({ selectedLanguage, changeLanguage }) => {
   const isEnglish = i18n.language === 'en';
 
   return (
-    <section id="home">
+    <section id='home'>
       <div className='header'>
         <img src='/images/logo-head.svg' alt='Logo' className='logo-head' />
         <LanguageSwitcher 
@@ -35,7 +35,6 @@ const Home = ({ selectedLanguage, changeLanguage }) => {
           </>
         )}
         <p> Business Analyst <span className='separator'> ● </span> UX Designer </p>
-        <img src='/images/certified.svg' alt='Logo certified' className='certified' />
 
         <div className='btn-home'>
           <div className='btn-contact'>
@@ -47,6 +46,7 @@ const Home = ({ selectedLanguage, changeLanguage }) => {
             </button>
           </div>
         </div>
+        <img src='/images/certified.svg' alt='Logo certified' className='certified' />
       </div>
     </section>
   );

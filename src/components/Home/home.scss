@@ -12,7 +12,7 @@ $main-font: "Roboto Slab", serif;
     justify-content: space-between;
     position: relative;
     padding: 1rem;
-    
+
     .logo-head {
       margin-top: 2%;
       position: relative;
@@ -28,7 +28,7 @@ $main-font: "Roboto Slab", serif;
     h1 {
       font-size: 50px;
     }
-    
+
     p {
       font-size: 20px;
     }
@@ -40,16 +40,13 @@ $main-font: "Roboto Slab", serif;
     .separator {
       color: $main-blue;
     }
-
-    img {
-      max-width: 12%;
-    }
   }
 }
 
 .btn-home {
   margin-top: 6%;
   display: flex;
+  align-items: center;
   justify-content: center;
   gap: 3%;
 }

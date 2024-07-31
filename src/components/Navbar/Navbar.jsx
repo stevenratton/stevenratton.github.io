@@ -34,8 +34,7 @@ const Navbar = () => {
       </div>
       <nav className="navbar">
         <div className="navbar-icons">
-          <a 
-            href="#home" 
+          <a href="#home" 
             onMouseEnter={() => handleMouseEnter('Home')} 
             onMouseLeave={handleMouseLeave}
             onClick={() => handleClick('HOME')}
