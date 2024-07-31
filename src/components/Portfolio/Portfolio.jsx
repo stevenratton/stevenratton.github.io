@@ -8,7 +8,7 @@ const Portfolio = ({ selectedLanguage, changeLanguage }) => {
 
   return (
     <section id="portfolio">
-      <h2>{t('portfolio')}</h2>
+      <h2>{t('portfolio/RECENT WORK')}</h2>
       <LanguageSwitcher 
         selectedLanguage={selectedLanguage} 
         changeLanguage={changeLanguage}

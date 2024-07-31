@@ -10,6 +10,7 @@ const resources = {
     "head4" : "experience, today",
     "contactMe" : "Contact me",
     "wishlist" : "Consult wishlist",
+
     "about1" : "Hi ! I'm Steven/",
     "about2" : "Omiage",
     "about3" : ", a French Business Analyst | UX Designer | Web3 Entrepreneur !",
@@ -19,6 +20,11 @@ const resources = {
     "about7" : "Reach out, and let's bring your vision to life !",
     "cvEn" : "English CV",
     "cvFr" : "French CV",
+
+    "energy" : "Energy",
+    "luxe" : "Luxury",
+    "bank" : "Bank/Insurance",
+    "auto" : "Automotive",
     }
   },
   fr: {
@@ -28,6 +34,7 @@ const resources = {
     "head3" : "aujourd'hui",
     "contactMe" : "Contactez-moi",
     "wishlist" : "Consultez la wishlist",
+
     "about1" : "Bonjour ! Je suis Steven/",
     "about2" : "Omiage",
     "about3" : ", un Business Analyst | UX Designer | Web3 Entrepreneur français !",
@@ -37,6 +44,11 @@ const resources = {
     "about7" : "Contactez-moi et donnons vie à votre vision !",
     "cvEn" : "CV anglais",
     "cvFr" : "CV français",
+
+    "energy" : "Énergie",
+    "luxe" : "Luxe",
+    "bank" : "Banque/Assurance",
+    "auto" : "Automobile",
     }
   }
 };
