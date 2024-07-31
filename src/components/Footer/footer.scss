@@ -1,0 +1,31 @@
+/* Variables */
+$bg-body: #141414;
+$main-text-color: #D9D9D9;
+$main-blue: #09C2FD;
+$main-font: "Roboto Slab", serif;
+
+#footer {
+  padding: 20px;
+  border-top: 1px solid $main-blue;
+  color: $main-text-color;
+
+  .footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    .footer-logo{
+    width: 100px;
+    height: 100px;
+    transform: rotate(0.377deg);
+    flex-shrink: 0;
+    }
+   
+    .footer-logo2 {
+        width: 100px;
+        height: 100px;
+        flex-shrink: 0;
+        transform: scale(0.5); 
+    }
+    }
+}
