@@ -35,8 +35,7 @@ const Navbar = () => {
       </div>
       <nav className="navbar">
         <div className="navbar-icons">
-          <a 
-            href="#home" 
+          <a href="#home" 
             onMouseEnter={() => handleMouseEnter('Home')} 
             onMouseLeave={handleMouseLeave}
             onClick={() => handleClick('HOME')}
@@ -57,7 +56,7 @@ const Navbar = () => {
             href="#work" 
             onMouseEnter={() => handleMouseEnter('Work')} 
             onMouseLeave={handleMouseLeave}
-            onClick={() => handleClick('EXPERIENCE SECTORS')}
+            onClick={() => handleClick('WORK')}
             className="nav-link"
           >
             <FaBriefcase className={getIconClassName('Work')} />
