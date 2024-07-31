@@ -9,11 +9,11 @@ $main-font: "Roboto Slab", serif;
 
 
 /* START NAVBAR */
-
 .navbar-text {
   display: flex;
   width: 50%;
   height: 100%;
+  background-color: #6e0707;
 }
 
 .hover-text-container {
@@ -22,7 +22,9 @@ $main-font: "Roboto Slab", serif;
   width: 100%;
   text-align: center;
   pointer-events: none;
+  background-color: green;
 }
+
 .hover-text {
   text-align: start;
   margin-top: 9%;
@@ -31,11 +33,13 @@ $main-font: "Roboto Slab", serif;
   color: $main-blue;
   transition: opacity 0.3s;
   opacity: 1;
+  background-color: blue;
 }
 
 .navbar {
   z-index: 3;
-  background-image: url('/images/b-border.webp');
+  background: yellow;
+  // background-image: url('/images/b-border.webp');
   background-position: 50%;
   background-size: cover;
   position: fixed;
@@ -51,6 +55,7 @@ $main-font: "Roboto Slab", serif;
   width: 3%;
   height: 50%;
   border-radius: 20px;
+  border-image: radial-gradient(circle, rgb(172, 61, 61), orange, yellow, green, blue, indigo, violet, pink, magenta, ) 13;
 }
 
 .navbar-icons {
@@ -59,7 +64,7 @@ $main-font: "Roboto Slab", serif;
   align-items: center;
   justify-content: space-around;
   height: 100%;
-  background-color: #141414;
+  background-color: #6e0707;
   border-radius: 15px;
   padding: 40%;
 }
