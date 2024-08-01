@@ -1,18 +1,12 @@
 import React from 'react';
 import '../About/about.scss';
 import { useTranslation } from 'react-i18next';
-import LanguageSwitcher from '../LangSwitcher/LangSwitcher.jsx';
 
 const About = ({ selectedLanguage, changeLanguage }) => {
   const { t } = useTranslation();
 
   return (
     <section id="about">
-      <LanguageSwitcher 
-        selectedLanguage={selectedLanguage} 
-        changeLanguage={changeLanguage}
-      />
-      
       <div className='about-content'>
         <div className='about-avatar'>
           <img src='/images/avatar.svg' alt='avatar' className='avatar' />
