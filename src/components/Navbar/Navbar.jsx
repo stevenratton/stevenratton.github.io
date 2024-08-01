@@ -18,6 +18,10 @@ const Navbar = () => {
     setClickedText(text);
   };
 
+  const getText = () => {
+    return hoveredText || clickedText; 
+  }
+
   const getIconClassName = (text) => {
     if (clickedText === text) {
       return 'icon clicked';
@@ -29,11 +33,9 @@ const Navbar = () => {
 
   return (
     <div>
+      <div className="hover-text">{getText()}</div>
       <div className="navbar-text">
-        <div className="hover-text-container">
-          <div className="hover-text">{clickedText || hoveredText}</div>
-        </div>
-        <nav className="navbar">
+        <div className="navbar">
           <div className="navbar-icons">
             <a href="#home" 
               onMouseEnter={() => handleMouseEnter('HOME')} 
@@ -65,7 +67,7 @@ const Navbar = () => {
               href="#portfolio" 
               onMouseEnter={() => handleMouseEnter('PORTFOLIO')} 
               onMouseLeave={handleMouseLeave}
-              onClick={() => handleClick('ACTIVITIES')}
+              onClick={() => handleClick('PORTFOLIO')}
               className="nav-link"
             >
               <FaFolderOpen className={getIconClassName('Portfolio')} />
@@ -80,13 +82,10 @@ const Navbar = () => {
               <FaEnvelope className={getIconClassName('Contact')} />
             </a>
           </div>
-        </nav>
+        </div>
       </div>
     </div>
   );
 };
 
 export default Navbar;
-
-
-
