@@ -20,10 +20,16 @@ const About = ({ selectedLanguage, changeLanguage }) => {
 
           <div className='btn-about'>
             <div className='btn-container'>
-            <button className='btn-cv'> {t('cvEn')} </button>
+              <button className='btn-cv'> 
+                <img src="public/images/usa-flag.svg" alt="" className='flag-icon'/>
+                {t('cvEn')}
+              </button>
             </div>
             <div className='btn-container'>
-            <button className='btn-cv'> {t('cvFr')} </button>
+              <button className='btn-cv'>
+                <img src="public/images/france-flag.svg" alt="" className='flag-icon'/>
+                {t('cvFr')}
+              </button>
             </div>
           </div>
         </div>

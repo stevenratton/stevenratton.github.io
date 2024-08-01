@@ -51,21 +51,26 @@ $main-font: "Roboto Slab", serif;
 }
 
 .btn-container {
-  z-index: 3;
-  background-image: url('/images/b-border.webp');
-  background-position: 50%;
-  background-size: cover;
+  // z-index: 3;
+  // background-image: url('/images/b-border.webp');
+  // background-position: 50%;
+  // background-size: cover;
   position: relative;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   padding: 0.2% 0.3%;
   width: 20%;
-  height: 30px;
+  height: 35px;
   border-radius: 20px;
+  background-color: $bg-body;
+    /* Border */
+    background-image: 
+    linear-gradient($bg-body, $bg-body), /* Background */
+    linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe); /* Border gradient */
+  background-origin: border-box;
+  background-clip: content-box, border-box;
 }
 
 .btn-cv {
@@ -81,5 +86,8 @@ $main-font: "Roboto Slab", serif;
   border: none;
 }
 
+.flag-icon {
+  width: 13%;
+}
 
 
