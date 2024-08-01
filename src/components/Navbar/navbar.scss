@@ -36,18 +36,18 @@ $main-font: "Roboto Slab", serif;
 
 .navbar {
   height: 100%;
-  width: 55%;
+  width: 60%;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  border: solid transparent 5px;
+  border: solid transparent 3px;
   border-radius: 20px;
   background-color: $bg-body;
 
   /* Border */
   background-image: 
     linear-gradient($bg-body, $bg-body), /* Background */
-    linear-gradient(45deg, red, blue, rgb(120, 120, 226)); /* Border gradient */
+    linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe); /* Border gradient */
   background-origin: border-box;
   background-clip: content-box, border-box;
 }
@@ -65,7 +65,6 @@ $main-font: "Roboto Slab", serif;
   align-items: center;
   text-decoration: none;
   color: $main-text-color;
-  // height: 15%; /* Espace les icones */
 }
 
 .icon {
