@@ -5,7 +5,7 @@ $main-blue: #09C2FD;
 $main-font: "Roboto Slab", serif;
 
 #footer {
-  padding: 20px;
+  padding: 1%;
   border-top: 1px solid $main-blue;
   color: $main-text-color;
 
@@ -15,15 +15,15 @@ $main-font: "Roboto Slab", serif;
     justify-content: space-around;
 
     .footer-logo{
-    width: 100px;
-    height: 100px;
+    width: 30%;
+    height: 30%;
     transform: rotate(0.377deg);
     flex-shrink: 0;
     }
    
     .footer-logo2 {
-        width: 100px;
-        height: 100px;
+        width: 20%;
+        height: 30%;
         flex-shrink: 0;
         transform: scale(0.5); 
     }
