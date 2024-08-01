@@ -49,7 +49,7 @@ $main-font: "Roboto Slab", serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  object-fit: fill;
+  object-fit: cover;
 }
 
 .slide-hidden {
@@ -79,7 +79,7 @@ $main-font: "Roboto Slab", serif;
 }
 
 .arrow-right {
-  right: -1.4rem;
+  right: -0.9rem;
 }
 
 
