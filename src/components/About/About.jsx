@@ -39,4 +39,3 @@ const About = ({ selectedLanguage, changeLanguage }) => {
 };
 
 export default About;
-
