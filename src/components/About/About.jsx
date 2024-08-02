@@ -1,18 +1,12 @@
 import React from 'react';
 import '../About/about.scss';
 import { useTranslation } from 'react-i18next';
-import LanguageSwitcher from '../LangSwitcher/LangSwitcher.jsx';
 
 const About = ({ selectedLanguage, changeLanguage }) => {
   const { t } = useTranslation();
 
   return (
     <section id="about">
-      <LanguageSwitcher 
-        selectedLanguage={selectedLanguage} 
-        changeLanguage={changeLanguage}
-      />
-      
       <div className='about-content'>
         <div className='about-avatar'>
           <img src='/images/avatar.svg' alt='avatar' className='avatar' />
@@ -26,10 +20,16 @@ const About = ({ selectedLanguage, changeLanguage }) => {
 
           <div className='btn-about'>
             <div className='btn-container'>
-            <button className='btn-cv'> {t('cvEn')} </button>
+              <button className='btn-cv'> 
+                <img src="public/images/usa-flag.svg" alt="" className='flag-icon'/>
+                {t('cvEn')}
+              </button>
             </div>
             <div className='btn-container'>
-            <button className='btn-cv'> {t('cvFr')} </button>
+              <button className='btn-cv'>
+                <img src="public/images/france-flag.svg" alt="" className='flag-icon'/>
+                {t('cvFr')}
+              </button>
             </div>
           </div>
         </div>
@@ -39,4 +39,3 @@ const About = ({ selectedLanguage, changeLanguage }) => {
 };
 
 export default About;
-
