@@ -9,23 +9,23 @@ $main-font: "Roboto Slab", serif;
 }
 
 .about-avatar {
-  background-image: url('/images/b-border.webp');
-  background-position: 50%;
-  background-size: cover;
   position: relative;
   transform: translateY(-10%);
   display: flex;
   align-items: center;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  padding: 9.1% 6.2% 9.1% 0.2%;
-  width: 18%;
-  height: 88px;
+  border: 5px solid transparent;
+  border-radius: 50%;
+  background-color: $bg-body;
+  background-image: 
+    linear-gradient($bg-body, $bg-body), /* Background */
+    linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe); /* Border gradient */
+  background-origin: border-box;
+  background-clip: content-box, border-box;
 }
 
 .avatar {
   border-radius: 50%;
-  background-color: $bg-body;
+  background-image: linear-gradient(#00cee4, $bg-body);
 }
 
 .colored-text {
@@ -51,22 +51,17 @@ $main-font: "Roboto Slab", serif;
 }
 
 .btn-container {
-  // z-index: 3;
-  // background-image: url('/images/b-border.webp');
-  // background-position: 50%;
-  // background-size: cover;
   position: relative;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 0.2% 0.3%;
-  width: 20%;
+  width: 15%;
   height: 35px;
   border-radius: 20px;
   background-color: $bg-body;
-    /* Border */
-    background-image: 
+  background-image: 
     linear-gradient($bg-body, $bg-body), /* Background */
     linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe); /* Border gradient */
   background-origin: border-box;
@@ -87,7 +82,7 @@ $main-font: "Roboto Slab", serif;
 }
 
 .flag-icon {
-  width: 13%;
+  width: 15%;
 }
 
 
