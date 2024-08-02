@@ -33,68 +33,68 @@ const Contact = ({ selectedLanguage, changeLanguage }) => {
   <div className="left-text">YOUR <br /> NEEDS</div>
   <div className="checklist">
     <div className="option">
-      <div className="button" />
-      <div className="text-wrapper">Organizational audit</div>
+    <input type="checkbox" id="1" name="scales" className='button'/>
+    <label for="1">Organizational audit</label>
     </div>
     <div className="option">
-      <div className="button" />
-      <div className="text-wrapper">Market research/analysis, Market watch</div>
+    <input type="checkbox" id="2" name="scales" className='button'/>
+    <label for="2">Functional process audit/analysis</label>
     </div>
     <div className="option">
-      <div className="button" />
-      <div className="text-wrapper">Requirement description (Specify, Write, Model)</div>
+    <input type="checkbox" id="3" name="scales" className='button'/>
+    <label for="3">Market research/analysis, Market watch</label>
     </div>
     <div className="option">
-      <div className="button" />
-      <div className="text-wrapper">Functional or technical innovation</div>
+    <input type="checkbox" id="4" name="scales" className='button'/>
+    <label for="4">Requirement description (Specify, Write, Model)</label>
     </div>
     <div className="option">
-      <div className="button" />
-      <p className="text-wrapper">Consulting services</p>
+    <input type="checkbox" id="5" name="scales" className='button'/>
+    <label for="5">Functional or technical innovation</label>
     </div>
     <div className="option">
-      <div className="button" />
-      <div className="text-wrapper">Improve/plan business processes</div>
+    <input type="checkbox" id="6" name="scales" className='button'/>
+    <label for="6">Consulting services</label>
     </div>
     <div className="option">
-      <div className="button" />
-      <p className="text-wrapper">Brainstorming (UX Workshop, User Questionnaire, etc.)</p>
+    <input type="checkbox" id="7" name="scales" className='button'/>
+    <label for="7">Improve/plan business processes</label>
     </div>
     <div className="option">
-      <div className="button" />
-      <p className="text-wrapper">Conducting functional workshops</p>
+    <input type="checkbox" id="8" name="scales" className='button'/>
+    <label for="8">Brainstorming (UX Workshop, User Questionnaire, etc.)</label>
     </div>
     <div className="option">
-      <div className="button" />
-      <p className="text-wrapper">Functional referent</p>
+    <input type="checkbox" id="9" name="scales" className='button'/>
+    <label for="9">Conducting functional workshops</label>
     </div>
     <div className="option">
-      <div className="button" />
-      <div className="text-wrapper">Definition/Validation of functional solution</div>
+    <input type="checkbox" id="10" name="scales" className='button'/>
+    <label for="10">Functional referent</label>
     </div>
     <div className="option">
-      <div className="button" />
-      <div className="text-wrapper">Writing detailed functional specifications</div>
+    <input type="checkbox" id="11" name="scales" className='button'/>
+    <label for="11">Definition/Validation of functional solution</label>
     </div>
     <div className="option">
-      <div className="button" />
-      <p className="text-wrapper">Software quality control</p>
+    <input type="checkbox" id="12" name="scales" className='button'/>
+    <label for="12">Writing detailed functional specifications</label>
     </div>
     <div className="option">
-      <div className="button" />
-      <div className="text-wrapper">Define the tests to be carried out</div>
+    <input type="checkbox" id="13" name="scales" className='button'/>
+    <label for="13">Software quality control</label>
     </div>
     <div className="option">
-      <div className="button" />
-      <div className="text-wrapper">Functional acceptance follow-up</div>
+    <input type="checkbox" id="14" name="scales" className='button'/>
+    <label for="14">Define the tests to be carried out</label>
     </div>
     <div className="option">
-      <div className="button" />
-      <p className="text-wrapper">Brainstorming (Atelier UX, Questionnaire Utilisateur…)</p>
+    <input type="checkbox" id="15" name="scales" className='button'/>
+    <label for="15">Functional acceptance follow-up</label>
     </div>
     <div className="option">
-      <div className="button" />
-      <div className="text-wrapper">Project management</div>
+    <input type="checkbox" id="16" name="scales" className='button'/>
+    <label for="16">Project management</label>
     </div>
   </div>
 </div>
