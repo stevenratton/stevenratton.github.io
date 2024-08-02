@@ -1,0 +1,177 @@
+/* Variables */
+$bg-body: #141414;
+$main-text-color: #D9D9D9;
+$main-blue: #09C2FD;
+$main-font: "Roboto Slab", serif;
+
+/* texte et bouton*/
+
+
+    .h2 {
+      font-size: 24px;
+      color: #333;
+      text-align: center;
+      margin-bottom: 20%;
+    }
+  
+    .content {
+      border-top: 1px solid $main-blue;
+        display: flex;
+        align-items: center; 
+        justify-content: center; 
+        gap: 5%; 
+      }
+    
+    .p {
+      font-size: 16px;
+      color: $main-text-color;
+      margin-top: 3%;
+      max-width: 100%; 
+      font-weight: bold;
+        }
+    
+    .button-container {
+      margin-top: 1%; 
+        }
+    
+    .buttontext {
+          all: unset;
+          align-items: center;
+          background-color: #1e1e1e;
+          border: 3% solid;
+          border-color: transparent;
+          border-radius: 1000px;
+          display: inline-flex;
+          gap: 10px;
+          padding: 10px 15px; 
+          cursor: pointer; 
+        }
+    
+    .button .logo {
+          height: 15%;
+          width: 15%;
+        }
+    
+    .button .contact-me {
+          color: #e1e1e1;
+          font-size: 14px;
+          font-weight: 500;
+          letter-spacing: 0;
+          line-height: normal;
+          width: fit-content;
+        }
+    
+    .button .SVG {
+          height: 5%;
+          width: 5%;
+        }
+
+    
+
+/* Styles pour le conteneur parent de .checklist */
+
+.checklist-container {
+    display: flex;
+    justify-content: center; 
+    padding: 3%; 
+  }
+
+  .left-text {
+    padding: 3%;
+    display: flex;
+    align-items: center;
+    font-size: 200%; 
+    font-weight: bold; 
+    color: $main-text-color; 
+    flex: 0 0 auto; 
+  }
+  
+  /* Styles pour .checklist */
+  
+  .checklist {
+    align-items: flex-start;
+    background-color: $bg-body;
+    border: 5px solid;
+    border-radius: 200%;
+    border-image: linear-gradient(rgb(0, 104, 255) 6.26%,
+            rgb(160, 85, 250) 17.53%,
+            rgb(115, 225, 118) 26.39%,
+            rgb(33, 144, 237) 36.62%,
+            rgb(0, 206, 228) 50%,
+            rgb(0, 187, 226) 65.96%,
+            rgb(159, 173, 199) 74.83%,
+            rgb(151, 86, 250) 82.59%,
+            rgb(0, 104, 254) 88.46%) 1; 
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20%; 
+    padding: 5%; 
+    width: 70%;
+   
+  }
+  
+  
+  .checklist .option {
+    align-items: center;
+    display: flex;
+    gap: 3%;
+    width: 40%;
+  }
+  
+  .checklist .button {
+    background-color: $bg-body;
+    border: 1px solid;
+    border-image: conic-gradient(
+            rgb(0, 104, 255) 6.26%,
+            rgb(160, 85, 250) 17.53%,
+            rgb(115, 225, 118) 26.39%,
+            rgb(33, 144, 237) 36.62%,
+            rgb(0, 206, 228) 50%,
+            rgb(0, 187, 226) 65.96%,
+            rgb(159, 173, 199) 74.83%,
+            rgb(151, 86, 250) 82.59%,
+            rgb(0, 104, 254) 88.46%
+        )
+        1;
+    height: 25px;
+    width: 25px;
+    margin: 2%;
+    cursor: pointer; 
+  }
+  
+  .checklist .text-wrapper {
+    color: $main-text-color;
+    font-size: 16px;
+    line-height: 20%;
+
+  }
+  
+  /* Styles pour boutton validate wishlist*/
+
+  .buttonwish-container {
+  display: flex;
+  padding: 15px 20px;
+  align-items: center;
+  justify-content: center; 
+  gap: 10px;
+  margin-bottom: 2%;
+}
+
+.buttonwish {
+  display: flex;
+  align-items: center; 
+  border-radius: 1000px;
+  border: 3px solid var(--Button, #000);
+  background: #1E1E1E;
+  backdrop-filter: blur(4px);
+  padding: 10px 20px; 
+  color: #fff; 
+  cursor: pointer; 
+}
+
+.buttonwish .logo {
+  height: 20px; 
+  width: 20px; 
+  margin-right: 10px; 
+}
+
