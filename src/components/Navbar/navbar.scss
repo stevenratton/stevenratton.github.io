@@ -23,7 +23,7 @@ $main-font: "Roboto Slab", serif;
 .hover-text {
   position: fixed;
   top: 18%;
-  transform: translate(25%, -50%);
+  transform: translate(30%, -50%);
   width: 5%;
   font-size: 16px;
   color: $main-blue;
@@ -36,14 +36,13 @@ $main-font: "Roboto Slab", serif;
 
 .navbar {
   height: 100%;
-  width: 60%;
+  width: 80%;
   display: flex;
   justify-content: center;
   flex-direction: column;
   border: solid transparent 3px;
   border-radius: 20px;
   background-color: $bg-body;
-
   /* Border */
   background-image: 
     linear-gradient($bg-body, $bg-body), /* Background */
@@ -72,8 +71,8 @@ $main-font: "Roboto Slab", serif;
   transition: color 0.3s;
 }
 
-.icon.hovered, .icon.clicked {
-  color: #00BFFF;
+.icon:hover {
+  color: $main-blue;
 }
 
 .navbar-logo {
