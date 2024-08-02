@@ -1,0 +1,236 @@
+/* Variables */
+$bg-body: #141414;
+$main-text-color: #D9D9D9;
+$main-blue: #09C2FD;
+$main-font: "Roboto Slab", serif;
+
+/* texte et bouton*/
+.p {
+  font-size: 16px;
+  color: $main-text-color;
+  margin-top: 3%;
+  max-width: 100%;
+  font-weight: bold;
+}
+
+.button-container {
+  margin-top: 1%;
+}
+
+.buttontext {
+  all: unset;
+  align-items: center;
+  border: 3px solid transparent;
+  background-image:
+    linear-gradient($bg-body, $bg-body),
+    /* Background */
+    linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe);
+  /* Border gradient */
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  border-radius: 1000px;
+  display: inline-flex;
+  gap: 10px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.button .logo {
+  height: 15%;
+  width: 15%;
+}
+
+.button .contact-me {
+  color: #e1e1e1;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: normal;
+  width: fit-content;
+}
+
+.button .SVG {
+  height: 5%;
+  width: 5%;
+}
+
+
+
+/* Styles pour le conteneur parent de .checklist */
+
+.checklist-container {
+  display: flex;
+  justify-content: center;
+}
+
+.left-text {
+  margin-left: 5%;
+  padding: 3%;
+  display: flex;
+  align-items: center;
+  font-size: 200%;
+  font-weight: bold;
+  color: $main-text-color;
+  flex: 0 0 auto;
+}
+
+/* Styles pour .checklist */
+
+.checklist {
+  align-items: flex-start;
+  background-color: #f0f0f0;
+  /* Utilisez une couleur de fond de votre choix */
+  border: 8px solid transparent;
+  border-radius: 50px;
+  background-image:
+    linear-gradient($bg-body, $bg-body),
+    /* Background */
+    linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe);
+  /* Border gradient */
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* Deux colonnes égales */
+  gap: 10px;
+  /* Espace entre les éléments */
+  padding: 2%;
+  width: 70%;
+  margin: 2%;
+}
+
+
+
+
+.checklist .button {
+  background-color: $bg-body;
+  border: 1px solid;
+  border-image: conic-gradient(rgb(0, 104, 255) 6.26%,
+      rgb(160, 85, 250) 17.53%,
+      rgb(115, 225, 118) 26.39%,
+      rgb(33, 144, 237) 36.62%,
+      rgb(0, 206, 228) 50%,
+      rgb(0, 187, 226) 65.96%,
+      rgb(159, 173, 199) 74.83%,
+      rgb(151, 86, 250) 82.59%,
+      rgb(0, 104, 254) 88.46%) 1;
+  height: 25px;
+  width: 25px;
+  margin: 2%;
+  cursor: pointer;
+}
+
+.checklist .text-wrapper {
+  color: $main-text-color;
+  font-size: 16px;
+  line-height: 20%;
+
+}
+
+/* Styles pour boutton validate wishlist*/
+
+.buttonwish-container {
+  display: flex;
+  padding: 15px 20px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 2%;
+}
+
+.buttonwish {
+  display: flex;
+  align-items: center;
+  border-radius: 1000px;
+  border: 3px solid var(--Button, #000);
+  background: #1E1E1E;
+  backdrop-filter: blur(4px);
+  padding: 10px 20px;
+  color: #fff;
+  cursor: pointer;
+  border: 3px solid transparent;
+  background-image:
+    linear-gradient($bg-body, $bg-body),
+    /* Background */
+    linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe);
+  /* Border gradient */
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+.buttonwish .logo {
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+}
+
+
+
+
+
+
+
+.option {
+  display: flex;
+  position: relative;
+  padding-left: 30px;
+  /* Ajustement pour laisser de l'espace à la case */
+  cursor: pointer;
+  font-size: 16px;
+  margin: 15px;
+}
+
+/* Masquer la vraie checkbox */
+.option .button {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  cursor: pointer;
+}
+
+/* Créer la case à cocher personnalisée */
+.option .button+label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  /* Arrondir les coins */
+  background-image:
+    linear-gradient(white, white),
+    /* Couleur de fond */
+    linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe);
+  /* Dégradé pour la bordure */
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  border: 2px solid transparent;
+  /* Border pour le dégradé */
+}
+
+/* Styles pour la case cochée */
+.option .button:checked+label::before {
+  background-image:
+    linear-gradient(white, white),
+    /* Couleur de fond quand cochée */
+    linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe);
+  /* Dégradé pour la bordure */
+}
+
+/* Ajout de la coche */
+.option .button:checked+label::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 6px;
+  height: 10px;
+  border: solid #0068ff;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
