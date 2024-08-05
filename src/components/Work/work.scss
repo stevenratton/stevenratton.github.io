@@ -6,8 +6,33 @@ $main-font: "Roboto Slab", serif;
 
 #work {
   margin-top: 20%;
+  
   #chartdiv {
     width: 100%;
     height: 550px;
+  }
+}
+
+/* Media Queries */
+
+/* For tablets */
+@media (max-width: 768px) {
+  #work {
+    margin-top: 15%;
+
+    #chartdiv {
+      height: 450px;
+    }
+  }
+}
+
+/* For mobile phones */
+@media (max-width: 480px) {
+  #work {
+    margin-top: 10%;
+
+    #chartdiv {
+      height: 350px;
+    }
   }
 }

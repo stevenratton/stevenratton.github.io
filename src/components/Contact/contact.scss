@@ -54,10 +54,7 @@ $main-font: "Roboto Slab", serif;
   width: 5%;
 }
 
-
-
 /* Styles pour le conteneur parent de .checklist */
-
 .checklist-container {
   display: flex;
   justify-content: center;
@@ -75,45 +72,28 @@ $main-font: "Roboto Slab", serif;
 }
 
 /* Styles pour .checklist */
-
 .checklist {
   align-items: flex-start;
   background-color: #f0f0f0;
-  /* Utilisez une couleur de fond de votre choix */
   border: 8px solid transparent;
   border-radius: 50px;
   background-image:
     linear-gradient($bg-body, $bg-body),
-    /* Background */
     linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe);
-  /* Border gradient */
   background-origin: border-box;
   background-clip: padding-box, border-box;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  /* Deux colonnes égales */
   gap: 10px;
-  /* Espace entre les éléments */
   padding: 2%;
   width: 70%;
   margin: 2%;
 }
 
-
-
-
 .checklist .button {
   background-color: $bg-body;
   border: 1px solid;
-  border-image: conic-gradient(rgb(0, 104, 255) 6.26%,
-      rgb(160, 85, 250) 17.53%,
-      rgb(115, 225, 118) 26.39%,
-      rgb(33, 144, 237) 36.62%,
-      rgb(0, 206, 228) 50%,
-      rgb(0, 187, 226) 65.96%,
-      rgb(159, 173, 199) 74.83%,
-      rgb(151, 86, 250) 82.59%,
-      rgb(0, 104, 254) 88.46%) 1;
+  border-image: conic-gradient(rgb(0, 104, 255) 6.26%, rgb(160, 85, 250) 17.53%, rgb(115, 225, 118) 26.39%, rgb(33, 144, 237) 36.62%, rgb(0, 206, 228) 50%, rgb(0, 187, 226) 65.96%, rgb(159, 173, 199) 74.83%, rgb(151, 86, 250) 82.59%, rgb(0, 104, 254) 88.46%) 1;
   height: 25px;
   width: 25px;
   margin: 2%;
@@ -124,11 +104,9 @@ $main-font: "Roboto Slab", serif;
   color: $main-text-color;
   font-size: 16px;
   line-height: 20%;
-
 }
 
 /* Styles pour boutton validate wishlist*/
-
 .buttonwish-container {
   display: flex;
   padding: 15px 20px;
@@ -151,9 +129,7 @@ $main-font: "Roboto Slab", serif;
   border: 3px solid transparent;
   background-image:
     linear-gradient($bg-body, $bg-body),
-    /* Background */
     linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe);
-  /* Border gradient */
   background-origin: border-box;
   background-clip: padding-box, border-box;
 }
@@ -164,17 +140,10 @@ $main-font: "Roboto Slab", serif;
   margin-right: 10px;
 }
 
-
-
-
-
-
-
 .option {
   display: flex;
   position: relative;
   padding-left: 30px;
-  /* Ajustement pour laisser de l'espace à la case */
   cursor: pointer;
   font-size: 16px;
   margin: 15px;
@@ -201,25 +170,19 @@ $main-font: "Roboto Slab", serif;
   width: 20px;
   height: 20px;
   border-radius: 4px;
-  /* Arrondir les coins */
   background-image:
     linear-gradient(white, white),
-    /* Couleur de fond */
     linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe);
-  /* Dégradé pour la bordure */
   background-origin: border-box;
   background-clip: content-box, border-box;
   border: 2px solid transparent;
-  /* Border pour le dégradé */
 }
 
 /* Styles pour la case cochée */
 .option .button:checked+label::before {
   background-image:
     linear-gradient(white, white),
-    /* Couleur de fond quand cochée */
     linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe);
-  /* Dégradé pour la bordure */
 }
 
 /* Ajout de la coche */
@@ -233,4 +196,80 @@ $main-font: "Roboto Slab", serif;
   border: solid #0068ff;
   border-width: 0 3px 3px 0;
   transform: rotate(45deg);
+}
+
+/* Media Queries */
+
+/* For tablets */
+@media (max-width: 768px) {
+  .left-text {
+    font-size: 150%;
+  }
+
+  .checklist {
+    grid-template-columns: 1fr;
+    width: 90%;
+  }
+
+  .buttonwish {
+    padding: 8px 16px;
+  }
+
+  .buttontext {
+    padding: 8px 12px;
+  }
+}
+
+/* For mobile phones */
+@media (max-width: 480px) {
+  .p {
+    font-size: 14px;
+  }
+
+  .buttontext {
+    padding: 6px 10px;
+    gap: 5px;
+  }
+
+  .checklist-container {
+    flex-direction: column;
+  }
+
+  .left-text {
+    margin-left: 0;
+    font-size: 120%;
+    text-align: center;
+  }
+
+  .checklist {
+    width: 100%;
+    padding: 5%;
+  }
+
+  .buttonwish {
+    padding: 6px 12px;
+  }
+
+  .option {
+    font-size: 14px;
+    margin: 10px;
+    padding-left: 20px;
+  }
+
+  .option .button {
+    width: 18px;
+    height: 18px;
+  }
+
+  .option .button+label::before {
+    width: 18px;
+    height: 18px;
+  }
+
+  .option .button:checked+label::after {
+    left: 5px;
+    top: 1px;
+    width: 5px;
+    height: 8px;
+  }
 }

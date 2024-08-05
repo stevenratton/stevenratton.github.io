@@ -85,4 +85,64 @@ $main-font: "Roboto Slab", serif;
   width: 15%;
 }
 
+/* Media Queries */
 
+/* For tablets */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    gap: 5%;
+  }
+
+  .about-text {
+    max-width: 80%;
+    text-align: center;
+  }
+
+  .btn-container {
+    width: 30%;
+  }
+
+  .btn-cv {
+    height: 45px;
+  }
+
+  .flag-icon {
+    width: 20%;
+  }
+}
+
+/* For mobile phones */
+@media (max-width: 480px) {
+  #about {
+    margin-top: 10%;
+  }
+
+  .about-avatar {
+    transform: translateY(0);
+    margin-bottom: 10%;
+  }
+
+  .about-text {
+    max-width: 90%;
+    text-align: center;
+  }
+
+  .btn-about {
+    flex-direction: column;
+    margin-top: 10%;
+  }
+
+  .btn-container {
+    width: 50%;
+    height: 40px;
+  }
+
+  .btn-cv {
+    height: 40px;
+  }
+
+  .flag-icon {
+    width: 25%;
+  }
+}

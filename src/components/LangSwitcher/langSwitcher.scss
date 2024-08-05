@@ -34,17 +34,23 @@ $main-font: "Roboto Slab", serif;
 @media (max-width: 768px) {
   .lang-btn {
     margin-top: 1rem;
-    position: absolute;
-    display: flex;
-    align-items: center;
     right: 0;
+    button {
+      font-size: 0.875rem;
+    }
   }
 }
 
 @media (max-width: 480px) {
   .lang-btn {
+    margin-top: 1rem;
+    right: 0;
     button {
-      font-size: 0.875rem;
+      font-size: 0.75rem;
+    }
+
+    span {
+      margin: 0 0.25rem;
     }
   }
 }
