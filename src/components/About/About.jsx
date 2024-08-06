@@ -5,6 +5,14 @@ import { useTranslation } from 'react-i18next';
 const About = ({ selectedLanguage, changeLanguage }) => {
   const { t } = useTranslation();
 
+  const handleCvEnClick = () => {
+    window.open('/pdf/CV-EN.pdf', '_blank');
+  };
+
+  const handleCvFrClick = () => {
+    window.open('/pdf/CV-FR.pdf', '_blank');
+  };
+
   return (
     <section id="about">
       <div className='about-content'>
@@ -20,14 +28,14 @@ const About = ({ selectedLanguage, changeLanguage }) => {
 
           <div className='btn-about'>
             <div className='btn-container'>
-              <button className='btn-cv'> 
-                <img src="public/images/usa-flag.svg" alt="" className='flag-icon'/>
+              <button className='btn-cv' onClick={handleCvEnClick}> 
+                <img src="/images/usa-flag.svg" alt="Drapeau USA" className='flag-icon'/>
                 {t('cvEn')}
               </button>
             </div>
             <div className='btn-container'>
-              <button className='btn-cv'>
-                <img src="public/images/france-flag.svg" alt="" className='flag-icon'/>
+              <button className='btn-cv' onClick={handleCvFrClick}>
+                <img src="/images/france-flag.svg" alt="Drapeau FRANCE" className='flag-icon'/>
                 {t('cvFr')}
               </button>
             </div>

@@ -43,73 +43,47 @@ $main-font: "Roboto Slab", serif;
   }
 }
 
-.btn-home {
-  margin-top: 6%;
+.bottom-home {
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 3%;
-}
-
-.btn-contact {
-  z-index: 3;
-  background-image: url('/images/b-border.webp');
-  background-position: 50%;
-  background-size: cover;
-  position: relative;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  padding: 0.12% 0.1%;
-  width: 12%;
-  height: 30px;
-  border-radius: 20px;
-}
-
-.btn-call {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  color: $main-text-color;
-  background-color: $bg-body;
-  border-radius: 20px;
-  padding: 2%;
+  margin-top: 20%;
   width: 100%;
-  height: 50px;
-  border: none;
-  cursor: pointer;
-}
 
-@media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    align-items: center;
-
-    .logo-head {
-      margin-bottom: 1rem;
-    }
-  }
-}
-
-@media (max-width: 480px) {
-  .header {
-    padding: 0.5rem;
-
-    .logo-head {
-      margin-right: 18%;
-      width: 80%;
-    }
+  img {
+    width: 50%;
   }
 
-  
+  .logo {
+    width: 10%;
+  }
 }
-
 
 /* START SECTION HOME */
 .website-content {
   color: $main-text-color;
   text-align: center;
+}
+
+.button-container {
+  display: flex;
+  gap: 25px;
+}
+
+.buttontext {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  color: $main-text-color;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: $main-font;
+  padding: 10px;
+}
+
+.logo-certif {
+  position: absolute;
+  right: 0;
 }

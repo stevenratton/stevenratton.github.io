@@ -4,6 +4,12 @@ import { initReactI18next } from 'react-i18next';
 const resources = {
   en: {
     translation: {
+    "HOME" : "HOME",
+    "ABOUT" : "ABOUT",
+    "WORK" : "WORK",
+    "PORTFOLIO" : "PORTFOLIO",
+    "CONTACT" : "CONTACT",
+
     "head1" : "Imagine",
     "head2" : "tomorrow's",
     "head3" : "Web3",
@@ -21,14 +27,62 @@ const resources = {
     "cvEn" : "English CV",
     "cvFr" : "French CV",
 
+    "sectors" : "EXPERIENCE SECTORS",
     "energy" : "Energy",
     "luxe" : "Luxury",
     "bank" : "Bank/Insurance",
     "auto" : "Automotive",
+
+    "activities" : "ACTIVITIES",
+    "actBA" : "I support you in your digital transformation by acting as a link between the business and development teams, carrying out in-depth functional analyses, modeling solutions adapted to your needs through user-centered design, ensuring development quality via acceptance criteria and acceptance tests, and user training. In project management, I can prioritize User Stories and refine/enrich the backlog, do project follow-up while acting as an Agile facilitator.",
+    "actUX" : "I identify key personas and apply Design Thinking to create truly user-centric solutions. I create wireframes, prototypes or dynamic mock-ups using Business Analysis tools to design quality Apps or improve ergonomics according to a specific charter. If required, I can create and elaborate your Design System to guarantee an optimized user experience by ensuring the technical and visual coherence of the digital device.",
+    "analysis" : "Analysis",
+    "conception" : "Functional Design",
+    "data" : "Data",
+    "qual" : "Quality",
+    "gestion" : "Project Management",
+    "agile" : "Agile Facilitator",
+    "design" : "Design System",
+    "proto" : "Prototyping",
+    "ux" : "User Experience",
+    "dthink" : "Design Thinking",
+
+    "recent" : "RECENT WORKS",
+    "project1" : "FIFA Club Pro competition platform to promote e-Sport in amateur clubs in France. (Sold)",
+
+    "needs" : "YOUR NEEDS",
+    "describe-needs1" : "You can check whether your requirements match the profile you're looking for before contacting me.",
+    "describe-needs2" : "Use the simulator to check if the profile you're looking for is the right one !",
+    "orga" : "Organizational audit",
+    "funct" : "Functional process audit/analysis",
+    "market" : "Market research/analysis, Market watch",
+    "require" : "Requirement description (Specify, Write, Model)",
+    "innov" : "Functional or technical innovation",
+    "services" : "Consulting services",
+    "improve" : "Improve/plan business processes",
+    "brain" : "Brainstorming (UX Workshop, User Questionnaire, etc.)",
+    "workshops" : "Conducting functional workshops",
+    "ref" : "Functional referent",
+    "soluce" : "Definition/Validation of functional solution",
+    "spe" : "Writing detailed functional specifications",
+    "soft" : "Software quality control",
+    "tests" : "Define the tests to be carried out",
+    "follow" : "Functional acceptance follow-up",
+    "project" : "Project management",
+    "valWishlist" : "Validate my needs",
+
+
+    "footer" : "Made with 💜 by THP · Omiage Copyright © 2024 · All Rights Reserved",
     }
   },
   fr: {
     translation: {
+    "HOME" : "ACCUEIL",
+    "ABOUT" : "À PROPOS",
+    "WORK" : "WORK",
+    "PORTFOLIO" : "PORTFOLIO",
+    "CONTACT" : "CONTACT",
+
     "head1" : "Imaginez l'experience Web3",
     "head2" : "de demain,",
     "head3" : "aujourd'hui",
@@ -45,10 +99,52 @@ const resources = {
     "cvEn" : "CV anglais",
     "cvFr" : "CV français",
 
+    "sectors" : "SECTEURS D'EXPÉRIENCE",
     "energy" : "Énergie",
     "luxe" : "Luxe",
     "bank" : "Banque/Assurance",
     "auto" : "Automobile",
+
+    "activities" : "ACTIVITÉS",
+    "actBA" : "Je vous accompagne dans votre transformation digitale en faisant le lien entre les équipes métiers et de développement, en réalisant des analyses fonctionnelles approfondies, en modélisant des solutions adaptées à vos besoins grâce à une conception centrée utilisateur, en assurant la qualité des développements via des critères d'acceptation et des tests d'acceptation, et formation des utilisateurs. En gestion de projet, je peux prioriser les User Stories et affiner/enrichir le backlog, faire le suivi de projet tout en agissant en tant que facilitateur Agile.",
+    "actUX" : "J'identifie les personnalités clés et applique le Design Thinking pour créer des solutions véritablement centrées sur l'utilisateur. Je crée des wireframes, des prototypes ou des maquettes dynamiques à l'aide d'outils de Business Analysis pour concevoir des Apps de qualité ou améliorer l'ergonomie selon une charte précise. Si besoin, je peux créer et élaborer votre Design System pour garantir une expérience utilisateur optimisée en assurant la cohérence technique et visuelle du dispositif numérique.",
+    "analysis" : "Analyse",
+    "conception" : "Conception Fonctionnelle",
+    "data" : "Données",
+    "qual" : "Qualité",
+    "gestion" : "Gestion projet",
+    "agile" : "Facilitateur Agile",
+    "design" : "Design System",
+    "proto" : "Prototypage",
+    "ux" : "Expérience utilisateur",
+    "dthink" : "Design Thinking",
+
+    "recent" : "TRAVAUX RÉCENTS",
+    "project1" : "Plateforme de compétition FIFA Club Pro visant à promouvoir l'e-Sport dans les clubs amateurs en France. (Sold)",
+
+    "needs" : "VOS BESOINS",
+    "describe-needs1" : "Vous pouvez vérifier si vos besoins correspondent au profil recherché avant de me contacter.",
+    "describe-needs2" : "Utilisez le simulateur pour vérifier si le profil que vous recherchez est le bon !",
+    "orga" : "Audit organisationnel",
+    "funct" : "Audit/Analyse de processus fonctionnel",
+    "market" : "Étude/Analyse de marché, Veille commerciale",
+    "require" : "Description de besoin (Spécifier, Rédiger, Modéliser)",
+    "innov" : "Travaux d’innovation fonctionnelle ou technique",
+    "services" : "Mission de conseil",
+    "improve" : "Améliorer/Planifier les processus métiers",
+    "brain" : "Brainstorming (Atelier UX, Questionnaire Utilisateur…)",
+    "workshops" : "Mener des ateliers fonctionnels",
+    "ref" : "Référent fonctionnel",
+    "soluce" : "Définition/Validation de solution fonctionnelle",
+    "spe" : "Rédaction de Spécifications fonctionnelles détaillées",
+    "soft" : "Contrôle qualité logicielle",
+    "tests" : "Définir les tests à mener",
+    "follow" : "Suivi de recette fonctionnelle",
+    "project" : "Gestion projet",
+    "valWishlist" : "Valider mes besoins",
+
+
+    "footer" : "Fait avec 💜 par THP · Omiage Copyright © 2024 · Tous droits réservés",
     }
   }
 };

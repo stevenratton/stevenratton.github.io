@@ -25,7 +25,7 @@ $main-font: "Roboto Slab", serif;
 
 .avatar {
   border-radius: 50%;
-  background-image: linear-gradient(#00cee4, $bg-body);
+  background-image: linear-gradient(#000000, #27b9f4, #27b9f4, #007de4ed ,#0048e4ed, $bg-body);
 }
 
 .colored-text {
@@ -45,7 +45,7 @@ $main-font: "Roboto Slab", serif;
 }
 
 .btn-about {
-  margin-top: 6%;
+  margin-top: 8%;
   display: flex;
   justify-content: space-evenly;
 }
@@ -56,14 +56,14 @@ $main-font: "Roboto Slab", serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0.2% 0.3%;
-  width: 15%;
+  padding: 0.3% 0.3%;
+  width: 20%;
   height: 35px;
   border-radius: 20px;
   background-color: $bg-body;
   background-image: 
-    linear-gradient($bg-body, $bg-body), /* Background */
-    linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe); /* Border gradient */
+    linear-gradient($bg-body, $bg-body),
+    linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe);
   background-origin: border-box;
   background-clip: content-box, border-box;
 }
@@ -71,7 +71,7 @@ $main-font: "Roboto Slab", serif;
 .btn-cv {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   color: $main-text-color;
   background-color: $bg-body;
   border-radius: 20px;
@@ -79,10 +79,14 @@ $main-font: "Roboto Slab", serif;
   width: 100%;
   height: 50px;
   border: none;
+  cursor: pointer;
+  font-size: 15px;
 }
 
 .flag-icon {
-  width: 15%;
+  width: 12%;
 }
+
+
 
 

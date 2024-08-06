@@ -2,7 +2,6 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from '../LangSwitcher/LangSwitcher.jsx';
 import '../Home/home.scss';
-import { FiPhoneCall } from "react-icons/fi";
 import { TiThListOutline } from "react-icons/ti";
 import { IoIosArrowForward } from "react-icons/io";
 
@@ -10,6 +9,10 @@ import { IoIosArrowForward } from "react-icons/io";
 const Home = ({ selectedLanguage, changeLanguage }) => {
   const { t, i18n } = useTranslation();
   const isEnglish = i18n.language === 'en';
+
+  const handleClick = () => {
+    window.location.href = 'https://cal.com/omiage';
+  };
 
   return (
     <section id='home'>
@@ -34,20 +37,22 @@ const Home = ({ selectedLanguage, changeLanguage }) => {
             <h1> <span className='colored-text'> {t('head2')} </span> {t('head3')} </h1>
           </>
         )}
-        <p> Business Analyst <span className='separator'> ● </span> UX Designer </p>
 
-        <div className='btn-home'>
-          <div className='btn-contact'>
-            <button className='btn-call'> <FiPhoneCall /> {t('contactMe')} <IoIosArrowForward /> </button>
-          </div>
-          <div className='btn-contact'>
-            <button className='btn-call' onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>
+        <div className='bottom-home'>
+          <div className="button-container">
+            <button className="buttontext" onClick={handleClick}>
+              <img src='/images/logotel.svg' alt='Logo certified' className='logo' />
+              {t('contactMe')} <IoIosArrowForward />
+            </button>
+            <button className="buttontext" onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>
               <TiThListOutline /> {t('wishlist')} <IoIosArrowForward />
             </button>
           </div>
+          <div className='logo-certif'>
+            <img src='/images/certified.svg' alt='Logo certified' className='certified' />
+          </div>
         </div>
-        <img src='/images/certified.svg' alt='Logo certified' className='certified' />
-      </div>
+      </div>  
     </section>
   );
 };

@@ -2,107 +2,109 @@ import React from 'react';
 import '../Contact/contact.scss';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from '../LangSwitcher/LangSwitcher.jsx';
+import { IoIosArrowForward } from "react-icons/io";
+import { TiThListOutline } from "react-icons/ti";
 
 const Contact = ({ selectedLanguage, changeLanguage }) => {
   const { t } = useTranslation();
 
+  const handleClick = () => {
+    window.location.href = 'https://cal.com/omiage';
+  };
+
   return (
     <section id="contact">
-
-      <LanguageSwitcher
+       <LanguageSwitcher
         selectedLanguage={selectedLanguage}
         changeLanguage={changeLanguage}
       />
-      <div className="content">
-        <div className="p">
-          <p>
-            You can check whether your requirements match the profile you're looking for before contacting me. <br />
-            Use Your wishlist simulator to check if the profile you're looking for is the right one !
-          </p>
+
+      <h2> {t('needs')} </h2>
+      <div className="needs-head">
+        <div>
+          <p> {t('describe-needs1')} </p>
+          <p> {t('describe-needs2')} </p>
         </div>
-        <div className="button-container">
-          <div className="buttontext">
+        <div className="button-container2">
+          <button className="buttontext" onClick={handleClick}>
             <img src='/images/logotel.svg' alt='Logo certified' className='logo' />
-            <div className="contact-me">Contact me</div>
-            <img src='/images/fleche.svg' alt='Logo certified' className='SVG' />
-          </div>
+            {t('contactMe')} <IoIosArrowForward />
+          </button>
         </div>
       </div>
 
       <div className="checklist-container">
-        <div className="left-text">YOUR <br /> NEEDS</div>
         <div className="checklist">
           <div className="option">
-            <input type="checkbox" id="1" name="scales" className='button' />
-            <label for="1">Organizational audit</label>
+            <input type="checkbox" id="first" name="scales" className='button' />
+            <label htmlFor="first"> {t('orga')} </label>
           </div>
           <div className="option">
-            <input type="checkbox" id="2" name="scales" className='button' />
-            <label for="2">Functional process audit/analysis</label>
+            <input type="checkbox" id="second" name="scales" className='button' />
+            <label htmlFor="second">{t('funct')}</label>
           </div>
           <div className="option">
-            <input type="checkbox" id="3" name="scales" className='button' />
-            <label for="3">Market research/analysis, Market watch</label>
+            <input type="checkbox" id="third" name="scales" className='button' />
+            <label htmlFor="third">{t('market')}</label>
           </div>
           <div className="option">
-            <input type="checkbox" id="4" name="scales" className='button' />
-            <label for="4">Requirement description (Specify, Write, Model)</label>
+            <input type="checkbox" id="fourth" name="scales" className='button' />
+            <label htmlFor="fourth">{t('require')}</label>
           </div>
           <div className="option">
-            <input type="checkbox" id="5" name="scales" className='button' />
-            <label for="5">Functional or technical innovation</label>
+            <input type="checkbox" id="fifth" name="scales" className='button' />
+            <label htmlFor="fifth">{t('innov')}</label>
           </div>
           <div className="option">
-            <input type="checkbox" id="6" name="scales" className='button' />
-            <label for="6">Consulting services</label>
+            <input type="checkbox" id="sixth" name="scales" className='button' />
+            <label htmlFor="sixth">{t('services')}</label>
           </div>
           <div className="option">
-            <input type="checkbox" id="7" name="scales" className='button' />
-            <label for="7">Improve/plan business processes</label>
+            <input type="checkbox" id="seventh" name="scales" className='button' />
+            <label htmlFor="seventh">{t('improve')}</label>
           </div>
           <div className="option">
-            <input type="checkbox" id="8" name="scales" className='button' />
-            <label for="8">Brainstorming (UX Workshop, User Questionnaire, etc.)</label>
+            <input type="checkbox" id="eighth" name="scales" className='button' />
+            <label htmlFor="eighth">{t('brain')}</label>
           </div>
           <div className="option">
-            <input type="checkbox" id="9" name="scales" className='button' />
-            <label for="9">Conducting functional workshops</label>
+            <input type="checkbox" id="ninth" name="scales" className='button' />
+            <label htmlFor="ninth">{t('workshops')}</label>
           </div>
           <div className="option">
-            <input type="checkbox" id="10" name="scales" className='button' />
-            <label for="10">Functional referent</label>
+            <input type="checkbox" id="tenth" name="scales" className='button' />
+            <label htmlFor="tenth">{t('ref')}</label>
           </div>
           <div className="option">
-            <input type="checkbox" id="11" name="scales" className='button' />
-            <label for="11">Definition/Validation of functional solution</label>
+            <input type="checkbox" id="eleventh" name="scales" className='button' />
+            <label htmlFor="eleventh">{t('soluce')}</label>
           </div>
           <div className="option">
-            <input type="checkbox" id="12" name="scales" className='button' />
-            <label for="12">Writing detailed functional specifications</label>
+            <input type="checkbox" id="twelfth" name="scales" className='button' />
+            <label htmlFor="twelfth">{t('spe')}</label>
           </div>
           <div className="option">
-            <input type="checkbox" id="13" name="scales" className='button' />
-            <label for="13">Software quality control</label>
+            <input type="checkbox" id="thirteenth" name="scales" className='button' />
+            <label htmlFor="thirteenth">{t('soft')}</label>
           </div>
           <div className="option">
-            <input type="checkbox" id="14" name="scales" className='button' />
-            <label for="14">Define the tests to be carried out</label>
+            <input type="checkbox" id="fourteenth" name="scales" className='button' />
+            <label htmlFor="fourteenth">{t('tests')}</label>
           </div>
           <div className="option">
-            <input type="checkbox" id="15" name="scales" className='button' />
-            <label for="15">Functional acceptance follow-up</label>
+            <input type="checkbox" id="fifteenth" name="scales" className='button' />
+            <label htmlFor="fifteenth">{t('follow')}</label>
           </div>
           <div className="option">
-            <input type="checkbox" id="16" name="scales" className='button' />
-            <label for="16">Project management</label>
+            <input type="checkbox" id="sixteenth" name="scales" className='button' />
+            <label htmlFor="sixteenth">{t('project')}</label>
           </div>
         </div>
       </div>
 
       <div className="buttonwish-container">
         <div className="buttonwish">
-          <img src='/images/logowish.svg' alt='Logo certified' className='logo' />
-          <div className="contact-logo">Validate my wishlist</div>
+          <TiThListOutline className='icon1'/> {t('valWishlist')} <IoIosArrowForward className='icon2'/>
         </div>
       </div>
     </section>
