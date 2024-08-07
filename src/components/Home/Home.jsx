@@ -1,14 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from '../LangSwitcher/LangSwitcher.jsx';
 import '../Home/home.scss';
 import { TiThListOutline } from "react-icons/ti";
 import { IoIosArrowForward } from "react-icons/io";
 
-
 const Home = ({ selectedLanguage, changeLanguage }) => {
   const { t, i18n } = useTranslation();
   const isEnglish = i18n.language === 'en';
+
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const handleClick = () => {
     window.location.href = 'https://cal.com/omiage';
@@ -17,7 +33,11 @@ const Home = ({ selectedLanguage, changeLanguage }) => {
   return (
     <section id='home'>
       <div className='header'>
-        <img src='/images/logo-head.svg' alt='Logo' className='logo-head' />
+        <img 
+          src='/images/logo-head.svg' 
+          alt='Logo' 
+          className={`logo-head ${isScrolled ? 'hidden' : ''}`} 
+        />
         <LanguageSwitcher 
           selectedLanguage={selectedLanguage} 
           changeLanguage={changeLanguage} 

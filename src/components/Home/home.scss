@@ -19,6 +19,11 @@ $main-font: "Roboto Slab", serif;
       left: 50%;
       transform: translateX(-50%);
       max-width: 100%;
+      transition: opacity 0.3s;
+    }
+
+    .hidden {
+      opacity: 0;
     }
   }
 
