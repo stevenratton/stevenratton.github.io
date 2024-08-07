@@ -71,6 +71,8 @@ const resources = {
     "project" : "Project management",
     "valWishlist" : "Validate my needs",
 
+    "result" : "THE RESULT",
+
 
     "footer" : "Made with 💜 by THP · Omiage Copyright © 2024 · All Rights Reserved",
     }
@@ -142,6 +144,8 @@ const resources = {
     "follow" : "Suivi de recette fonctionnelle",
     "project" : "Gestion projet",
     "valWishlist" : "Valider mes besoins",
+
+    "result" : "LE RÉSULTAT",
 
 
     "footer" : "Fait avec 💜 par THP · Omiage Copyright © 2024 · Tous droits réservés",

@@ -157,3 +157,95 @@ $main-font: "Roboto Slab", serif;
 .icon2 {
   margin-left: 0.5rem;
 }
+
+
+/* GRAPGHIQUE */
+.chart-wishlist {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  background-image:
+    linear-gradient($bg-body, $bg-body),
+    linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  padding: 4%;
+  box-sizing: border-box;
+  margin-top: 4%;
+  margin-left: 20%;
+  position: relative;
+
+  h2 {
+    margin-bottom: 8%;
+    margin-top: 0;
+  }
+}
+
+.form-container {
+  margin-top: 8%;
+}
+
+.form-group label {
+  display: inline-block;
+  margin-bottom: 6%;
+  margin-top: 6%;
+  font-size: 14px;
+}
+
+.form-group input, textarea {
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background-image:
+    linear-gradient($bg-body, $bg-body),
+    linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  width: 100%;
+  height: 30px;
+  padding: 3%;
+  color: $main-text-color;
+}
+
+.submit {
+  color: $main-text-color;
+  width: 40%;
+  padding: 2%;
+  margin-left: 35%;
+  margin-top: 8%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+  background: $bg-body;
+  cursor: pointer;
+  border: 1px solid transparent;
+  background-image:
+    linear-gradient($bg-body, $bg-body),
+    linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+.arrow-container-restart {
+  position: absolute;
+  bottom: 0;
+  left: 1%;
+  padding: 2%;
+}
+
+.restart-button {
+  font-size: 2rem;
+  cursor: pointer;
+}
