@@ -8,19 +8,54 @@ $main-blue: #09c2fd;
 $main-font: "Roboto Slab", serif;
 
 #work {
-  margin-top: 20%;
-
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  
   h2 {
-    margin-top: 10%;
+    color: $main-text-color;
   }
 
   #chartdiv {
-    width: 100%;
-    height: 550px;
-    margin-top: 4%;
+    position: relative;
+    width: 50%; 
+    height: 100%;
+    margin: 2% auto 5% auto;
+  }
+
+  .doughnut-chart {
+    width: 70%;
+    height: 70%;
+    position: relative;
+  }
+
+  .center-content {
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .center-image {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+  }
+
+  .experience-text {
+    color: $main-text-color;
+    margin-top: 30%;
   }
 }
 
+/* Card activities */
   .act-cards-container {
     display: flex;
     justify-content: space-evenly;
