@@ -11,7 +11,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 const Work = () => {
   const { t } = useTranslation();
-  const [hoveredCategory, setHoveredCategory] = useState(null);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const data = {
     labels: [
@@ -27,25 +27,30 @@ const Work = () => {
       {
         data: [4, 2, 1, 1, 1, 1, 1],
         backgroundColor: [
-          '#FF6384',
-          '#36A2EB',
-          '#FFCE56',
-          '#FF9F40',
-          '#4BC0C0',
-          '#9966FF',
-          '#FF6384'
+          '#0068ff',
+          '#a055fa',
+          '#73e176',
+          '#2190ed',
+          '#00cee4',
+          '#9fadc7',
+          '#73e176'
         ],
         borderWidth: 1,
-        hoverOffset: 15, // Augmente la taille du segment au survol
+        hoverOffset: 20, // Augmente la taille du segment au survol
       },
     ],
   };
 
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         position: 'top',
+        labels: {
+          boxWidth: 25,
+          padding: 50,
+        },
       },
       tooltip: {
         enabled: false, // Désactiver les tooltips
@@ -53,47 +58,46 @@ const Work = () => {
     },
     rotation: -90, // Commencer le demi-cercle à 180 degrés
     circumference: 180, // Afficher seulement la moitié du cercle
+    onHover: (event, chartElement) => {
+      if (chartElement.length > 0) {
+        const { index } = chartElement[0];
+        setHoveredIndex(index);
+      } else {
+        setHoveredIndex(null);
+      }
+    }
   };
 
-  const categoryImages = {
-    [t('energy')]: './images/energy.svg',
-    'Web3': './images/openloot.svg',
-    [t('luxe')]: './images/chanel.svg',
-    'Public': './images/mdlm.svg',
-    [t('bank')]: './images/generali.svg',
-    [t('auto')]: './images/bmw.svg',
-    'Gaming': './images/EA.svg',
-  };
+  const categoryImages = [
+    './images/energy.svg',
+    './images/openloot.svg',
+    './images/chanel.svg',
+    './images/mdlm.svg',
+    './images/generali.svg',
+    './images/bmw.svg',
+    './images/EA.svg',
+  ];
+
+  const experienceYears = [4, 2, 1, 1, 1, 1, 1];
+
+
 
   return (
     <section id="work">
       <h2>{t('sectors')}</h2>
       <div id="chartdiv">
-        <Doughnut
-          data={data}
-          options={options}
-          onElementsHover={(elements) => {
-            if (elements.length > 0) {
-              const { index } = elements[0];
-              setHoveredCategory(data.labels[index]);
-            } else {
-              setHoveredCategory(null);
-            }
-          }}
-        />
-        {hoveredCategory && (
+        <Doughnut data={data} options={options} className="doughnut-chart"/>
+        {hoveredIndex !== null && (
+          <div className="center-content">
           <img
-            src={categoryImages[hoveredCategory]}
-            alt={hoveredCategory}
-            style={{
-              position: 'absolute',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              width: '80px',
-              height: '80px',
-            }}
+            src={categoryImages[hoveredIndex]}
+            alt={data.labels[hoveredIndex]}
+            className="center-image"
           />
+          <div className="experience-text">
+            {experienceYears[hoveredIndex]} ans d'expérience
+          </div>
+        </div>
         )}
       </div>
 
