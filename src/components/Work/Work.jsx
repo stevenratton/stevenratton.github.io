@@ -63,7 +63,7 @@ const Work = () => {
         const { index } = chartElement[0];
         setHoveredIndex(index);
       } else {
-        setHoveredIndex(null);
+        setHoveredIndex(0);
       }
     }
   };
@@ -80,8 +80,6 @@ const Work = () => {
 
   const experienceYears = [4, 2, 1, 1, 1, 1, 1];
 
-
-
   return (
     <section id="work">
       <h2>{t('sectors')}</h2>
@@ -95,7 +93,7 @@ const Work = () => {
             className="center-image"
           />
           <div className="experience-text">
-            {experienceYears[hoveredIndex]} ans d'expérience
+            {experienceYears[hoveredIndex]} an(s) d'expérience
           </div>
         </div>
         )}

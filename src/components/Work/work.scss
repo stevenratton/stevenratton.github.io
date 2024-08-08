@@ -5,7 +5,7 @@ $main-blue: #09c2fd;
 $main-font: "Roboto Slab", serif;
 
 #work {
-  width: 100%; // ou toute taille que vous souhaitez
+  width: 100%;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -40,7 +40,6 @@ $main-font: "Roboto Slab", serif;
   
   .center-image {
     position: absolute;
-    // top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100px;
