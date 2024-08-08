@@ -54,7 +54,7 @@ $main-font: "Roboto Slab", serif;
   border: 4px solid transparent;
   border-radius: 50px;
   background-image:
-    linear-gradient($bg-body, $bg-body),
+    linear-gradient(#1E1E1E, #1E1E1E),
     linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe);
   background-origin: border-box;
   background-clip: padding-box, border-box;
@@ -63,7 +63,7 @@ $main-font: "Roboto Slab", serif;
   /* Deux colonnes égales */
   gap: 10px;
   /* Espace entre les éléments */
-  padding: 1% 1.5% ;
+  padding: 2% 3% ;
   width: 65%;
   margin: 2%;
 
@@ -148,7 +148,7 @@ $main-font: "Roboto Slab", serif;
   cursor: pointer;
   border: 2px solid transparent;
   background-image:
-    linear-gradient($bg-body, $bg-body),
+    linear-gradient(#1E1E1E, #1E1E1E),
     linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe);
   background-origin: border-box;
   background-clip: padding-box, border-box;

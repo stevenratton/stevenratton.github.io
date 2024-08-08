@@ -93,7 +93,7 @@ const Contact = ({ selectedLanguage, changeLanguage }) => {
       labels: Object.keys(jobCount),
       datasets: [{
         data: Object.values(jobCount),
-        backgroundColor: ['#00A8E0', '#9783EC', '#483BA7'],
+        backgroundColor: ['#00A8E0', '#9783EC', '#73e176'],
         borderWidth: 0
       }]
     });
