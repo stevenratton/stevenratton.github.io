@@ -7,6 +7,7 @@ import LanguageSwitcher from '../LangSwitcher/LangSwitcher.jsx';
 import { IoIosArrowForward } from "react-icons/io";
 import { TiThListOutline } from "react-icons/ti";
 import { HiArrowLongLeft } from "react-icons/hi2";
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 ChartJS.register(Title, Tooltip, Legend, ArcElement);
 
@@ -14,11 +15,12 @@ const Contact = ({ selectedLanguage, changeLanguage }) => {
   const { t } = useTranslation();
   const [chartData, setChartData] = useState(null);
   const [showChart, setShowChart] = useState(false);
-
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [anyChecked, setAnyChecked] = useState(false);
+  const [recaptchaToken, setRecaptchaToken] = useState('');
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const handleCheckboxChange = () => {
     const checkboxes = document.querySelectorAll('.checklist input[type="checkbox"]');
@@ -26,12 +28,27 @@ const Contact = ({ selectedLanguage, changeLanguage }) => {
     setAnyChecked(isAnyChecked);
   };
 
-  const handleSubmit = (event) => {
+  const handleRecaptcha = async () => {
+    if (!executeRecaptcha) {
+      return;
+    }
+    const token = await executeRecaptcha('contact_form');
+    setRecaptchaToken(token);
+  };
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log({ email, name, description });
+    await handleRecaptcha();
+
+    if (!recaptchaToken) {
+      alert('Please complete the reCAPTCHA.');
+      return;
+    }
+
     setEmail('');
     setName('');
     setDescription('');
+    setRecaptchaToken('');
   };
 
   const jobAssociations = {
@@ -77,7 +94,7 @@ const Contact = ({ selectedLanguage, changeLanguage }) => {
       datasets: [{
         data: Object.values(jobCount),
         backgroundColor: ['#00A8E0', '#9783EC', '#483BA7'],
-        borderWidth: 0 // Remove the border width for segments
+        borderWidth: 0
       }]
     });
     setShowChart(true);
@@ -97,6 +114,28 @@ const Contact = ({ selectedLanguage, changeLanguage }) => {
     window.location.href = 'https://cal.com/omiage';
   };
 
+  const chartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
+    elements: {
+      arc: {
+        borderWidth: 0,
+        hoverOffset: 20,
+      },
+    },
+    layout: {
+      padding: {
+        top: 20,
+        bottom: 20,
+      },
+    },
+  };
+  
   return (
     <section id="contact">
       <LanguageSwitcher
@@ -122,7 +161,7 @@ const Contact = ({ selectedLanguage, changeLanguage }) => {
 
           <div className="checklist-container">
             <div className="checklist">
-            <div className="option">
+              <div className="option">
                 <input type="checkbox" id="first" name="scales" className='button' onChange={handleCheckboxChange} />
                 <label htmlFor="first">{t('funct')}</label>
               </div>
@@ -204,25 +243,17 @@ const Contact = ({ selectedLanguage, changeLanguage }) => {
           <div className="chart-wishlist">
             <Doughnut 
               data={chartData} 
-              options={{
-                plugins: {
-                  legend: {
-                    display: true,
-                    position: 'bottom',
-                    align: 'center',
-                    labels: {
-                      color: '#D9D9D9',
-                      borderWidth: 0
-                    }
-                  }
-                },
-                elements: {
-                  arc: {
-                    borderWidth: 0
-                  }
-                }
-              }} 
+              options={chartOptions}
             />
+          </div>
+
+          <div className="chart-labels-container">
+            {chartData && chartData.labels.map((label, index) => (
+              <div className="label-chart" key={index}>
+                <span style={{ backgroundColor: chartData.datasets[0].backgroundColor[index] }}></span>
+                {label}
+              </div>
+            ))}
           </div>
 
           <form onSubmit={handleSubmit} className="form-container">
@@ -273,6 +304,7 @@ const Contact = ({ selectedLanguage, changeLanguage }) => {
 };
 
 export default Contact;
+
 
 
 
