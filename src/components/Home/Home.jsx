@@ -10,6 +10,7 @@ const Home = ({ selectedLanguage, changeLanguage }) => {
   const isEnglish = i18n.language === 'en';
 
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   const handleScroll = () => {
     if (window.scrollY > 50) {
@@ -19,10 +20,18 @@ const Home = ({ selectedLanguage, changeLanguage }) => {
     }
   };
 
+  const handleMouseMove = (event) => {
+    const { clientX: x, clientY: y } = event;
+    setMousePos({ x, y });
+  };
+
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
+    window.addEventListener('mousemove', handleMouseMove);
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
 
@@ -32,6 +41,23 @@ const Home = ({ selectedLanguage, changeLanguage }) => {
 
   return (
     <section id='home'>
+      <div className='background-layer layer1' style={{ transform: `translate(${mousePos.x * 0.009}px, ${mousePos.y * 0.015}px)` }}></div>
+      <div className='background-layer layer2' style={{ transform: `translate(${mousePos.x * 0.02}px, ${mousePos.y * 0.02}px)` }}></div>
+      <div className='background-layer layer3' style={{ transform: `translate(${mousePos.x * 0.015}px, ${mousePos.y * 0.0}px)` }}></div>
+      {isEnglish ? (
+          <div className='text-home'>
+            <h1>{t('head1')} 
+            <span className='colored-text'> {t('head2')} </span> {t('head3')} </h1>
+            <h1> {t('head4')} </h1>
+          </div>
+        ) : (
+          <div className='text-home'>
+            <h1> {t('head1')} </h1>
+            <h1> <span className='colored-text'> {t('head2')} </span> {t('head3')} </h1>
+          </div>
+        )}
+
+
       <div className='header'>
         <img 
           src='/images/logo-head.svg' 
@@ -45,18 +71,7 @@ const Home = ({ selectedLanguage, changeLanguage }) => {
       </div>
 
       <div className='home-content'>
-        {isEnglish ? (
-          <>
-            <h1>{t('head1')} 
-            <span className='colored-text'> {t('head2')} </span> {t('head3')} </h1>
-            <h1> {t('head4')} </h1>
-          </>
-        ) : (
-          <>
-            <h1> {t('head1')} </h1>
-            <h1> <span className='colored-text'> {t('head2')} </span> {t('head3')} </h1>
-          </>
-        )}
+       
 
         <div className='bottom-home'>
           <div className="button-container">
