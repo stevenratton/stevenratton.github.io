@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaHome, FaUser, FaBriefcase, FaFolderOpen, FaEnvelope } from 'react-icons/fa';
 import '../Navbar/navbar.scss';
 import { useTranslation } from 'react-i18next';
@@ -7,6 +7,7 @@ const Navbar = () => {
   const { t } = useTranslation();
   const [hoveredText, setHoveredText] = useState('');
   const [clickedText, setClickedText] = useState('');
+  const [activeSection, setActiveSection] = useState('');
 
   const handleMouseEnter = (text) => {
     setHoveredText(text);
@@ -18,14 +19,17 @@ const Navbar = () => {
 
   const handleClick = (text) => {
     setClickedText(text);
+    setActiveSection(text);
   };
 
   const getText = () => {
-    return hoveredText || clickedText; 
+    return hoveredText || clickedText || activeSection;
   }
 
   const getIconClassName = (text) => {
-    if (clickedText === text) {
+    if (activeSection === text) {
+      return 'icon active';
+    } else if (clickedText === text) {
       return 'icon clicked';
     } else if (hoveredText === text) {
       return 'icon hovered';
@@ -33,11 +37,36 @@ const Navbar = () => {
     return 'icon';
   };
 
-  const homeText = t('HOME');
-  const aboutText = t('ABOUT');
-  const workText = t('WORK');
-  const portfolioText = t('PORTFOLIO');
-  const contactText = t('CONTACT');
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = [
+        { id: 'home', text: t('HOME') },
+        { id: 'about', text: t('ABOUT') },
+        { id: 'work', text: t('WORK') },
+        { id: 'portfolio', text: t('PORTFOLIO') },
+        { id: 'contact', text: t('CONTACT') },
+      ];
+
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
+
+      for (let section of sections) {
+        const element = document.getElementById(section.id); // Récupère l'élément HTML de la section
+        if (element) {
+          const rect = element.getBoundingClientRect(); // Récupère la position et la taille de la section.
+          if (rect.top + window.scrollY <= scrollPosition && rect.bottom + window.scrollY > scrollPosition) {
+            setActiveSection(section.text);
+            setClickedText(section.text);  // Met à jour clickedText pour qu'il suive la section active
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [t]);
 
   return (
     <div>
@@ -46,48 +75,48 @@ const Navbar = () => {
         <div className="navbar">
           <div className="navbar-icons">
             <a href="#home" 
-              onMouseEnter={() => handleMouseEnter(homeText)} 
+              onMouseEnter={() => handleMouseEnter(t('HOME'))} 
               onMouseLeave={handleMouseLeave}
-              onClick={() => handleClick(homeText)}
+              onClick={() => handleClick(t('HOME'))}
               className="nav-link"
             >
-              <FaHome className={getIconClassName(homeText)} />
+              <FaHome className={getIconClassName(t('HOME'))} />
             </a>
             <a 
               href="#about" 
-              onMouseEnter={() => handleMouseEnter(aboutText)} 
+              onMouseEnter={() => handleMouseEnter(t('ABOUT'))} 
               onMouseLeave={handleMouseLeave}
-              onClick={() => handleClick(aboutText)}
+              onClick={() => handleClick(t('ABOUT'))}
               className="nav-link"
             >
-              <FaUser className={getIconClassName(aboutText)} />
+              <FaUser className={getIconClassName(t('ABOUT'))} />
             </a>
             <a 
               href="#work" 
-              onMouseEnter={() => handleMouseEnter(workText)} 
+              onMouseEnter={() => handleMouseEnter(t('WORK'))} 
               onMouseLeave={handleMouseLeave}
-              onClick={() => handleClick(workText)}
+              onClick={() => handleClick(t('WORK'))}
               className="nav-link"
             >
-              <FaBriefcase className={getIconClassName(workText)} />
+              <FaBriefcase className={getIconClassName(t('WORK'))} />
             </a>
             <a 
               href="#portfolio" 
-              onMouseEnter={() => handleMouseEnter(portfolioText)} 
+              onMouseEnter={() => handleMouseEnter(t('PORTFOLIO'))} 
               onMouseLeave={handleMouseLeave}
-              onClick={() => handleClick(portfolioText)}
+              onClick={() => handleClick(t('PORTFOLIO'))}
               className="nav-link"
             >
-              <FaFolderOpen className={getIconClassName(portfolioText)} />
+              <FaFolderOpen className={getIconClassName(t('PORTFOLIO'))} />
             </a>
             <a 
               href="#contact" 
-              onMouseEnter={() => handleMouseEnter(contactText)} 
+              onMouseEnter={() => handleMouseEnter(t('CONTACT'))} 
               onMouseLeave={handleMouseLeave}
-              onClick={() => handleClick(contactText)}
+              onClick={() => handleClick(t('CONTACT'))}
               className="nav-link"
             >
-              <FaEnvelope className={getIconClassName(contactText)} />
+              <FaEnvelope className={getIconClassName(t('CONTACT'))} />
             </a>
           </div>
         </div>
