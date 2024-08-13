@@ -10,17 +10,5 @@ $main-font: "Roboto Slab", serif;
 body {
   background-color: $bg-body;
   font-family: $main-font;
+  overflow: hidden; // Empêche le défilement par défaut
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

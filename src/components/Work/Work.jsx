@@ -11,7 +11,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 const Work = () => {
   const { t } = useTranslation();
-  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [hoveredIndex, setHoveredIndex] = useState(0); // Initialisation à 0 pour activer la première catégorie
 
   const data = {
     labels: [
