@@ -36,45 +36,45 @@ const Navbar = ({ activeSection, onSectionClick }) => {
           <div className="navbar-icons">
             <a
               href="#home"
-              onMouseEnter={() => handleMouseEnter('home')}
+              onMouseEnter={() => handleMouseEnter('HOME')}
               onMouseLeave={handleMouseLeave}
-              onClick={() => handleClick('home')}
+              onClick={() => handleClick('HOME')}
               className="nav-link"
             >
-              <FaHome className={getIconClassName('home')} />
+              <FaHome className={getIconClassName('HOME')} />
             </a>
             <a
               href="#about"
-              onMouseEnter={() => handleMouseEnter('about')}
+              onMouseEnter={() => handleMouseEnter('ABOUT')}
               onMouseLeave={handleMouseLeave}
-              onClick={() => handleClick('about')}
+              onClick={() => handleClick('ABOUT')}
               className="nav-link"
             >
-              <FaUser className={getIconClassName('about')} />
+              <FaUser className={getIconClassName('ABOUT')} />
             </a>
             <a
               href="#work"
-              onMouseEnter={() => handleMouseEnter('work')}
+              onMouseEnter={() => handleMouseEnter('WORK')}
               onMouseLeave={handleMouseLeave}
-              onClick={() => handleClick('work')}
+              onClick={() => handleClick('WORK')}
               className="nav-link"
             >
               <FaBriefcase className={getIconClassName('work')} />
             </a>
             <a
               href="#portfolio"
-              onMouseEnter={() => handleMouseEnter('portfolio')}
+              onMouseEnter={() => handleMouseEnter('PORTFOLIO')}
               onMouseLeave={handleMouseLeave}
-              onClick={() => handleClick('portfolio')}
+              onClick={() => handleClick('PORTFOLIO')}
               className="nav-link"
             >
               <FaFolderOpen className={getIconClassName('portfolio')} />
             </a>
             <a
               href="#contact"
-              onMouseEnter={() => handleMouseEnter('contact')}
+              onMouseEnter={() => handleMouseEnter('CONTACT')}
               onMouseLeave={handleMouseLeave}
-              onClick={() => handleClick('contact')}
+              onClick={() => handleClick('CONTACT')}
               className="nav-link"
             >
               <FaEnvelope className={getIconClassName('contact')} />
