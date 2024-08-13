@@ -8,27 +8,104 @@ $main-blue: #09C2FD;
 $main-font: "Roboto Slab", serif;
 
 #about {
-  margin-top: 20%;
+  margin-top: 15%;
+  position: relative;
+  overflow: hidden;
+  width: 100%; /* Ajuste la largeur selon tes besoins */
+  height: 900px; /* Ajuste la hauteur selon tes besoins */
+  box-sizing: border-box;
+}
+
+/* Background Layers */
+.Otherbackground-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center; /* Centre l'image dans le conteneur */
+  background-repeat: no-repeat; /* Évite la répétition de l'image */
+  will-change: transform;
+  overflow-x: hidden; /* Cache la barre de défilement horizontale */
+   box-sizing: border-box;
+  
+  &.layer1 {
+    background-image: url('/images/bureau.svg');
+    width: 60%;
+    height: 90vh;
+    z-index: 5;
+    margin: 40px 600px;
+  }
+
+  &.layer2 {
+    background-image: url('/images/contour.svg');
+    z-index: 2;
+    width: 100%;
+    height: 100vh;
+  }
+
+  &.layer3 {
+    background-image: url('/images/fond.svg');
+    z-index: 1;
+    width: 100%;
+    height: 100vh;
+  }
+
+  &.layer4 {
+    background-image: url('/images/murgauche.svg');
+    z-index: 3;
+    width: 16%;
+    height: 100vh;
+  }
+
+  &.layer5 {
+    background-image: url('/images/murdroite.svg');
+    z-index: 1;
+    width: 30%;
+    margin-left: 145vh;
+    margin-top: 20vh;
+  }
+
+  &.layer6 {
+    background-image: url('/images/ombre.svg');
+    z-index: 6;
+    margin-top: 32vh;
+    width: 100%;
+
+  }
+
+  &.layer7 {
+    background-image: url('/images/sol.svg');
+    z-index: 4;
+    width: 90%;
+    height: 100px;
+    margin-top: 82vh;
+  }
 }
 
 .about-avatar {
   position: relative;
-  transform: translateY(-10%);
   display: flex;
   align-items: center;
+  justify-content: center; /* Centre l'image dans le conteneur */
+  width: 290px; /* Ajuste cette valeur pour la largeur désirée */
+  height: 300px; /* Ajuste cette valeur pour la hauteur désirée */
   border: 5px solid transparent;
   border-radius: 50%;
   background-color: $bg-body;
   background-image: 
-    linear-gradient($bg-body, $bg-body), /* Background */
-    linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe); /* Border gradient */
+    linear-gradient($bg-body, $bg-body),
+    linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe);
   background-origin: border-box;
   background-clip: content-box, border-box;
+  z-index: 5;
 }
 
 .avatar {
+  width: 100%; /* Remplit le conteneur en largeur */
+  height: 100%; /* Remplit le conteneur en hauteur */
+  object-fit: cover; /* Ajuste l'image pour qu'elle couvre entièrement le conteneur tout en conservant ses proportions */
   border-radius: 50%;
-  background-image: linear-gradient(#000000, #27b9f4, #27b9f4, #007de4ed ,#0048e4ed, $bg-body);
 }
 
 .colored-text {
@@ -40,17 +117,23 @@ $main-font: "Roboto Slab", serif;
   align-items: center;
   justify-content: center;
   gap: 2%;
+  position: relative;
+  z-index: 0;
+  padding: 1px; /* Ajuste le padding selon tes besoins */
 }
 
 .about-text {
   max-width: 55%;
   text-align: start;
+  padding: 100px; /* Ajoute du padding pour espacer le texte */
+  z-index: 5;
 }
 
 .btn-about {
   margin-top: 8%;
   display: flex;
   justify-content: space-evenly;
+
 }
 
 .btn-container {
@@ -69,6 +152,7 @@ $main-font: "Roboto Slab", serif;
     linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe);
   background-origin: border-box;
   background-clip: content-box, border-box;
+
 }
 
 .btn-cv {
@@ -88,8 +172,5 @@ $main-font: "Roboto Slab", serif;
 
 .flag-icon {
   width: 12%;
+  
 }
-
-
-
-
