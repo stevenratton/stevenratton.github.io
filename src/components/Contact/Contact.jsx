@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement } from 'chart.js';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 import '../Contact/contact.scss';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from '../LangSwitcher/LangSwitcher.jsx';
@@ -9,7 +10,7 @@ import { TiThListOutline } from "react-icons/ti";
 import { HiArrowLongLeft } from "react-icons/hi2";
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
-ChartJS.register(Title, Tooltip, Legend, ArcElement);
+ChartJS.register(Title, Tooltip, Legend, ArcElement, ChartDataLabels);
 
 const Contact = ({ selectedLanguage, changeLanguage }) => {
   const { t } = useTranslation();
@@ -52,30 +53,30 @@ const Contact = ({ selectedLanguage, changeLanguage }) => {
   };
 
   const jobAssociations = {
-    first: ['AMOA', 'Business Analyste'],
-    second: ['AMOA', 'Business Analyste'],
-    third: ['Business Analyste', 'AMOA', 'Consultant fonctionnel'],
-    fourth: ['Consultant fonctionnel', 'Business Analyste', 'AMOA'],
-    fifth: ['Consultant fonctionnel', 'Business Analyste', 'AMOA'],
-    sixth: ['Business Analyste', 'Consultant fonctionnel', 'AMOA'],
-    seventh: ['AMOA'],
-    eighth: ['AMOA', 'Consultant fonctionnel'],
-    ninth: ['Business Analyste'],
-    tenth: ['Business Analyste'],
-    eleventh: ['Business Analyste'],
-    twelfth: ['Business Analyste'],
-    thirteenth: ['Business Analyste'],
-    fourteenth: ['Business Analyste'],
-    fifteenth: ['Business Analyste', 'AMOA', 'Consultant fonctionnel'],
-    sixteenth: ['AMOA']
+    first: ['Project Owner Support', 'Business Analyst'],
+    second: ['Project Owner Support', 'Business Analyst'],
+    third: ['Business Analyst', 'Project Owner Support', 'Functional Consultant'],
+    fourth: ['Functional Consultant', 'Business Analyst', 'Project Owner Support'],
+    fifth: ['Functional Consultant', 'Business Analyst', 'Project Owner Support'],
+    sixth: ['Business Analyst', 'Functional Consultant', 'Project Owner Support'],
+    seventh: ['Project Owner Support'],
+    eighth: ['Project Owner Support', 'Functional Consultant'],
+    ninth: ['Business Analyst'],
+    tenth: ['Business Analyst'],
+    eleventh: ['Business Analyst'],
+    twelfth: ['Business Analyst'],
+    thirteenth: ['Business Analyst'],
+    fourteenth: ['Business Analyst'],
+    fifteenth: ['Business Analyst', 'Project Owner Support', 'Functional Consultant'],
+    sixteenth: ['Project Owner Support']
   };
 
   const handleButtonClick = () => {
     const checkboxes = document.querySelectorAll('.checklist input[type="checkbox"]');
     const jobCount = {
-      'Consultant fonctionnel': 0,
-      'AMOA': 0,
-      'Business Analyste': 0
+      'Functional Consultant': 0,
+      'Project Owner Support': 0,
+      'Business Analyst': 0
     };
 
     checkboxes.forEach(checkbox => {
@@ -89,10 +90,17 @@ const Contact = ({ selectedLanguage, changeLanguage }) => {
       }
     });
 
+    const total = Object.values(jobCount).reduce((sum, count) => sum + count, 0);
+    const data = Object.keys(jobCount).map(job => ({
+      label: job,
+      value: jobCount[job],
+      percentage: (jobCount[job] / total * 100).toFixed(2)
+    }));
+
     setChartData({
-      labels: Object.keys(jobCount),
+      labels: data.map(d => d.label),
       datasets: [{
-        data: Object.values(jobCount),
+        data: data.map(d => d.value),
         backgroundColor: ['#00A8E0', '#9783EC', '#73e176'],
         borderWidth: 0
       }]
@@ -121,6 +129,23 @@ const Contact = ({ selectedLanguage, changeLanguage }) => {
       legend: {
         display: false,
       },
+      tooltip: {
+        enabled: false,
+      },
+      datalabels: {
+        formatter: (value, context) => {
+          const dataset = context.chart.data.datasets[context.datasetIndex];
+          const total = dataset.data.reduce((sum, data) => sum + data, 0);
+          const percentage = (value / total * 100).toFixed(2) + '%';
+          return percentage;
+        },
+        color: '#1E1E1E',
+        font: {
+          weight: 'bold'
+        },
+        anchor: 'end',
+        align: 'start'
+      }
     },
     elements: {
       arc: {
@@ -135,7 +160,7 @@ const Contact = ({ selectedLanguage, changeLanguage }) => {
       },
     },
   };
-  
+
   return (
     <section id="contact">
       <LanguageSwitcher
@@ -239,21 +264,22 @@ const Contact = ({ selectedLanguage, changeLanguage }) => {
         </>
       ) : (
         <div className='result'>
-          <h2>{t('result')}</h2>
-          <div className="chart-wishlist">
-            <Doughnut 
-              data={chartData} 
-              options={chartOptions}
-            />
-          </div>
+          <div className="chart-container">
+            <div className="chart-wishlist">
+              <Doughnut 
+                data={chartData} 
+                options={chartOptions}
+              />
+            </div>
 
-          <div className="chart-labels-container">
-            {chartData && chartData.labels.map((label, index) => (
-              <div className="label-chart" key={index}>
-                <span style={{ backgroundColor: chartData.datasets[0].backgroundColor[index] }}></span>
-                {label}
-              </div>
-            ))}
+            <div className="chart-labels-container">
+              {chartData && chartData.labels.map((label, index) => (
+                <div className="label-chart" key={index}>
+                  <span style={{ backgroundColor: chartData.datasets[0].backgroundColor[index] }}></span>
+                  {label}
+                </div>
+              ))}
+            </div>
           </div>
 
           <form onSubmit={handleSubmit} className="form-container">
@@ -304,6 +330,9 @@ const Contact = ({ selectedLanguage, changeLanguage }) => {
 };
 
 export default Contact;
+
+
+
 
 
 
