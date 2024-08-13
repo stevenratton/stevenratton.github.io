@@ -12,26 +12,37 @@ $main-font: "Roboto Slab", serif;
   position: relative;
   overflow: hidden;
   width: 100%; /* Ajuste la largeur selon tes besoins */
-  height: 900px; /* Ajuste la hauteur selon tes besoins */
+  height: 110vh; /* Ajuste la hauteur selon tes besoins */
   box-sizing: border-box;
+  z-index: -1; /* Place l'image derrière tout le reste */
+  overflow-x: hidden;
+  
 }
 
 /* Background Layers */
 .Otherbackground-layer {
-  position: absolute;
+  position: absolute; /* Rend les couches fixes par rapport à la fenêtre */
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background-position: center; /* Centre l'image dans le conteneur */
-  background-repeat: no-repeat; /* Évite la répétition de l'image */
+  height: 100vh; /* S'assure que les couches couvrent toute la hauteur de la fenêtre */
+  background-position: center;
+  background-repeat: no-repeat;
   will-change: transform;
-  overflow-x: hidden; /* Cache la barre de défilement horizontale */
-   box-sizing: border-box;
+  overflow-x: hidden;
+  box-sizing: border-box;
   
+  
+
+  &.fixed {
+    position: fixed; /* Devient fixe après le défilement */
+    top: 0;
+    left: 0;
+  }
+
   &.layer1 {
     background-image: url('/images/bureau.svg');
-    width: 60%;
+    width: 60%; 
     height: 90vh;
     z-index: 5;
     margin: 40px 600px;
@@ -40,22 +51,17 @@ $main-font: "Roboto Slab", serif;
   &.layer2 {
     background-image: url('/images/contour.svg');
     z-index: 2;
-    width: 100%;
-    height: 100vh;
   }
 
   &.layer3 {
     background-image: url('/images/fond.svg');
     z-index: 1;
-    width: 100%;
-    height: 100vh;
   }
 
   &.layer4 {
     background-image: url('/images/murgauche.svg');
     z-index: 3;
     width: 16%;
-    height: 100vh;
   }
 
   &.layer5 {
@@ -63,25 +69,23 @@ $main-font: "Roboto Slab", serif;
     z-index: 1;
     width: 30%;
     margin-left: 145vh;
-    margin-top: 20vh;
   }
 
   &.layer6 {
     background-image: url('/images/ombre.svg');
-    z-index: 6;
-    margin-top: 32vh;
-    width: 100%;
-
+    z-index: 1;
+    margin-top: 100vh;
   }
 
   &.layer7 {
     background-image: url('/images/sol.svg');
-    z-index: 4;
+    z-index: 5;
     width: 90%;
     height: 100px;
-    margin-top: 82vh;
+    margin-top: 88vh;
   }
 }
+
 
 .about-avatar {
   position: relative;

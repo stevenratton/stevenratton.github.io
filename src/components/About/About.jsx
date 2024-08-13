@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 const About = ({ selectedLanguage, changeLanguage }) => {
   const { t } = useTranslation();
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isFixed, setIsFixed] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (event) => {
@@ -14,10 +15,22 @@ const About = ({ selectedLanguage, changeLanguage }) => {
       });
     };
 
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      // Change 300 à la valeur de défilement souhaitée
+      if (scrollPosition > 1030) {
+        setIsFixed(true);
+      } else {
+        setIsFixed(false);
+      }
+    };
+
     document.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -34,32 +47,32 @@ const About = ({ selectedLanguage, changeLanguage }) => {
       <div className="about-content">
         {/* Background Layer */}
         <div 
-          className="Otherbackground-layer layer1" 
+          className={`Otherbackground-layer layer1 ${isFixed ? 'fixed' : ''}`} 
           style={{ transform: `translate(${mousePos.x * 0.009}px, ${mousePos.y * 0.015}px)` }}
         ></div>
 
         <div 
-          className="Otherbackground-layer layer2" 
+          className={`Otherbackground-layer layer2 ${isFixed ? 'fixed' : ''}`} 
           style={{ transform: `translate(${mousePos.x * 0.012}px, ${mousePos.y * 0.018}px)` }}
         ></div>
         <div 
-          className="Otherbackground-layer layer3" 
+          className={`Otherbackground-layer layer3 ${isFixed ? 'fixed' : ''}`} 
           style={{ transform: `translate(${mousePos.x * 0.015}px, ${mousePos.y * 0.021}px)` }}
         ></div>
         <div 
-          className="Otherbackground-layer layer4" 
+          className={`Otherbackground-layer layer4 ${isFixed ? 'fixed' : ''}`} 
           style={{ transform: `translate(${mousePos.x * 0.015}px, ${mousePos.y * 0.018}px)` }}
         ></div>
         <div 
-          className="Otherbackground-layer layer5" 
+          className={`Otherbackground-layer layer5 ${isFixed ? 'fixed' : ''}`} 
           style={{ transform: `translate(${mousePos.x * 0.020}px, ${mousePos.y * 0.018}px)` }}
         ></div>
         <div 
-          className="Otherbackground-layer layer6" 
+          className={`Otherbackground-layer layer6 ${isFixed ? 'fixed' : ''}`} 
           style={{ transform: `translate(${mousePos.x * 0.012}px, ${mousePos.y * 0.018}px)` }}
         ></div>
         <div 
-          className="Otherbackground-layer layer7" 
+          className={`Otherbackground-layer layer7 ${isFixed ? 'fixed' : ''}`} 
           style={{ transform: `translate(${mousePos.x * 0.012}px, ${mousePos.y * 0.018}px)` }}
         ></div>
 
