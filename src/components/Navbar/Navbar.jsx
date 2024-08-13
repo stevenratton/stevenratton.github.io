@@ -3,10 +3,9 @@ import { FaHome, FaUser, FaBriefcase, FaFolderOpen, FaEnvelope } from 'react-ico
 import '../Navbar/navbar.scss';
 import { useTranslation } from 'react-i18next';
 
-const Navbar = () => {
+const Navbar = ({ activeSection, onSectionClick }) => {
   const { t } = useTranslation();
   const [hoveredText, setHoveredText] = useState('');
-  const [clickedText, setClickedText] = useState('');
 
   const handleMouseEnter = (text) => {
     setHoveredText(text);
@@ -16,78 +15,69 @@ const Navbar = () => {
     setHoveredText('');
   };
 
-  const handleClick = (text) => {
-    setClickedText(text);
+  const handleClick = (sectionId) => {
+    onSectionClick(sectionId);
   };
 
-  const getText = () => {
-    return hoveredText || clickedText; 
-  }
-
   const getIconClassName = (text) => {
-    if (clickedText === text) {
-      return 'icon clicked';
+    if (activeSection === text) {
+      return 'icon active';
     } else if (hoveredText === text) {
       return 'icon hovered';
     }
     return 'icon';
   };
 
-  const homeText = t('HOME');
-  const aboutText = t('ABOUT');
-  const workText = t('WORK');
-  const portfolioText = t('PORTFOLIO');
-  const contactText = t('CONTACT');
-
   return (
     <div>
-      <div className="hover-text">{getText()}</div>
+      <div className="hover-text">{hoveredText}</div>
       <div className="navbar-text">
         <div className="navbar">
           <div className="navbar-icons">
-            <a href="#home" 
-              onMouseEnter={() => handleMouseEnter(homeText)} 
+            <a
+              href="#home"
+              onMouseEnter={() => handleMouseEnter('HOME')}
               onMouseLeave={handleMouseLeave}
-              onClick={() => handleClick(homeText)}
+              onClick={() => handleClick('HOME')}
               className="nav-link"
             >
-              <FaHome className={getIconClassName(homeText)} />
+              <FaHome className={getIconClassName('HOME')} />
             </a>
-            <a 
-              href="#about" 
-              onMouseEnter={() => handleMouseEnter(aboutText)} 
+            <a
+              href="#about"
+              onMouseEnter={() => handleMouseEnter('ABOUT')}
               onMouseLeave={handleMouseLeave}
-              onClick={() => handleClick(aboutText)}
+              onClick={() => handleClick('ABOUT')}
               className="nav-link"
             >
-              <FaUser className={getIconClassName(aboutText)} />
+              <FaUser className={getIconClassName('ABOUT')} />
             </a>
-            <a 
-              href="#work" 
-              onMouseEnter={() => handleMouseEnter(workText)} 
+            <a
+              href="#work"
+              onMouseEnter={() => handleMouseEnter('WORK')}
               onMouseLeave={handleMouseLeave}
-              onClick={() => handleClick(workText)}
+              onClick={() => handleClick('WORK')}
               className="nav-link"
             >
-              <FaBriefcase className={getIconClassName(workText)} />
+              <FaBriefcase className={getIconClassName('work')} />
             </a>
-            <a 
-              href="#portfolio" 
-              onMouseEnter={() => handleMouseEnter(portfolioText)} 
+            <a
+              href="#portfolio"
+              onMouseEnter={() => handleMouseEnter('PORTFOLIO')}
               onMouseLeave={handleMouseLeave}
-              onClick={() => handleClick(portfolioText)}
+              onClick={() => handleClick('PORTFOLIO')}
               className="nav-link"
             >
-              <FaFolderOpen className={getIconClassName(portfolioText)} />
+              <FaFolderOpen className={getIconClassName('portfolio')} />
             </a>
-            <a 
-              href="#contact" 
-              onMouseEnter={() => handleMouseEnter(contactText)} 
+            <a
+              href="#contact"
+              onMouseEnter={() => handleMouseEnter('CONTACT')}
               onMouseLeave={handleMouseLeave}
-              onClick={() => handleClick(contactText)}
+              onClick={() => handleClick('CONTACT')}
               className="nav-link"
             >
-              <FaEnvelope className={getIconClassName(contactText)} />
+              <FaEnvelope className={getIconClassName('contact')} />
             </a>
           </div>
         </div>

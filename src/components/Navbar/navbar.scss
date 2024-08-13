@@ -80,6 +80,10 @@ $main-font: "Roboto Slab", serif;
   color: $main-blue;
 }
 
+.icon.active {
+  color: $main-blue;
+}
+
 .navbar-logo {
   width: 40px;
   height: auto;
