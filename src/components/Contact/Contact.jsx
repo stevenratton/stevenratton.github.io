@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement } from 'chart.js';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 import '../Contact/contact.scss';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from '../LangSwitcher/LangSwitcher.jsx';
@@ -9,7 +10,7 @@ import { TiThListOutline } from "react-icons/ti";
 import { HiArrowLongLeft } from "react-icons/hi2";
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
-ChartJS.register(Title, Tooltip, Legend, ArcElement);
+ChartJS.register(Title, Tooltip, Legend, ArcElement, ChartDataLabels);
 
 const Contact = ({ selectedLanguage, changeLanguage }) => {
   const { t } = useTranslation();
@@ -21,6 +22,7 @@ const Contact = ({ selectedLanguage, changeLanguage }) => {
   const [anyChecked, setAnyChecked] = useState(false);
   const [recaptchaToken, setRecaptchaToken] = useState('');
   const { executeRecaptcha } = useGoogleReCaptcha();
+  const restartButtonClass = `restart-button ${selectedLanguage}`;
 
   const handleCheckboxChange = () => {
     const checkboxes = document.querySelectorAll('.checklist input[type="checkbox"]');
@@ -52,30 +54,30 @@ const Contact = ({ selectedLanguage, changeLanguage }) => {
   };
 
   const jobAssociations = {
-    first: ['AMOA', 'Business Analyste'],
-    second: ['AMOA', 'Business Analyste'],
-    third: ['Business Analyste', 'AMOA', 'Consultant fonctionnel'],
-    fourth: ['Consultant fonctionnel', 'Business Analyste', 'AMOA'],
-    fifth: ['Consultant fonctionnel', 'Business Analyste', 'AMOA'],
-    sixth: ['Business Analyste', 'Consultant fonctionnel', 'AMOA'],
-    seventh: ['AMOA'],
-    eighth: ['AMOA', 'Consultant fonctionnel'],
-    ninth: ['Business Analyste'],
-    tenth: ['Business Analyste'],
-    eleventh: ['Business Analyste'],
-    twelfth: ['Business Analyste'],
-    thirteenth: ['Business Analyste'],
-    fourteenth: ['Business Analyste'],
-    fifteenth: ['Business Analyste', 'AMOA', 'Consultant fonctionnel'],
-    sixteenth: ['AMOA']
+    first: [t('POS'), t('BA')],
+    second: [t('POS'), t('BA')],
+    third: [t('BA'), t('POS'), t('FC')],
+    fourth: [t('FC'), t('BA'), t('POS')],
+    fifth: [t('FC'), t('BA'), t('POS')],
+    sixth: [t('BA'), t('FC'), t('POS')],
+    seventh: [t('POS')],
+    eighth: [t('POS'), t('FC')],
+    ninth: [t('BA')],
+    tenth: [t('BA')],
+    eleventh: [t('BA')],
+    twelfth: [t('BA')],
+    thirteenth: [t('BA')],
+    fourteenth: [t('BA')],
+    fifteenth: [t('BA'), t('POS'), t('FC')],
+    sixteenth: [t('POS')]
   };
 
   const handleButtonClick = () => {
     const checkboxes = document.querySelectorAll('.checklist input[type="checkbox"]');
     const jobCount = {
-      'Consultant fonctionnel': 0,
-      'AMOA': 0,
-      'Business Analyste': 0
+      [t('FC')]: 0,
+      [t('POS')]: 0,
+      [t('BA')]: 0
     };
 
     checkboxes.forEach(checkbox => {
@@ -89,10 +91,17 @@ const Contact = ({ selectedLanguage, changeLanguage }) => {
       }
     });
 
+    const total = Object.values(jobCount).reduce((sum, count) => sum + count, 0);
+    const data = Object.keys(jobCount).map(job => ({
+      label: job,
+      value: jobCount[job],
+      percentage: (jobCount[job] / total * 100).toFixed(2)
+    }));
+
     setChartData({
-      labels: Object.keys(jobCount),
+      labels: data.map(d => d.label),
       datasets: [{
-        data: Object.values(jobCount),
+        data: data.map(d => d.value),
         backgroundColor: ['#00A8E0', '#9783EC', '#73e176'],
         borderWidth: 0
       }]
@@ -121,6 +130,23 @@ const Contact = ({ selectedLanguage, changeLanguage }) => {
       legend: {
         display: false,
       },
+      tooltip: {
+        enabled: false,
+      },
+      datalabels: {
+        formatter: (value, context) => {
+          const dataset = context.chart.data.datasets[context.datasetIndex];
+          const total = dataset.data.reduce((sum, data) => sum + data, 0);
+          const percentage = (value / total * 100).toFixed(2);
+          return percentage > 0 ? `${percentage}%` : '';
+        },
+        color: '#1E1E1E',
+        font: {
+          weight: 'bold'
+        },
+        anchor: 'end',
+        align: 'start'
+      }
     },
     elements: {
       arc: {
@@ -135,7 +161,30 @@ const Contact = ({ selectedLanguage, changeLanguage }) => {
       },
     },
   };
+
+  const getHighestPercentageJob = () => {
+    if (!chartData || !chartData.datasets || !chartData.datasets.length) return '';
   
+    const dataset = chartData.datasets[0];
+    const labels = chartData.labels;
+    const data = dataset.data;
+  
+    let maxPercentage = -1;
+    let highestJob = '';
+  
+    data.forEach((value, index) => {
+      const total = data.reduce((sum, val) => sum + val, 0);
+      const percentage = (value / total * 100).toFixed(2);
+  
+      if (percentage > maxPercentage) {
+        maxPercentage = percentage;
+        highestJob = labels[index];
+      }
+    });
+  
+    return highestJob ? `${highestJob}` : '';
+  };
+
   return (
     <section id="contact">
       <LanguageSwitcher
@@ -238,72 +287,83 @@ const Contact = ({ selectedLanguage, changeLanguage }) => {
           </div>
         </>
       ) : (
-        <div className='result'>
+        <>
           <h2>{t('result')}</h2>
-          <div className="chart-wishlist">
-            <Doughnut 
-              data={chartData} 
-              options={chartOptions}
-            />
+          <div className="highest-job">
+            <p> {t('yourNeeds1')} {getHighestPercentageJob()} {t('yourNeeds2')} </p>
           </div>
 
-          <div className="chart-labels-container">
-            {chartData && chartData.labels.map((label, index) => (
-              <div className="label-chart" key={index}>
-                <span style={{ backgroundColor: chartData.datasets[0].backgroundColor[index] }}></span>
-                {label}
+          <div className='result'>
+            <div className="chart-container">
+              <div className="chart-wishlist">
+                <Doughnut 
+                  data={chartData} 
+                  options={chartOptions}
+                />
               </div>
-            ))}
-          </div>
 
-          <form onSubmit={handleSubmit} className="form-container">
-            <div className="form-group">
-              <label htmlFor="email">Email address</label>
-              <input
-                type="email"
-                id="email"
-                value={email}
-                placeholder='Email address'
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
+              <div className="chart-labels-container">
+                {chartData && chartData.labels.map((label, index) => (
+                  <div className="label-chart" key={index}>
+                    <span style={{ backgroundColor: chartData.datasets[0].backgroundColor[index] }}></span>
+                    {label}
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="form-group">
-              <label htmlFor="name">Name</label>
-              <input
-                type="text"
-                id="name"
-                value={name}
-                placeholder='Name'
-                onChange={(e) => setName(e.target.value)}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="description">Describe your needs</label>
-              <textarea
-                id="description"
-                value={description}
-                placeholder='Write here...'
-                onChange={(e) => setDescription(e.target.value)}
-                required
-              />
-            </div>
-            <button type="submit" className='submit'>Submit</button>
-          </form>
 
-          <div className="arrow-container-restart">
-            <div className="restart-button" onClick={handleRestart}>
-              <HiArrowLongLeft />
+            <form onSubmit={handleSubmit} className="form-container">
+              <div className="form-group">
+                <label htmlFor="email">{t('placeholderEmail')}</label>
+                <input
+                  type="email"
+                  id="email"
+                  value={email}
+                  placeholder={t('placeholderEmail')}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="name">{t('placeholderName')}</label>
+                <input
+                  type="text"
+                  id="name"
+                  value={name}
+                  placeholder={t('placeholderName')}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="description">{t('describe')}</label>
+                <textarea
+                  id="description"
+                  value={description}
+                  placeholder={t('placeholderDescription')}
+                  onChange={(e) => setDescription(e.target.value)}
+                  required
+                />
+              </div>
+              <button type="submit" className='submit'> <img src='images/send-card.svg' alt='postcard' /> {t('request')} </button>
+            </form>
+
+            <div className="arrow-container-restart">
+              <div className={restartButtonClass} onClick={handleRestart}>
+                <HiArrowLongLeft />
+              </div>
             </div>
           </div>
-        </div>
+        </>
       )}
     </section>
   );
 };
 
 export default Contact;
+
+
+
 
 
 
