@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar/Navbar.jsx';
 import Home from '../components/Home/Home.jsx';
 import About from '../components/About/About.jsx';
 import Work from '../components/Work/Work.jsx';
+import Activities from '../components/Activities/Activities.jsx';
 import Portfolio from '../components/Portfolio/Portfolio.jsx';
 import Contact from '../components/Contact/Contact.jsx';
 import Footer from '../components/Footer/Footer.jsx';
@@ -14,6 +15,7 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
       <Home selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
       <About selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
       <Work selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
+      <Activities selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
       <Portfolio selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
       <Contact selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
       <Footer selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
@@ -22,6 +24,7 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
 };
 
 export default SinglePage;
+
 
 
 
