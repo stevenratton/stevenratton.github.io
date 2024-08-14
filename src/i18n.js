@@ -156,7 +156,7 @@ const resources = {
     "project" : "Gestion projet",
     "valWishlist" : "Valider mes besoins",
 
-    "POS" : "SUpport Responsable de Projet",
+    "POS" : "Support Responsable de Projet",
     "FC" : "Consultant Fonctionnel",
     "BA" : "Business Analyste",
 
