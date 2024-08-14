@@ -7,7 +7,6 @@ $main-text-color: #D9D9D9;
 $main-blue: #09C2FD;
 $main-font: "Roboto Slab", serif;
 
-
 #contact {
   margin-top: 20%;
 }
@@ -37,9 +36,7 @@ $main-font: "Roboto Slab", serif;
   cursor: pointer;
 }
 
-
 /* WISHLIST */
-/* Styles pour le conteneur parent de .checklist */
 .checklist-container {
   display: flex;
   justify-content: center;
@@ -47,7 +44,6 @@ $main-font: "Roboto Slab", serif;
   height: auto;
 }
 
-/* Styles pour .checklist */
 .checklist {
   align-items: center;
   background-color: $bg-body;
@@ -60,9 +56,7 @@ $main-font: "Roboto Slab", serif;
   background-clip: padding-box, border-box;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  /* Deux colonnes égales */
   gap: 10px;
-  /* Espace entre les éléments */
   padding: 2% 3% ;
   width: 65%;
   margin: 2%;
@@ -130,7 +124,6 @@ $main-font: "Roboto Slab", serif;
   transform: rotate(45deg);
 }
 
-
 /* BTN WISHLIST */
 .buttonwish-container {
   display: flex;
@@ -154,6 +147,12 @@ $main-font: "Roboto Slab", serif;
   background-clip: padding-box, border-box;
 }
 
+.buttonwish.disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
 .icon1 {
   margin-right: 0.5rem;
 }
@@ -162,21 +161,20 @@ $main-font: "Roboto Slab", serif;
   margin-left: 0.5rem;
 }
 
-
 /* GRAPHIQUE */
 .result {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: space-around;
   width: 70%;
-  border: 2px solid transparent;
-  border-radius: 20px;
+  border: 4px solid transparent;
+  border-radius: 50px;
   background-image:
     linear-gradient(#1E1E1E, #1E1E1E),
     linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe);
   background-origin: border-box;
   background-clip: padding-box, border-box;
-  padding: 4%;
+  padding: 2%;
   box-sizing: border-box;
   margin-top: 4%;
   margin-left: auto;
@@ -219,38 +217,56 @@ $main-font: "Roboto Slab", serif;
 
 .form-container {
   width: 45%;
-  margin-top: 0;
 }
 
 .form-group label {
-  display: block;
-  margin-bottom: 6%;
+  display: flex;
+  margin-top: 6%;
+  margin-bottom: 2%;
   font-size: 14px;
+  font-family: $main-font;
 }
 
-.form-group input, textarea {
-  border: 1px solid transparent;
+.form-group input {
+  border: 1px solid $main-blue;
+  background-color: $bg-body;
   border-radius: 5px;
-  background-image:
-    linear-gradient($bg-body, $bg-body),
-    linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe);
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
   width: 100%;
   height: 30px;
   padding: 3%;
   color: $main-text-color;
+  font: $main-font;
+}
+
+.form-group textarea {
+  border: 1px solid $main-blue;
+  background-color: $bg-body;
+  border-radius: 5px;
+  width: 100%;
+  height: 80px;
+  padding: 3%;
+  color: $main-text-color;
+  font: $main-font;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: $main-text-color;
+  font-family: $main-font;
+  font-style: italic;
+  opacity: 0.6;
 }
 
 .submit {
   color: $main-text-color;
   font-family: $main-font;
-  width: 100%;
+  width: 50%;
   padding: 2%;
-  margin-top: 8%;
+  margin-top: 4%;
+  margin-left: 32%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   border-radius: 25px;
   background: $bg-body;
   cursor: pointer;
@@ -272,5 +288,35 @@ $main-font: "Roboto Slab", serif;
 .restart-button {
   font-size: 2rem;
   cursor: pointer;
+  position: relative;
+
+  &::after {
+    content: 'Back to wishlist'; // Texte par défaut
+    position: absolute;
+    bottom: -110%;
+    left: 100%;
+    transform: translateX(-50%);
+    background-color: transparent;
+    color: $main-text-color;
+    padding: 1%;
+    border-radius: 3px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+}
+
+.restart-button.en::after {
+  content: 'Back to wishlist';
+}
+
+.restart-button.fr::after {
+  content: 'Retourner à la liste';
+}
+
+.arrow-container-restart:hover .restart-button::after {
+  opacity: 1;
 }
 

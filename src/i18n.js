@@ -71,7 +71,18 @@ const resources = {
     "project" : "Project management",
     "valWishlist" : "Validate my needs",
 
+    "POS" : "Project Owner Support",
+    "FC" : "Functional Consultant",
+    "BA" : "Business Analyst",
+
     "result" : "THE RESULT",
+    "yourNeeds1" : "Your needs are best met by a ",
+    "yourNeeds2" : ". Feel free to contact me !",
+    "placeholderEmail" : "Email address",
+    "placeholderName" : "Name",
+    "placeholderDescription" : "Write here...",
+    "describe" : "Describe your needs",
+    "request" : "Send a request",
 
 
     "footer" : "Made with 💜 by THP · Omiage Copyright © 2024 · All Rights Reserved",
@@ -145,7 +156,18 @@ const resources = {
     "project" : "Gestion projet",
     "valWishlist" : "Valider mes besoins",
 
+    "POS" : "SUpport Responsable de Projet",
+    "FC" : "Consultant Fonctionnel",
+    "BA" : "Business Analyste",
+
     "result" : "LE RÉSULTAT",
+    "yourNeeds1" : "Vos besoins seront satisfaits au mieux par un ",
+    "yourNeeds2" : ". N'hésitez pas à me contacter !",
+    "describe" : "Decrivez vos besoins",
+    "placeholderEmail" : "Adresse email",
+    "placeholderName" : "Nom",
+    "placeholderDescription" : "Écrivez ici...",
+    "request" : "Envoyer une demande",
 
 
     "footer" : "Fait avec 💜 par THP · Omiage Copyright © 2024 · Tous droits réservés",
