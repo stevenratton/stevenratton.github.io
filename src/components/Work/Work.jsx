@@ -33,7 +33,7 @@ const Work = () => {
           '#9fadc7',
           '#73e176'
         ],
-        borderWidth: 1,
+        borderWidth: 0,
         hoverOffset: 20, // Augmente la taille du segment au survol
       },
     ],
