@@ -34,7 +34,7 @@ const Work = () => {
           '#73e176'
         ],
         borderWidth: 0,
-        hoverOffset: 20, // Augmente la taille du segment au survol
+        hoverOffset: 25, // Augmente la taille du segment au survol
       },
     ],
   };
@@ -46,8 +46,8 @@ const Work = () => {
       legend: {
         position: 'top',
         labels: {
-          boxWidth: 25,
-          padding: 50,
+          boxWidth: 30,
+          padding: 10,
         },
       },
       tooltip: {
