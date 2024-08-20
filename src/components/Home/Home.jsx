@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from '../LangSwitcher/LangSwitcher.jsx';
 import '../Home/home.scss';
@@ -9,7 +9,7 @@ import City from '../City/City.jsx';
 const Home = ({ selectedLanguage, changeLanguage }) => {
   const { t, i18n } = useTranslation();
   const isEnglish = i18n.language === 'en';
-  const [isScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const handleClick = () => {
     window.location.href = 'https://cal.com/omiage';
@@ -17,7 +17,7 @@ const Home = ({ selectedLanguage, changeLanguage }) => {
 
   return (
     <section id='home'>
-      <City/>
+      <City setIsScrolled={setIsScrolled}/>
       {isEnglish ? (
           <div className='text-home'>
             <h1>{t('head1')} 
@@ -53,7 +53,6 @@ const Home = ({ selectedLanguage, changeLanguage }) => {
           <img src='/images/certified.svg' alt='Logo certified' className='certified' />
         </div>
       </div>
-      
     </section>
   );
 };

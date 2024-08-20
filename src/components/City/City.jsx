@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './city.scss';
 
-const City = () => {
+const City = ({ setIsScrolled }) => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   const handleScroll = () => {
