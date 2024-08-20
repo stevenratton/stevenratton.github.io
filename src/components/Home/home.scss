@@ -69,3 +69,123 @@ $main-font: "Roboto Slab", serif;
   position: absolute;
   right: 0;
 }
+
+/* RESPONSIVE */
+@media (max-width: 810px) {
+  #home {
+    height: 60vh;
+  }
+
+  .text-home{
+    font-size: 1.5em;
+    transform: translateX(50%);
+  }
+  .background-layer {
+    background-size: contain;
+  }
+
+  .bottom-home {
+    margin-top: 20%;  // Réduction de l'espacement en haut
+    flex-direction: column;
+  }
+
+  .button-container {
+    flex-direction: column;  // Stacking buttons vertically
+      gap: 10px;
+  }
+
+  .website-content {
+    padding: 0 1rem;
+  }
+
+  .buttontext {
+    font-size: 14px;  // Réduction de la taille de la police pour les petits écrans
+    padding: 8px;
+  }
+
+  .logo-certif {
+    right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .text-home {
+    font-size: 1.2em;  // Taille encore plus réduite pour très petits écrans
+    top: 30%;  // Ajustement de la position
+  }
+  
+}
+
+
+
+// #home {
+//   position: relative;
+//   height: 75vh;
+// }
+
+// .text-home {
+//   position: absolute;
+//   font-size: 2em;
+//   top: 40%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   z-index: 4;
+//   text-align: center;
+//   // padding: 0 10px;
+// }
+
+// .header {
+//   display: flex;
+//   justify-content: center;
+//   z-index: 4;
+
+//   .logo-head {
+//     margin: 2%;
+//     transition: opacity 1s;
+//     z-index: 4;
+//     max-width: 100%;
+//     height: auto; /* Maintien du ratio d'aspect */
+//   }
+
+//   .hidden {
+//     opacity: 0;
+//   }
+// }
+
+// .bottom-home {
+//   display: flex;
+//   // flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   // margin-top: auto;
+//   // width: 100%;
+
+//   .button-container {
+//     display: flex;
+//     gap: 15px; /* Espace entre les boutons */
+//   }
+
+//   .logo-certif {
+//     position: absolute;
+//     // margin-top: 20px;
+//     img {
+//       max-width: 100px;
+//       height: auto;
+//     }
+//   }
+// }
+
+// /* Media queries pour les petits écrans */
+// @media (max-width: 768px) {
+//   .text-home {
+//     font-size: 1.5em;
+//   }
+
+//   .header .logo-head {
+//     max-width: 60%;
+//   }
+
+//   .bottom-home .button-container {
+//     flex-direction: column;
+//   }
+// }
