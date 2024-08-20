@@ -37,10 +37,6 @@ const Home = ({ selectedLanguage, changeLanguage }) => {
           alt='Logo' 
           className={`logo-head ${isScrolled ? 'hidden' : ''}`} 
         />
-        <LanguageSwitcher 
-          selectedLanguage={selectedLanguage} 
-          changeLanguage={changeLanguage} 
-        />
       </div>
 
       <div className='bottom-home'>
