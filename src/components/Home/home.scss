@@ -10,14 +10,21 @@ $main-font: "Roboto Slab", serif;
 #home {
   position: relative;
   height: 75vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .text-home { 
   position: absolute;
-  font-size: 2em;
-  top: 40%;
-  transform: translateX(110%);
+  font-size: 2.5em;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, 50%);
   z-index: 4;
+  // text-align: center;
+  max-width: 90%;
 } 
 
 .header {
@@ -78,11 +85,12 @@ $main-font: "Roboto Slab", serif;
 
   .text-home{
     font-size: 1.5em;
-    transform: translateX(50%);
+    // transform: translateX(50%);
   }
-  .background-layer {
-    background-size: contain;
-  }
+
+  // .background-layer {
+  //   background-size: contain;
+  // }
 
   .bottom-home {
     margin-top: 20%;  // Réduction de l'espacement en haut
@@ -94,9 +102,9 @@ $main-font: "Roboto Slab", serif;
       gap: 10px;
   }
 
-  .website-content {
-    padding: 0 1rem;
-  }
+  // .website-content {
+  //   padding: 0 1rem;
+  // }
 
   .buttontext {
     font-size: 14px;  // Réduction de la taille de la police pour les petits écrans
