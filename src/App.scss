@@ -9,7 +9,10 @@ $main-font: "Roboto Slab", serif;
 
 body {
   background-color: $bg-body;
+  color: $main-text-color;
   font-family: $main-font;
+  margin: 0;
+  padding: 0;
 }
 
 
