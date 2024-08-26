@@ -31,26 +31,28 @@ const Home = ({ selectedLanguage, changeLanguage }) => {
           </div>
         )}
 
-      <div className='header'>
-        <img 
-          src='/images/logo-head.svg' 
-          alt='Logo' 
-          className={`logo-head ${isScrolled ? 'hidden' : ''}`} 
-        />
-      </div>
-
-      <div className='bottom-home'>
-        <div className="button-container">
-          <button className="buttontext" onClick={handleClick}>
-            <img src='/images/logotel.svg' alt='Logo certified' className='logo' />
-            {t('contactMe')} <IoIosArrowForward />
-          </button>
-          <button className="buttontext" onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>
-            <TiThListOutline /> {t('wishlist')} <IoIosArrowForward />
-          </button>
+      <div className='header-button'>
+        <div className='header'>
+          <img 
+            src='/images/logo-head.svg' 
+            alt='Logo' 
+            className={`logo-head ${isScrolled ? 'hidden' : ''}`} 
+          />
         </div>
-        <div className='logo-certif'>
-          <img src='/images/certified.svg' alt='Logo certified' className='certified' />
+
+        <div className='bottom-home'>
+          <div className="button-container">
+            <button className="buttontext" onClick={handleClick}>
+              <img src='/images/logotel.svg' alt='Logo certified' className='logo' />
+              {t('contactMe')} <IoIosArrowForward />
+            </button>
+            <button className="buttontext" onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>
+              <TiThListOutline /> {t('wishlist')} <IoIosArrowForward />
+            </button>
+          </div>
+          <div className='logo-certif'>
+            <img src='/images/certified.svg' alt='Logo certified' className='certified' />
+          </div>
         </div>
       </div>
     </section>
