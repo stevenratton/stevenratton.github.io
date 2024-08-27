@@ -18,8 +18,20 @@ const About = ({ selectedLanguage, changeLanguage }) => {
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      // Change 1030 to the desired scroll position
-      setIsFixed(scrollPosition > 1030);
+      const maxScroll = 1030;
+
+      if (scrollPosition > maxScroll) {
+        setIsFixed(true);
+      } else {
+        setIsFixed(false);
+      }
+
+      const opacity = Math.max(1 - scrollPosition / maxScroll, 0);
+      const layer1 = document.querySelector('.Otherbackground-layer.layer1');
+
+      if (layer1) {
+        layer1.style.opacity = opacity;
+      }
     };
 
     document.addEventListener('mousemove', handleMouseMove);
@@ -77,6 +89,7 @@ const About = ({ selectedLanguage, changeLanguage }) => {
           className={`Otherbackground-layer layer7 ${isFixed ? 'fixed' : ''}`} 
           style={{ transform: `translate(${mousePos.x * 0.012}px, ${mousePos.y * 0.018}px)` }}
         ></div>
+      
 
         <div className="about-avatar">
           <img src="/images/avatar.svg" alt="avatar" className="avatar" />
