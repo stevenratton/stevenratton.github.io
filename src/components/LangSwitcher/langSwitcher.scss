@@ -12,16 +12,39 @@ $main-font: "Roboto Slab", serif;
   display: flex;
   align-items: center;
   right: 1%;
+  margin-top: 1rem; /* Ensure it has some margin from the top for better alignment */
 
   button {
+    position: relative;
     background: none;
     border: none;
     color: $main-text-color;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding-left: 1.5rem; /* Add padding to make space for the round indicator */
+    margin: 0;
 
     &.selected {
       color: $main-blue;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0.75rem; /* Size of the round indicator */
+      height: 0.75rem; /* Size of the round indicator */
+      border-radius: 50%;
+      background: $main-blue;
+      opacity: 0; /* Hide the round indicator by default */
+      transition: opacity 0.3s ease;
+    }
+
+    &.selected::before {
+      opacity: 1; /* Show the round indicator when selected */
     }
   }
 
@@ -33,10 +56,6 @@ $main-font: "Roboto Slab", serif;
 
 @media (max-width: 768px) {
   .lang-btn {
-    margin-top: 1rem;
-    position: absolute;
-    display: flex;
-    align-items: center;
     right: 0;
   }
 }
