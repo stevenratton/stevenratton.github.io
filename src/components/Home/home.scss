@@ -15,6 +15,7 @@ $main-font: "Roboto Slab", serif;
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding: 0 2rem;
 }
 
 .text-home { 
@@ -30,6 +31,8 @@ $main-font: "Roboto Slab", serif;
 .header-button {
   display: flex;
   justify-content: space-between;
+  width: 100%;
+  padding: 0 2rem;
 }
 
 .header {
@@ -40,6 +43,8 @@ $main-font: "Roboto Slab", serif;
     margin-top: 25%;
     transition: opacity 1s;
     z-index: 4;
+    width: 100%;
+    max-width: 150px;
   }
 
   .hidden {
@@ -51,9 +56,19 @@ $main-font: "Roboto Slab", serif;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
 
   .button-container {
     display: flex;
+    gap: 1rem;
+  }
+
+  .logo-certif {
+    position: absolute;
+    right: 0;
+    max-width: 100px;
   }
 }
 
@@ -69,11 +84,9 @@ $main-font: "Roboto Slab", serif;
   cursor: pointer;
   font-family: $main-font;
   padding: 10px;
-}
-
-.logo-certif {
-  position: absolute;
-  right: 0;
+  background-color: transparent;
+  border: none;
+  transition: color 0.3s ease;
 }
 
 /* RESPONSIVE */
