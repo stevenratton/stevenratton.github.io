@@ -31,6 +31,7 @@ $main-font: "Roboto Slab", serif;
   will-change: transform;
   overflow-x: hidden;
   box-sizing: border-box;
+  mask-image: linear-gradient(to bottom, rgba(255, 0, 0, 0) 12%, rgb(0, 0, 0) 25%, rgb(0, 0, 0) 0%);
   
   
 
@@ -46,6 +47,8 @@ $main-font: "Roboto Slab", serif;
     height: 90vh;
     z-index: 5;
     margin: 40px 600px;
+    opacity: 1; /* Initialement, l'image est complètement visible */
+    transition: opacity 0.5s ease-out; /* Transition en douceur pour l'opacité */
   }
 
   &.layer2 {
