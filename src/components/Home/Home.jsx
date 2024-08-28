@@ -6,7 +6,7 @@ import { TiThListOutline } from "react-icons/ti";
 import { IoIosArrowForward } from "react-icons/io";
 import City from '../City/City.jsx';
 
-const Home = ({ selectedLanguage, changeLanguage }) => {
+const Home = () => {
   const { t, i18n } = useTranslation();
   const isEnglish = i18n.language === 'en';
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,21 +15,24 @@ const Home = ({ selectedLanguage, changeLanguage }) => {
     window.location.href = 'https://cal.com/omiage';
   };
 
+  const handleLanguageChange = (lng) => {
+    i18n.changeLanguage(lng);
+  };
+
   return (
     <section id='home'>
       <City setIsScrolled={setIsScrolled}/>
       {isEnglish ? (
-          <div className='text-home'>
-            <h1>{t('head1')} 
-            <span className='colored-text'> {t('head2')} </span> {t('head3')} </h1>
-            <h1> {t('head4')} </h1>
-          </div>
-        ) : (
-          <div className='text-home'>
-            <h1> {t('head1')} </h1>
-            <h1> <span className='colored-text'> {t('head2')} </span> {t('head3')} </h1>
-          </div>
-        )}
+        <div className='text-home'>
+          <h1>{t('head1')} <span className='colored-text'> {t('head2')} </span> {t('head3')} </h1>
+          <h1> {t('head4')} </h1>
+        </div>
+      ) : (
+        <div className='text-home'>
+          <h1> {t('head1')} </h1>
+          <h1> <span className='colored-text'> {t('head2')} </span> {t('head3')} </h1>
+        </div>
+      )}
 
       <div className='header-button'>
         <div className='header'>

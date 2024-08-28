@@ -32,6 +32,7 @@ const resources = {
     "luxe" : "Luxury",
     "bank" : "Bank/Insurance",
     "auto" : "Automotive",
+    "years_experience": "{{count}} year(s) of experience",
 
     "activities" : "ACTIVITIES",
     "actBA" : "I support you in your digital transformation by acting as a link between the business and development teams, carrying out in-depth functional analyses, modeling solutions adapted to your needs through user-centered design, ensuring development quality via acceptance criteria and acceptance tests, and user training. In project management, I can prioritize User Stories and refine/enrich the backlog, do project follow-up while acting as an Agile facilitator.",
@@ -117,6 +118,7 @@ const resources = {
     "luxe" : "Luxe",
     "bank" : "Banque/Assurance",
     "auto" : "Automobile",
+    "years_experience": "{{count}} année(s) d'expérience",
 
     "activities" : "ACTIVITÉS",
     "actBA" : "Je vous accompagne dans votre transformation digitale en faisant le lien entre les équipes métiers et de développement, en réalisant des analyses fonctionnelles approfondies, en modélisant des solutions adaptées à vos besoins grâce à une conception centrée utilisateur, en assurant la qualité des développements via des critères d'acceptation et des tests d'acceptation, et formation des utilisateurs. En gestion de projet, je peux prioriser les User Stories et affiner/enrichir le backlog, faire le suivi de projet tout en agissant en tant que facilitateur Agile.",
