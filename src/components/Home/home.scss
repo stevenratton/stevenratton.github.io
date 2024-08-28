@@ -68,15 +68,8 @@ $main-font: "Roboto Slab", serif;
       z-index: 1;
       margin: 250px 150px;
     }
-
-    &.layer8 {
-      background-image: url('/images/sol.svg');
-      z-index: 1;
-      width: 110%;
-      height: 50px;
-    }
-    
   }
+}
 
 .header {
   padding: 1rem;
