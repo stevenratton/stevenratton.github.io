@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import '../About/about.scss';
 import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from '../LangSwitcher/LangSwitcher.jsx';
 
 const About = ({ selectedLanguage, changeLanguage }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isFixed, setIsFixed] = useState(false);
 
@@ -52,6 +53,11 @@ const About = ({ selectedLanguage, changeLanguage }) => {
 
   return (
     <section id="about">
+      <LanguageSwitcher 
+        selectedLanguage={selectedLanguage} 
+        changeLanguage={changeLanguage} 
+      />
+      
       <div className="about-content">
         {/* Background Layer */}
         <div 
@@ -79,7 +85,7 @@ const About = ({ selectedLanguage, changeLanguage }) => {
           className={`Otherbackground-layer layer6 ${isFixed ? 'fixed' : ''}`} 
           style={{ transform: `translate(${mousePos.x * 0.012}px, ${mousePos.y * 0.018}px)` }}
         ></div>
-        <div 
+        <div
           className={`Otherbackground-layer layer7 ${isFixed ? 'fixed' : ''}`} 
           style={{ transform: `translate(${mousePos.x * 0.012}px, ${mousePos.y * 0.018}px)` }}
         ></div>
@@ -99,13 +105,13 @@ const About = ({ selectedLanguage, changeLanguage }) => {
           <div className="btn-about">
             <div className="btn-container">
               <button className="btn-cv" onClick={handleCvEnClick}>
-                <img src="/images/usa-flag.svg" alt="Drapeau USA" className="flag-icon" />
+                <img src="/images/usa-flag.svg" alt="USA Flag" className="flag-icon" />
                 {t('cvEn')}
               </button>
             </div>
             <div className="btn-container">
               <button className="btn-cv" onClick={handleCvFrClick}>
-                <img src="/images/france-flag.svg" alt="Drapeau FRANCE" className="flag-icon" />
+                <img src="/images/france-flag.svg" alt="France Flag" className="flag-icon" />
                 {t('cvFr')}
               </button>
             </div>
