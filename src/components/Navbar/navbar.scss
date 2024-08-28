@@ -33,7 +33,6 @@ $main-font: "Roboto Slab", serif;
   display: flex;
   align-items: center;
   justify-content: center;
- 
 }
 
 .navbar {
@@ -85,109 +84,100 @@ $main-font: "Roboto Slab", serif;
   height: auto;
 }
 
-@media (max-width: 1120px) {
+.arrow-icon {
+  display: none;
+}
+
+
+
+@media (max-width: 1200px) {
   .navbar {
-    background-origin: border-box;
-    background-clip: content-box, border-box;
-    background-color: $bg-body;
-    background-image: 
-      linear-gradient($bg-body, $bg-body),
-      linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe); /* Border gradient */
-    width: 100%;
-    height: 500px;
-    border-radius: 20px;
-    padding: 0.1%;
     position: fixed;
     top: 50%;
-    left: 0;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: $bg-body;
+    transition: width 0.3s, height 0.3s;
+    z-index: 6;
+    overflow: hidden;
   }
 
   .hover-text {
-    top: 12%;
-    font-size: 14px;
-    transform: translate(35%, -50%);
-  }
-
-  .navbar-icons {
-    flex-direction: column;
-    justify-content: space-around;
-    width: 100%;
-  }
-
-  .icon {
-    font-size: 25px;
-  }
-}
-
-/* Pour les écrans plus petits que 768px */
-@media (max-width: 768px) {
-  .navbar {
-    background-origin: border-box;
-    background-clip: content-box, border-box;
-    background-color: $bg-body;
-    /* Border */
-    background-image: 
-      linear-gradient($bg-body, $bg-body), /* Background */
-      linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe); /* Border gradient */
-    width: 100%;
-    height: 250px;
-    border-radius: 15px;
-    padding: 0.1%;
     position: fixed;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-  }
-
-  .hover-text {
-    top: 28%;
-    font-size: 12px;
-    transform: translate(34%, -50%);
-  }
-
-  .navbar-icons {
-    flex-direction: column;
-    justify-content: space-around;
-    width: 100%;
-  }
-
-  .icon {
-    font-size: 15px;
-  }
-}
-
-/* Pour les écrans plus petits que 480px */
-@media (max-width: 480px) {
-  .navbar {
-    background-origin: border-box;
-    background-clip: content-box, border-box;
-    background-color: $bg-body;
-    background-image: 
-      linear-gradient($bg-body, $bg-body),
-      linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe); /* Border gradient */
-    width: 100%;
-    height: 250px;
-    border-radius: 10px;
-    padding: 0.1%;
-    position: fixed;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-  }
-
-  .hover-text {
-    top: 30%;
-    font-size: 10px;
-    transform: translate(36%, -50%);
+    top: 40%;
+    transform: translate(28%, -50%);
+    width: 5%;
+    font-size: 16px;
+    color: $main-blue;
+    transition: opacity 0.3s;
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .navbar-icons {
+    display: flex;
     flex-direction: column;
-    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  .nav-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: $main-text-color;
+    height: 60px;
+    width: 60px;
+    transition: height 0.3s, width 0.3s;
+    position: absolute;
   }
 
   .icon {
-    font-size: 17px;
+    font-size: 24px;
+    transition: color 0.3s, opacity 0.3s;
+    opacity: 0;
+    visibility: hidden;
   }
+
+  .icon.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-link.active {
+    height: 100%;
+    width: 100%;
+  }
+
+  .arrow-icon {
+    font-size: 16px;
+    margin-top: 8%;
+    margin-left: 4%;
+    display: block;
+    cursor: pointer;
+  }
+
+  
 }
+
+
+
+
+
+
+
+
+
+
+
