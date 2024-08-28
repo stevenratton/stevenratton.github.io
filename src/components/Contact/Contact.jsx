@@ -187,14 +187,16 @@ const Contact = ({ selectedLanguage, changeLanguage }) => {
 
   return (
     <section id="contact">
-      <LanguageSwitcher
-        selectedLanguage={selectedLanguage}
-        changeLanguage={changeLanguage}
-      />
-
       {!showChart ? (
         <>
-          <h2>{t('needs')}</h2>
+           <div className="header-container">
+              <h2>{t('needs')}</h2>
+              <LanguageSwitcher
+                selectedLanguage={selectedLanguage}
+                changeLanguage={changeLanguage}
+              />
+            </div>
+
           <div className="needs-head">
             <div>
               <p>{t('describe-needs1')}</p>
@@ -288,7 +290,14 @@ const Contact = ({ selectedLanguage, changeLanguage }) => {
         </>
       ) : (
         <>
-          <h2>{t('result')}</h2>
+           <div className="header-container">
+            <h2>{t('result')}</h2>
+            <LanguageSwitcher
+              selectedLanguage={selectedLanguage}
+              changeLanguage={changeLanguage}
+            />
+          </div>
+
           <div className="highest-job">
             <p> {t('yourNeeds1')} {getHighestPercentageJob()} {t('yourNeeds2')} </p>
           </div>

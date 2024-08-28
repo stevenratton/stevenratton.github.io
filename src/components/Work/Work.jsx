@@ -94,9 +94,20 @@ const Work = () => {
     setHoveredIndex(0);
   }, []);
 
+  const handleLanguageChange = (lng) => {
+    i18n.changeLanguage(lng);
+  };
+
   return (
     <section id="work">
-      <h2>{t('sectors')}</h2>
+      <div className='header-container'>
+        <h2>{t('sectors')}</h2>
+        <LanguageSwitcher 
+            selectedLanguage={i18n.language} 
+            changeLanguage={handleLanguageChange} 
+        />
+      </div>
+
       <div id="chartdiv">
         <Doughnut data={data} options={options} className="doughnut-chart"/>
         {hoveredIndex !== null && (
