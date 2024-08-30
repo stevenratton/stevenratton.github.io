@@ -52,6 +52,8 @@ const About = ({ selectedLanguage, changeLanguage }) => {
 
   return (
     <section id="about">
+      
+      
       <div className="about-content">
         {/* Background Layer */}
         <div 
@@ -90,6 +92,10 @@ const About = ({ selectedLanguage, changeLanguage }) => {
         </div>
 
         <div className="about-text">
+        <div className="business-container">
+        <h1>OMIAGE</h1>
+        <p>BUSINESS ANALYST / UX DESIGNER<br />FREELANCE</p>
+      </div>
           <p>{t('about1')}<span className="colored-text">{t('about2')}</span> {t('about3')}</p>
           <p>{t('about4')}</p>
           <p>{t('about5')}</p>
