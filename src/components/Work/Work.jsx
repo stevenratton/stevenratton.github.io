@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import LanguageSwitcher from '../LangSwitcher/LangSwitcher.jsx';
 import { Doughnut } from 'react-chartjs-2';
 import '../Work/work.scss';
 import { useTranslation } from 'react-i18next';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 // Enregistrement des composants nécessaires
-ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
 const Work = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const data = {
@@ -33,8 +35,8 @@ const Work = () => {
           '#9fadc7',
           '#73e176'
         ],
-        borderWidth: 1,
-        hoverOffset: 20, // Augmente la taille du segment au survol
+        borderWidth: 0,
+        hoverOffset: 25, // Augmente la taille du segment au survol
       },
     ],
   };
@@ -47,11 +49,20 @@ const Work = () => {
         position: 'top',
         labels: {
           boxWidth: 25,
-          padding: 50,
+          padding: 12,
+          font: {
+            size: 14,
+            family: 'Roboto Slab',
+            weight: 'bold',
+          },
+          color: '#D9D9D9',
         },
       },
       tooltip: {
-        enabled: false, // Désactiver les tooltips
+        enabled: false,
+      },
+      datalabels: {
+        color: 'transparent',
       },
     },
     rotation: -90, // Commencer le demi-cercle à 180 degrés
@@ -63,7 +74,7 @@ const Work = () => {
       } else {
         setHoveredIndex(0);
       }
-    }
+    },
   };
 
   const categoryImages = [
@@ -78,6 +89,11 @@ const Work = () => {
 
   const experienceYears = [4, 2, 1, 1, 1, 1, 1];
 
+  useEffect(() => {
+    // Définir le premier label comme survolé au montage
+    setHoveredIndex(0);
+  }, []);
+
   return (
     <section id="work">
       <h2>{t('sectors')}</h2>
@@ -85,15 +101,15 @@ const Work = () => {
         <Doughnut data={data} options={options} className="doughnut-chart"/>
         {hoveredIndex !== null && (
           <div className="center-content">
-          <img
-            src={categoryImages[hoveredIndex]}
-            alt={data.labels[hoveredIndex]}
-            className="center-image"
-          />
-          <div className="experience-text">
-            {experienceYears[hoveredIndex]} an(s) d'expérience
+            <img
+              src={categoryImages[hoveredIndex]}
+              alt={data.labels[hoveredIndex]}
+              className="center-image"
+            />
+            <div className="experience-text">
+              {experienceYears[hoveredIndex]} an(s) d'expérience
+            </div>
           </div>
-        </div>
         )}
       </div>
     </section>
