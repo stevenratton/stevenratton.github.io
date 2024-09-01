@@ -5,29 +5,22 @@ $main-blue: #09C2FD;
 $main-font: "Roboto Slab", serif;
 
 .business-container {
+  position: relative;
   text-align: center; 
-  margin: 20%; 
-  margin-left: -10%;
-
-  h1 {
-    font-size: 3rem;
-    margin-bottom: -2%;
-    color: $main-blue; 
-  }
+  margin-top: 15%; 
+  margin-left: -30%;
+  margin-bottom: 50%;
 
   p {
     font-size: 1.5rem;
     line-height: 1.6;
+    color: $main-blue;
   }
 
   /* Responsive styles */
   @media (max-width: 768px) { /* Pour tablettes */
     margin: 10%;
     margin-left: 0;
-
-    h1 {
-      font-size: 1.5rem;
-    }
 
     p {
       font-size: 1.2rem;
@@ -38,10 +31,6 @@ $main-font: "Roboto Slab", serif;
     margin: 5%;
     margin-left: 0;
 
-    h1 {
-      font-size: 1.2rem;
-    }
-
     p {
       font-size: 1rem;
     }
@@ -50,13 +39,13 @@ $main-font: "Roboto Slab", serif;
 
 #about {
   margin-top: 20%;
+  margin-bottom: 32%;
   position: relative;
-  overflow: hidden;
   width: 100%;
   height: 110vh;
   box-sizing: border-box;
   z-index: -1;
-  overflow-x: hidden;
+
 
   @media (max-width: 768px) {
     margin-top: 10%;
@@ -81,14 +70,13 @@ $main-font: "Roboto Slab", serif;
   overflow-x: hidden;
   box-sizing: border-box;
   mask-image: linear-gradient(to bottom, rgba(255, 0, 0, 0) 12%, rgb(0, 0, 0) 25%, rgb(0, 0, 0) 0%);
+  pointer-events: none;
 
   &.fixed {
     position: fixed; /* Devient fixe après le défilement */
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100vh; /* Assure que la grotte couvre toute la fenêtre */
-    z-index: 0; /* Ajustez le z-index si besoin pour gérer les couches au-dessus */
+    z-index: 0;
   }
 
   &.layer1 {
@@ -98,8 +86,8 @@ $main-font: "Roboto Slab", serif;
     z-index: 5;
     margin: 40px 600px;
     opacity: 1; /* Initialement, l'image est complètement visible */
-    transition: opacity 0.5s ease-out; /* Transition en douceur pour l'opacité */
-    
+    transition: opacity 1s ease-out ; /* Transition en douceur pour l'opacité */
+
     @media (max-width: 1024px) {
       margin: 40px auto;
       width: 80%;
@@ -206,7 +194,7 @@ $main-font: "Roboto Slab", serif;
   background-origin: border-box;
   background-clip: content-box, border-box;
   z-index: 5;
-  margin-top: 25%;
+  margin-top: 40%;
 
   @media (max-width: 768px) {
     width: 200px;
@@ -319,7 +307,6 @@ $main-font: "Roboto Slab", serif;
   border: none;
   cursor: pointer;
   font-size: 15px;
-  
 
   @media (max-width: 768px) {
     font-size: 14px;
@@ -334,7 +321,7 @@ $main-font: "Roboto Slab", serif;
 
 .flag-icon {
   width: 12%;
-  
+
   @media (max-width: 768px) {
     width: 10%;
   }
@@ -343,3 +330,17 @@ $main-font: "Roboto Slab", serif;
     width: 8%;
   }
 }
+
+
+.logo-head2 {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 3s ease-out, transform 1s ease-out;
+  width: 150%;
+  opacity: 0;
+}
+
+
+
+

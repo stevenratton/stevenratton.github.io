@@ -11,7 +11,7 @@ ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
 const Work = () => {
   const { t, i18n } = useTranslation();
-  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [hoveredIndex, setHoveredIndex] = useState(0);
 
   const data = {
     labels: [
@@ -36,7 +36,8 @@ const Work = () => {
           '#73e176'
         ],
         borderWidth: 0,
-        hoverOffset: 25, // Augmente la taille du segment au survol
+        hoverOffset: 25,
+        offset: [30, 0, 0, 0, 0, 0, 0], // Détache le segment "energy"
       },
     ],
   };
@@ -72,7 +73,7 @@ const Work = () => {
         const { index } = chartElement[0];
         setHoveredIndex(index);
       } else {
-        setHoveredIndex(0);
+        setHoveredIndex(0); // Toujours revenir au segment "energy"
       }
     },
   };
@@ -90,8 +91,7 @@ const Work = () => {
   const experienceYears = [4, 2, 1, 1, 1, 1, 1];
 
   useEffect(() => {
-    // Définir le premier label comme survolé au montage
-    setHoveredIndex(0);
+    setHoveredIndex(0); // Mettre en avant le segment "energy" au chargement
   }, []);
 
   const handleLanguageChange = (lng) => {

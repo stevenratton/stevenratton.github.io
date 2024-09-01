@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import '../About/about.scss';
 import { useTranslation } from 'react-i18next';
-import LanguageSwitcher from '../LangSwitcher/LangSwitcher.jsx';
 
-const About = ({ selectedLanguage, changeLanguage }) => {
-  const { t, i18n } = useTranslation();
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+const About = ({}) => {
+  const { t } = useTranslation();
+  const [scrollPosition, setScrollPosition] = useState(0);
+
   const [isFixed, setIsFixed] = useState(false);
 
   useEffect(() => {
@@ -26,11 +26,20 @@ const About = ({ selectedLanguage, changeLanguage }) => {
         setIsFixed(false);
       }
 
+      setScrollPosition(scrollPosition);
+
       const opacity = Math.max(1 - scrollPosition / maxScroll, 0);
       const layer1 = document.querySelector('.Otherbackground-layer.layer1');
 
       if (layer1) {
         layer1.style.opacity = opacity;
+      }
+
+      const logoHead = document.querySelector('.logo-head2');
+      if (logoHead) {
+        // Calculer l'opacité du logo en fonction de la position du défilement
+        const logoOpacity = Math.min(scrollPosition / 300, 1);
+        logoHead.style.opacity = logoOpacity;
       }
     };
 
@@ -41,7 +50,7 @@ const About = ({ selectedLanguage, changeLanguage }) => {
       document.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [scrollPosition]);
 
   const handleCvEnClick = () => {
     window.open('/pdf/CV-EN.pdf', '_blank');
@@ -57,32 +66,31 @@ const About = ({ selectedLanguage, changeLanguage }) => {
         {/* Background Layer */}
         <div 
           className={`Otherbackground-layer layer1 ${isFixed ? 'fixed' : ''}`} 
-          style={{ transform: `translate(${mousePos.x * 0.009}px, ${mousePos.y * 0.015}px)` }}
+          style={{ transform: `translate(${scrollPosition * 0.009}px, ${scrollPosition * 0.015}px)` }}
         ></div>
-
         <div 
           className={`Otherbackground-layer layer2 ${isFixed ? 'fixed' : ''}`} 
-          style={{ transform: `translate(${mousePos.x * 0.012}px, ${mousePos.y * 0.018}px)` }}
+          style={{ transform: `translate(${scrollPosition * 0.012}px, ${scrollPosition * 0.018}px)` }}
         ></div>
         <div 
           className={`Otherbackground-layer layer3 ${isFixed ? 'fixed' : ''}`} 
-          style={{ transform: `translate(${mousePos.x * 0.015}px, ${mousePos.y * 0.021}px)` }}
+          style={{ transform: `translate(${scrollPosition * 0.015}px, ${scrollPosition * 0.021}px)` }}
         ></div>
         <div 
           className={`Otherbackground-layer layer4 ${isFixed ? 'fixed' : ''}`} 
-          style={{ transform: `translate(${mousePos.x * 0.015}px, ${mousePos.y * 0.018}px)` }}
+          style={{ transform: `translate(${scrollPosition * 0.015}px, ${scrollPosition * 0.018}px)` }}
         ></div>
         <div 
           className={`Otherbackground-layer layer5 ${isFixed ? 'fixed' : ''}`} 
-          style={{ transform: `translate(${mousePos.x * 0.020}px, ${mousePos.y * 0.018}px)` }}
+          style={{ transform: `translate(${scrollPosition * 0.020}px, ${scrollPosition * 0.018}px)` }}
         ></div>
         <div 
           className={`Otherbackground-layer layer6 ${isFixed ? 'fixed' : ''}`} 
-          style={{ transform: `translate(${mousePos.x * 0.012}px, ${mousePos.y * 0.018}px)` }}
+          style={{ transform: `translate(${scrollPosition * 0.012}px, ${scrollPosition * 0.018}px)` }}
         ></div>
         <div
           className={`Otherbackground-layer layer7 ${isFixed ? 'fixed' : ''}`} 
-          style={{ transform: `translate(${mousePos.x * 0.012}px, ${mousePos.y * 0.018}px)` }}
+          style={{ transform: `translate(${scrollPosition * 0.012}px, ${scrollPosition * 0.018}px)` }}
         ></div>
       
 
@@ -91,10 +99,15 @@ const About = ({ selectedLanguage, changeLanguage }) => {
         </div>
 
         <div className="about-text">
-        <div className="business-container">
-        <h1>OMIAGE</h1>
-        <p>BUSINESS ANALYST / UX DESIGNER<br />FREELANCE</p>
-      </div>
+          <div className="business-container">
+            <img 
+              src='/images/logo-head.svg' 
+              alt='Logo' 
+              className='logo-head2' 
+            />
+            <p> BUSINESS ANALYST / UX DESIGNER <br />FREELANCE </p>
+          </div>
+
           <p>{t('about1')}<span className="colored-text">{t('about2')}</span> {t('about3')}</p>
           <p>{t('about4')}</p>
           <p>{t('about5')}</p>
