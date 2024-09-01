@@ -14,6 +14,8 @@ $main-font: "Roboto Slab", serif;
   display: flex;
   flex-direction: column;
   font-family: $main-font;
+  margin-top: 10%;
+  margin-bottom: 10%;
 
   h2 {
     color: $main-text-color;

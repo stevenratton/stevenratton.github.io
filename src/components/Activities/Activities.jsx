@@ -12,7 +12,7 @@ const Activities = () => {
   };
 
   return(
-    <>
+    <div className='activities'>
       <div className="header-container">
         <h2>{t('activities')}</h2>
         <LanguageSwitcher 
@@ -54,7 +54,7 @@ const Activities = () => {
           <Chip label={t('dthink')} variant="outlined"  sx={{ backgroundColor: '#D9D9D9', '& .MuiChip-label': {color: '#141414' }}} />
         </Stack>
       </div>
-    </>
+    </div>
   )
 };
 
