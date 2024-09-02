@@ -2,7 +2,6 @@
 $bg-body: #141414;
 $main-text-color: #D9D9D9;
 $main-blue: #09C2FD;
-$main-font: "Roboto Slab", serif;
 
 #cave-container {
   position: relative;
@@ -12,6 +11,15 @@ $main-font: "Roboto Slab", serif;
   right: 6.4%;
   left: -6.4%;
   z-index: -1;
+
+  @media (max-width: 768px) {
+    right: 0;
+    left: 0;
+  }
+
+  @media (max-width: 480px) {
+    width: 100vw;
+  }
 }
 
 .cave-layer {
@@ -23,34 +31,38 @@ $main-font: "Roboto Slab", serif;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  transition: transform 0.2s, opacity 0.2s;
+  transition: transform 1s ease, opacity 1s ease;
   will-change: transform, opacity;
   border: none;
+
+  &.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    transition: none;
+  }
 }
 
 .layer-1 {
   background-image: url('/images/Cave/cave-bg.svg');
   z-index: 1;
-  transform: scale(1);
-  pointer-events: none;
 }
 
 .layer-2 {
   background-image: url('/images/Cave/cave-layer1.svg');
   z-index: 2;
-  transform: scale(1.1);
-  pointer-events: none;
 }
 
 .layer-3 {
   background-image: url('/images/Cave/cave-layer4.svg');
   z-index: 1;
-  transform: scale(0.5);
   left: 37.3%;
   top: 39.5%;
   width: 50%;
   height: 50%;
-  pointer-events: none;
 }
 
 .business-container {
@@ -59,12 +71,19 @@ $main-font: "Roboto Slab", serif;
   margin-top: 8%;
   margin-bottom: 50%;
   z-index: 4;
-  transition: opacity 0.5s ease-out;
+  transition: opacity 1s ease;
 
   p {
     font-size: 1.5rem;
     line-height: 1.6;
     color: $main-blue;
+  }
+
+  &.fixed {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 
@@ -76,4 +95,5 @@ $main-font: "Roboto Slab", serif;
   width: 100%;
   z-index: 4;
 }
+
 
