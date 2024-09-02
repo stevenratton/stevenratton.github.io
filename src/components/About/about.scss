@@ -4,48 +4,15 @@ $main-text-color: #D9D9D9;
 $main-blue: #09C2FD;
 $main-font: "Roboto Slab", serif;
 
-.business-container {
-  position: relative;
-  text-align: center; 
-  margin-top: 15%; 
-  margin-left: -30%;
-  margin-bottom: 50%;
-
-  p {
-    font-size: 1.5rem;
-    line-height: 1.6;
-    color: $main-blue;
-  }
-
-  /* Responsive styles */
-  @media (max-width: 768px) { /* Pour tablettes */
-    margin: 10%;
-    margin-left: 0;
-
-    p {
-      font-size: 1.2rem;
-    }
-  }
-
-  @media (max-width: 480px) { /* Pour téléphones */
-    margin: 5%;
-    margin-left: 0;
-
-    p {
-      font-size: 1rem;
-    }
-  }
-}
-
 #about {
   margin-top: 20%;
-  margin-bottom: 32%;
+  margin-bottom: 42%;
   position: relative;
   width: 100%;
   height: 110vh;
   box-sizing: border-box;
-  z-index: -1;
-
+  z-index: 1;
+  margin-left: 5%;
 
   @media (max-width: 768px) {
     margin-top: 10%;
@@ -58,143 +25,23 @@ $main-font: "Roboto Slab", serif;
   }
 }
 
-.Otherbackground-layer {
-  position: absolute; /* Rend les couches fixes par rapport à la fenêtre */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh; /* S'assure que les couches couvrent toute la hauteur de la fenêtre */
-  background-position: center;
-  background-repeat: no-repeat;
-  will-change: transform;
-  overflow-x: hidden;
-  box-sizing: border-box;
-  mask-image: linear-gradient(to bottom, rgba(255, 0, 0, 0) 12%, rgb(0, 0, 0) 25%, rgb(0, 0, 0) 0%);
-  pointer-events: none;
-
-  &.fixed {
-    position: fixed; /* Devient fixe après le défilement */
-    width: 100%;
-    height: 100vh; /* Assure que la grotte couvre toute la fenêtre */
-    z-index: 0;
-  }
-
-  &.layer1 {
-    background-image: url('/images/bureau.svg');
-    width: 60%; 
-    height: 90vh;
-    z-index: 5;
-    margin: 40px 600px;
-    opacity: 1; /* Initialement, l'image est complètement visible */
-    transition: opacity 1s ease-out ; /* Transition en douceur pour l'opacité */
-
-    @media (max-width: 1024px) {
-      margin: 40px auto;
-      width: 80%;
-    }
-
-    @media (max-width: 768px) {
-      margin: 20px auto;
-      width: 90%;
-    }
-
-    @media (max-width: 480px) {
-      margin: 10px auto;
-      width: 95%;
-    }
-  }
-
-  &.layer2 {
-    background-image: url('/images/contour.svg');
-    z-index: 2;
-  }
-
-  &.layer3 {
-    background-image: url('/images/fond.svg');
-    z-index: 1;
-  }
-
-  &.layer4 {
-    background-image: url('/images/murgauche.svg');
-    z-index: 3;
-    width: 16%;
-
-    @media (max-width: 768px) {
-      width: 20%;
-    }
-
-    @media (max-width: 480px) {
-      width: 25%;
-    }
-  }
-
-  &.layer5 {
-    background-image: url('/images/murdroite.svg');
-    z-index: 1;
-    width: 30%;
-    margin-left: 145vh;
-
-    @media (max-width: 768px) {
-      width: 35%;
-      margin-left: 120vh;
-    }
-
-    @media (max-width: 480px) {
-      width: 40%;
-      margin-left: 100vh;
-    }
-  }
-
-  &.layer6 {
-    background-image: url('/images/ombre.svg');
-    z-index: 1;
-    margin-top: 100vh;
-
-    @media (max-width: 768px) {
-      margin-top: 80vh;
-    }
-
-    @media (max-width: 480px) {
-      margin-top: 70vh;
-    }
-  }
-
-  &.layer7 {
-    background-image: url('/images/sol.svg');
-    z-index: 5;
-    width: 90%;
-    height: 100px;
-    margin-top: 88vh;
-
-    @media (max-width: 768px) {
-      width: 95%;
-      margin-top: 80vh;
-    }
-
-    @media (max-width: 480px) {
-      width: 100%;
-      margin-top: 70vh;
-    }
-  }
-}
-
 .about-avatar {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 290px; 
-  height: 300px; 
+  width: 290px;
+  height: 300px;
   border: 5px solid transparent;
   border-radius: 50%;
   background-color: $bg-body;
-  background-image: 
+  background-image:
     linear-gradient($bg-body, $bg-body),
     linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe);
   background-origin: border-box;
   background-clip: content-box, border-box;
-  z-index: 5;
-  margin-top: 40%;
+  z-index: 1;
+  margin-top: -6%;
 
   @media (max-width: 768px) {
     width: 200px;
@@ -210,8 +57,8 @@ $main-font: "Roboto Slab", serif;
 }
 
 .avatar {
-  width: 100%; 
-  height: 100%; 
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 50%;
 }
@@ -222,8 +69,9 @@ $main-font: "Roboto Slab", serif;
   justify-content: center;
   gap: 2%;
   position: relative;
-  z-index: 0;
+  z-index: 1;
   padding: 1px;
+  overflow-y: auto;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -239,7 +87,7 @@ $main-font: "Roboto Slab", serif;
   max-width: 55%;
   text-align: start;
   padding: 100px;
-  z-index: 5;
+  z-index: 1;
 
   @media (max-width: 768px) {
     max-width: 80%;
@@ -279,7 +127,7 @@ $main-font: "Roboto Slab", serif;
   height: 35px;
   border-radius: 20px;
   background-color: $bg-body;
-  background-image: 
+  background-image:
     linear-gradient($bg-body, $bg-body),
     linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe);
   background-origin: border-box;
@@ -332,14 +180,6 @@ $main-font: "Roboto Slab", serif;
 }
 
 
-.logo-head2 {
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  transition: opacity 3s ease-out, transform 1s ease-out;
-  width: 150%;
-  opacity: 0;
-}
 
 
 

@@ -30,9 +30,11 @@ $main-font: "Roboto Slab", serif;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 2;
 }
 
 .navbar {
+  z-index: 2;
   top: 20%;
   left: 1.5%;
   height: 100%;
