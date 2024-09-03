@@ -30,7 +30,7 @@ const Portfolio = ({ selectedLanguage, changeLanguage }) => {
 
   return (
     <section id="portfolio">
-      <div className="header-container">
+      <div className="header-container1">
         <h2>{t('recent')}</h2>
         <LanguageSwitcher selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
       </div>

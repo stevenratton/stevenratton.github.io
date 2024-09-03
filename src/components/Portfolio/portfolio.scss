@@ -25,6 +25,7 @@
 
     h2 {
       margin-bottom: 0%;
+      color: $main-blue;
     }
   }
 }
@@ -85,6 +86,12 @@
 
 .arrow-right {
   right: -0.9rem;
+}
+
+.header-container1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 
