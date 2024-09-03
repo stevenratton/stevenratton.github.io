@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './Cave.scss';
+import './cave.scss';
 
 const Cave = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -14,7 +14,7 @@ const Cave = () => {
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      const maxScroll = 700;
+      const maxScroll = 999; // Point où l'image devient fixe
 
       // Opacité du layer 3
       const newOpacityLayer3 = Math.max(0, 1 - scrollPosition / maxScroll);
@@ -24,7 +24,12 @@ const Cave = () => {
       const newOpacityLogoHead = 1 - newOpacityLayer3;
       setOpacityLogoHead(newOpacityLogoHead);
 
-      setIsFixed(scrollPosition > maxScroll);
+      // Définir le moment où l'image devient fixe
+      if (scrollPosition > maxScroll) {
+        setIsFixed(true);
+      } else {
+        setIsFixed(false);
+      }
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -59,16 +64,24 @@ const Cave = () => {
       <div
         className={`cave-layer layer-3 ${isFixed ? 'fixed' : ''}`}
         style={{
-          transform: `translate(${mousePos.x * 0.010}px, ${mousePos.y * 0.010}px)`,
+          transform: `translate(${mousePos.x * 0.020}px, ${mousePos.y * 0.020}px)`,
           opacity: opacityLayer3
         }}
+      ></div>
+      <div
+        className={`cave-layer layer-4 ${isFixed ? 'fixed' : ''}`}
+        style={{ transform: `translate(${mousePos.x * 0.015}px, ${mousePos.y * 0.015}px)` }}
+      ></div>
+      <div
+        className={`cave-layer layer-5 ${isFixed ? 'fixed' : ''}`}
+        style={{ transform: `translate(${mousePos.x * 0.025}px, ${mousePos.y * 0.025}px)` }}
+      ></div>
+      <div
+        className={`cave-layer layer-6 ${isFixed ? 'fixed' : ''}`}
+        style={{ transform: `translate(${mousePos.x * 0.025}px, ${mousePos.y * 0.025}px)` }}
       ></div>
     </div>
   );
 };
 
 export default Cave;
-
-
-
-
