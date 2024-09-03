@@ -51,9 +51,9 @@
 
   /* Styles pour l'image centrale */
   .center-image {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 10px;
+    width: 120px;
+    height: 120px;
+    margin-top: 40%;
   }
 
   /* Styles pour le texte de l'expérience */
@@ -61,6 +61,7 @@
     color: $main-text-color;
     font-size: 16px;
     text-align: center;
+    margin-top: 20%;
   }
 }
 
