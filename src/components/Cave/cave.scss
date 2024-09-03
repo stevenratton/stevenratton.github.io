@@ -1,0 +1,97 @@
+@import 'src/styles/variables';
+
+ #cave-container {
+   position: relative;
+   width: 100vw;
+   height: 100vh;
+   overflow: hidden;
+   right: 6.4%;
+   left: -6.4%;
+   z-index: -1;
+ 
+   @media (max-width: 768px) {
+     right: 0;
+     left: 0;
+   }
+ 
+   @media (max-width: 480px) {
+     width: 100vw;
+   }
+ }
+ 
+ .cave-layer {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100vw;
+   height: 100vh;
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   transition: none;
+   will-change: transform, opacity;
+   border: none;
+   box-sizing: border-box;
+   mask-image: linear-gradient(to bottom, rgba(255, 0, 0, 0) 12%, rgb(0, 0, 0) 25%, rgb(0, 0, 0) 0%);
+ 
+   &.fixed {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100vw;
+     height: 100vh;
+     z-index: 0;
+     transition: none;
+   }
+ }
+ 
+ .layer-1 {
+   background-image: url('/images/Cave/cave-bg.svg');
+   z-index: 1;
+ }
+ 
+ .layer-2 {
+   background-image: url('/images/Cave/cave-layer1.svg');
+   z-index: 2;
+ }
+ 
+ .layer-3 {
+   background-image: url('/images/Cave/cave-layer4.svg');
+   z-index: 1;
+   left: 37.3%;
+   top: 39.5%;
+   width: 50%;
+   height: 50%;
+   transition: transform 1s, opacity 2s ease-out;
+ }
+ 
+ .business-container {
+   position: relative;
+   text-align: center;
+   margin-top: 10%;
+   margin-bottom: 50%;
+   z-index: 4;
+   transition: opacity 2s;
+ 
+   p {
+     font-size: 1.5rem;
+     line-height: 1.6;
+     color: $main-blue;
+   }
+ 
+   &.fixed {
+     position: fixed;
+     top: 10%;
+     left: 50%;
+     transform: translateX(-50%);
+   }
+ }
+ 
+ .logo-head2 {
+   position: relative;
+   left: 50%;
+   transform: translateX(-50%);
+   transition: opacity 2s ease-out, transform 1s ease-out;
+   width: 100%;
+   z-index: 4;
+ } 

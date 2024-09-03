@@ -1,11 +1,6 @@
 /* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
-
-/* Variables */
-$bg-body: #141414;
-$main-text-color: #d9d9d9;
-$main-blue: #09c2fd;
-$main-font: "Roboto Slab", serif;
+@import 'src/styles/variables';
 
 /* Styles pour le conteneur principal */
 #work {
@@ -14,11 +9,14 @@ $main-font: "Roboto Slab", serif;
   display: flex;
   flex-direction: column;
   font-family: $main-font;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  position: relative;
+  z-index: 10;
 
   h2 {
     color: $main-text-color;
     text-align: center;
-    margin-bottom: 2%;
   }
 
   /* Styles pour le conteneur du graphique */
