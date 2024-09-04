@@ -16,7 +16,7 @@ const About = () => {
 
   return (
     <section id="about">
-      {/* <Cave /> */}
+      <Cave />
 
       <div className="about-content">
         <div className="about-avatar">

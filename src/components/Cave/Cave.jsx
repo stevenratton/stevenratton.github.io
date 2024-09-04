@@ -4,8 +4,8 @@ import './cave.scss';
 const Cave = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isFixed, setIsFixed] = useState(false);
-  const [opacityLayer3, setOpacityLayer3] = useState(1);
   const [opacityLogoHead, setOpacityLogoHead] = useState(0);
+  const [opacityLayer3, setOpacityLayer3] = useState(1);
 
   useEffect(() => {
     const handleMouseMove = (event) => {
@@ -16,19 +16,14 @@ const Cave = () => {
       const scrollPosition = window.scrollY;
       const maxScroll = 999; // Point où l'image devient fixe
 
-      // Opacité du layer 3
-      const newOpacityLayer3 = Math.max(0, 1 - scrollPosition / maxScroll);
-      setOpacityLayer3(newOpacityLayer3);
-
-      // Opacité du logo-head en fonction du layer 3
-      const newOpacityLogoHead = 1 - newOpacityLayer3;
-      setOpacityLogoHead(newOpacityLogoHead);
-
-      // Définir le moment où l'image devient fixe
       if (scrollPosition > maxScroll) {
         setIsFixed(true);
+        setOpacityLogoHead(1); // Afficher le logo et le paragraphe
+        setOpacityLayer3(0); // Masquer le layer 3
       } else {
         setIsFixed(false);
+        setOpacityLogoHead(0); // Cacher le logo et le paragraphe
+        setOpacityLayer3(1); // Afficher le layer 3
       }
     };
 
@@ -43,12 +38,14 @@ const Cave = () => {
 
   return (
     <div id="cave-container">
-      <div className="business-container">
+      <div
+        className={`business-container ${isFixed ? 'visible' : 'hidden'}`}
+        style={{ opacity: opacityLogoHead, transition: 'opacity 0.5s ease-in-out' }}
+      >
         <img
           src='/images/logo-head.svg'
           alt='Logo'
           className='logo-head2'
-          style={{ opacity: opacityLogoHead }}
         />
         <p> BUSINESS ANALYST / UX DESIGNER <br />FREELANCE </p>
       </div>
@@ -65,7 +62,8 @@ const Cave = () => {
         className={`cave-layer layer-3 ${isFixed ? 'fixed' : ''}`}
         style={{
           transform: `translate(${mousePos.x * 0.020}px, ${mousePos.y * 0.020}px)`,
-          opacity: opacityLayer3
+          opacity: opacityLayer3,
+          transition: 'opacity 0.5s ease-in-out' // Transition fluide pour le layer 3
         }}
       ></div>
       <div
@@ -85,3 +83,5 @@ const Cave = () => {
 };
 
 export default Cave;
+
+
