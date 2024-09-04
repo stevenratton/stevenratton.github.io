@@ -13,10 +13,18 @@
 .text-home { 
   position: relative;
   font-size: 2.5rem;
-  top: 25%;
+  font-weight: 200;
+  top: 28%;
+  z-index: 4;
+  text-shadow: 2px 7px 5px $bg-body;
 
   .colored-text {
     color: $main-blue
+  }
+
+  h1 {
+    margin: 0;
+    font-weight: 900;
   }
 } 
 

@@ -21,7 +21,7 @@ const Home = () => {
 
   return (
     <section id='home'>
-      {/* <City setIsScrolled={setIsScrolled}/> */}
+      <City setIsScrolled={setIsScrolled}/>
     
       <div className='header-button'>
         <div className='header'>
