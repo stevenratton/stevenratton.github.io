@@ -15,7 +15,7 @@ const Portfolio = ({ selectedLanguage, changeLanguage }) => {
       description: t('project1')
     },
     {
-      src: '',
+      src: './images/portfolio1.png',
       alt: 'Projet 2',
       title: '',
       description: ''
@@ -34,6 +34,7 @@ const Portfolio = ({ selectedLanguage, changeLanguage }) => {
         <h2>{t('recent')}</h2>
         <LanguageSwitcher selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
       </div>
+      
       <Carousel 
         data={carouselData} 
         onSlideChange={handleSlideChange} 

@@ -37,6 +37,7 @@ const Work = () => {
         ],
         borderWidth: 0,
         hoverOffset: 25,
+        spacing: 10,
         offset: [30, 0, 0, 0, 0, 0, 0], // Détache le segment "energy"
       },
     ],
@@ -50,7 +51,7 @@ const Work = () => {
         position: 'top',
         labels: {
           boxWidth: 25,
-          padding: 12,
+          padding: 26,
           font: {
             size: 14,
             family: 'Roboto Slab',
@@ -100,7 +101,7 @@ const Work = () => {
 
   return (
     <section id="work">
-      <div className='header-container'>
+      <div className="header-container">
         <h2>{t('sectors')}</h2>
         <LanguageSwitcher 
             selectedLanguage={i18n.language} 
@@ -118,7 +119,7 @@ const Work = () => {
               className="center-image"
             />
             <div className="experience-text">
-              {experienceYears[hoveredIndex]} an(s) d'expérience
+              {t('years_experience', { count: experienceYears[hoveredIndex] })}
             </div>
           </div>
         )}
@@ -128,3 +129,4 @@ const Work = () => {
 };
 
 export default Work;
+

@@ -14,11 +14,6 @@
   position: relative;
   z-index: 10;
 
-  h2 {
-    color: $main-text-color;
-    text-align: center;
-  }
-
   /* Styles pour le conteneur du graphique */
   #chartdiv {
     position: relative;
@@ -51,9 +46,9 @@
 
   /* Styles pour l'image centrale */
   .center-image {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 10px;
+    width: 120px;
+    height: 120px;
+    margin-top: 40%;
   }
 
   /* Styles pour le texte de l'expérience */
@@ -61,9 +56,17 @@
     color: $main-text-color;
     font-size: 16px;
     text-align: center;
+    margin-top: 20%;
   }
 }
 
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: $header-title;
+  font-size: $header-size;
+}
 
 /* RESPONSIVE */
 @media (max-width: 768px) {

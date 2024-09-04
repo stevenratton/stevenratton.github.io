@@ -7,6 +7,7 @@
   display: flex;
   justify-content: space-evenly;
   margin-top: 4%;
+  margin-right: 6%;
 }
 
 .act-mini-container {
@@ -17,64 +18,75 @@
 .card-image {
   position: absolute;
   top: -30px;
-  left: 53%;
+  left: 60%;
   transform: translateX(-50%);
   width: 20%;
   height: 80px;
   z-index: 1;
 }
 
-.activities-card {
+.border-card {
   background-color: $bg-body;
-  border: 3px solid transparent;
+  border: 6px solid transparent;
   border-radius: 40px;
   background-image:
-    linear-gradient($bg-body, $bg-body),
-    linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe);
+  linear-gradient($bg-body, $bg-body),
+  linear-gradient(5deg, #0050c7a8, #0050c7a8, #9756fa, #73e177bd, #006afebb, #35d9ccd0);
   background-origin: border-box;
   background-clip: padding-box, border-box;
-  width: 100%;
-  max-height: 300px;
-  padding: 3%;
+  padding: 4%;
+  max-height: 400px;
+  min-height: 290px;
+  width: 447px;
+}
+
+.activities-card {
+  background-color: #1E1E1E;
+  border: 3px solid transparent;
+  border-radius: 30px;
+  width: 450px;
   text-align: center;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   position: relative;
-  min-height: 300px;
+  padding: 1%;
+  margin: -2%;
+  height: 320px;
 
   h3 {
     color: $main-blue;
     margin-bottom: 2%;
-    margin-top: 10%;
+    margin-top: 12%;
   }
 
   p {
     color: $main-text-color;
-    overflow: scroll;
-    text-overflow: ellipsis;
-    white-space: normal;
-    max-height: 400px;
+    margin-top: 2%;
+    text-align:justify;
   }
 }
 
 .chips-container {
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-gap: 15px;
-margin-top: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 4%;
+
+}
+
+.activities {
+  position: relative;
+  z-index: 10;
 }
 
 .header-container {
   display: flex;
   align-items: center;
   justify-content: space-around;
-}
-
-.activities {
-  position: relative;
-  z-index: 10;
+  margin-bottom: $header-title;
+  font-size: $header-size;
 }
 
