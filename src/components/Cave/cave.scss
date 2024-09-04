@@ -1,14 +1,14 @@
 @import 'src/styles/variables';
 
  #cave-container {
-  //  position: relative;
-  //  width: 100vw;
-  //  height: 100vh;
-  //  overflow: hidden;
-  //  right: 6%;
-  //  left: -2%;
-   z-index: -1;
-   
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  right: 6%;
+  left: -2%;
+  z-index: -1;
+
    @media (max-width: 768px) {
      right: 0;
      left: 0;
@@ -20,7 +20,7 @@
  }
  
  .cave-layer {
-  //  position: absolute;
+  position: absolute;
    top: 0;
    left: 0;
    width: 100vw;
@@ -32,8 +32,8 @@
    will-change: transform, opacity;
    border: none;
    box-sizing: border-box;
-  //  mask-image: linear-gradient(to bottom, rgba(255, 0, 0, 0) 12%, rgb(0, 0, 0) 25%, rgb(0, 0, 0) 0%);
- 
+   mask-image: linear-gradient(to bottom, rgba(255, 0, 0, 0) 12%, rgb(0, 0, 0) 25%, rgb(0, 0, 0) 0%);
+
    &.fixed {
      position: fixed;
      top: 0;
@@ -50,13 +50,13 @@
    background-image: url('/images/Cave/cave-bg.svg');
    z-index: 1;
  }
- 
+
  /*contour*/
  .layer-2 {
    background-image: url('/images/Cave/cave-layer1.svg');
    z-index: 2;
  }
- 
+
  /*bureau*/
  .layer-3 {
    background-image: url('/images/Cave/cave-layer4.svg');
@@ -64,24 +64,24 @@
    left: 37.3%;
    top: 50%;
    width: 50%;
-   height: 50%;   
+   height: 50%;
  }
 
  .layer-3.fixed {
-  position: fixed; /* Fixer l'élément lors du défilement */
-  left: 37.3%; /* Ajuster la position pour remplir l'écran */
-  top: 50%; /* Annuler la valeur top */
-  width: 50%; /* Occuper toute la largeur de la fenêtre */
-  height: 50%; /* Ajuster la hauteur pour qu'elle soit visible mais pas trop grande */
-  z-index: 10; /* S'assurer qu'elle soit au-dessus des autres éléments */
+  position: fixed;
+  left: 37.3%;
+  top: 50%;
+  width: 50%;
+  height: 50%;
+  z-index: 10;
  }
- 
+
  /*sol*/
  .layer-4 {
   background-image: url('/images/Cave/cave-bg-sol.svg');
-  width: 100%; /* Ajuster la largeur */
-  height: 30%; /* Ajuster la hauteur en pixels ou en pourcentages */
-  left: 0%; /* Centrer horizontalement */
+  width: 100%;
+  height: 30%;
+  left: 0%;
   top: 75%;
   background-size: contain;
   z-index: 5;
@@ -98,7 +98,7 @@
   z-index: 10; /* S'assurer qu'elle soit au-dessus des autres éléments */
 }
 
-/*mur droit*/
+/* mur droite */
 .layer-5 {
   background-image: url('/images/Cave/cave-bg-mur1.svg');
   width: 30%; /* Ajustez la largeur à 30% pour un affichage vertical */
@@ -154,7 +154,7 @@
    margin-bottom: 50%;
    z-index: 4;
    transition: opacity 2s;
- 
+
    p {
      font-size: 1.5rem;
      line-height: 1.6;
@@ -168,7 +168,7 @@
      transform: translateX(-50%);
    }
  }
- 
+
  .logo-head2 {
    position: relative;
    left: 50%;
