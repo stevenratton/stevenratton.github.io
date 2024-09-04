@@ -101,7 +101,7 @@ const Work = () => {
 
   return (
     <section id="work">
-      <div className='header-container'>
+      <div className="header-container">
         <h2>{t('sectors')}</h2>
         <LanguageSwitcher 
             selectedLanguage={i18n.language} 

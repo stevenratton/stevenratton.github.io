@@ -77,18 +77,16 @@
 
 }
 
+.activities {
+  position: relative;
+  z-index: 10;
+}
+
 .header-container {
   display: flex;
   align-items: center;
   justify-content: space-around;
-
-  h2 {
-    margin-left: 1%;
-  }
-}
-
-.activities {
-  position: relative;
-  z-index: 10;
+  margin-bottom: $header-title;
+  font-size: $header-size;
 }
 

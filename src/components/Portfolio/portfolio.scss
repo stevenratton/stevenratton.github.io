@@ -12,10 +12,6 @@
   position: relative;
   z-index: 10;
 
-  .carousel {
-    margin-top: 2rem;
-  }
-
   .text-portfolio {
     margin-top: 2%;
     display: flex;
@@ -30,6 +26,13 @@
   }
 }
 
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: $header-size;
+}
+
 
 /* Carousel details */
 .carousel {
@@ -38,6 +41,7 @@
   width: 55%;
   height: 400px;
   position: relative;
+  margin-top: 3%;
 }
 
 .border-slide {
@@ -91,13 +95,6 @@
 
 .arrow-right {
   right: -0.9rem;
-}
-
-.header-container1 {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  margin-bottom: 2%;
 }
 
 

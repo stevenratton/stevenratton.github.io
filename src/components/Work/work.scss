@@ -14,11 +14,6 @@
   position: relative;
   z-index: 10;
 
-  h2 {
-    color: $main-text-color;
-    text-align: center;
-  }
-
   /* Styles pour le conteneur du graphique */
   #chartdiv {
     position: relative;
@@ -65,6 +60,13 @@
   }
 }
 
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: $header-title;
+  font-size: $header-size;
+}
 
 /* RESPONSIVE */
 @media (max-width: 768px) {

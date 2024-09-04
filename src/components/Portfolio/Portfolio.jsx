@@ -30,10 +30,11 @@ const Portfolio = ({ selectedLanguage, changeLanguage }) => {
 
   return (
     <section id="portfolio">
-      <div className="header-container1">
+      <div className="header-container">
         <h2>{t('recent')}</h2>
         <LanguageSwitcher selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
       </div>
+      
       <Carousel 
         data={carouselData} 
         onSlideChange={handleSlideChange} 
