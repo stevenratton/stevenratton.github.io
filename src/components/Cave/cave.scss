@@ -159,6 +159,7 @@
      font-size: 1.5rem;
      line-height: 1.6;
      color: $main-blue;
+     margin-left: 4%;
    }
  
    &.fixed {
@@ -171,9 +172,10 @@
 
  .logo-head2 {
    position: relative;
-   left: 50%;
+   left: 52%;
    transform: translateX(-50%);
    transition: opacity 2s ease-out, transform 1s ease-out;
    width: 100%;
    z-index: 4;
+   margin-top: 10%;
  } 
