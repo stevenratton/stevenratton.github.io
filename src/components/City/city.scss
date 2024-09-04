@@ -1,0 +1,82 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+@import '/src/styles/variables';
+
+.background-layer {
+  position: absolute;
+  left: 5%;
+  width: 90%;
+  height: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto;
+  pointer-events: none;
+
+  &.layer1 {
+    background-image: url('/images/home_land_1.svg');
+    z-index: 2;
+    margin-top: 3%;
+  }
+
+  &.layer2 {
+    background-image: url('/images/home_land_2.svg');
+    z-index: 3;
+    margin: 10% 0;
+  }
+
+  &.layer3 {
+    background-image: url('/images/home_land_3.svg');
+    z-index: 1;
+    margin: 15% 0;
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 1440px) {
+ .background-layer {
+  background-size: 90%;
+
+  &.layer1 {
+    margin: 3% 5%;
+    width: 80%;
+  }
+
+  &.layer2 {
+    margin: 12% 0;
+  }
+
+  &.layer3 {
+    margin: 18% 0;
+  }
+ }
+}
+
+@media (max-width: 810px) {
+    .background-layer {
+      background-size: contain;
+
+      &.layer1 {
+        margin-top: 5%; /* Adjust margins for better layout on smaller screens */
+      }
+  
+      &.layer2 {
+        margin: 8% 0;
+      }
+  
+      &.layer3 {
+        margin: 10% 0;
+      }
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .background-layer {
+      background-size: cover; /* Further adjust background size for very small screens */
+  
+      &.layer1,
+      &.layer2,
+      &.layer3 {
+        margin: 5% 0; /* Uniform margin for all layers on very small screens */
+      }
+    }
+  }

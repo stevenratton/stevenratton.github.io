@@ -1,14 +1,14 @@
 @import 'src/styles/variables';
 
  #cave-container {
-   position: relative;
-   width: 100vw;
-   height: 100vh;
-   overflow: hidden;
-   right: 6.4%;
-   left: -6.4%;
+  //  position: relative;
+  //  width: 100vw;
+  //  height: 100vh;
+  //  overflow: hidden;
+  //  right: 6%;
+  //  left: -2%;
    z-index: -1;
- 
+   
    @media (max-width: 768px) {
      right: 0;
      left: 0;
@@ -20,7 +20,7 @@
  }
  
  .cave-layer {
-   position: absolute;
+  //  position: absolute;
    top: 0;
    left: 0;
    width: 100vw;
@@ -32,7 +32,7 @@
    will-change: transform, opacity;
    border: none;
    box-sizing: border-box;
-   mask-image: linear-gradient(to bottom, rgba(255, 0, 0, 0) 12%, rgb(0, 0, 0) 25%, rgb(0, 0, 0) 0%);
+  //  mask-image: linear-gradient(to bottom, rgba(255, 0, 0, 0) 12%, rgb(0, 0, 0) 25%, rgb(0, 0, 0) 0%);
  
    &.fixed {
      position: fixed;
@@ -45,26 +45,108 @@
    }
  }
  
+ /*fond*/
  .layer-1 {
    background-image: url('/images/Cave/cave-bg.svg');
    z-index: 1;
  }
  
+ /*contour*/
  .layer-2 {
    background-image: url('/images/Cave/cave-layer1.svg');
    z-index: 2;
  }
  
+ /*bureau*/
  .layer-3 {
    background-image: url('/images/Cave/cave-layer4.svg');
-   z-index: 1;
+   z-index: 3;
    left: 37.3%;
-   top: 39.5%;
+   top: 50%;
    width: 50%;
-   height: 50%;
-   transition: transform 1s, opacity 2s ease-out;
+   height: 50%;   
+ }
+
+ .layer-3.fixed {
+  position: fixed; /* Fixer l'élément lors du défilement */
+  left: 37.3%; /* Ajuster la position pour remplir l'écran */
+  top: 50%; /* Annuler la valeur top */
+  width: 50%; /* Occuper toute la largeur de la fenêtre */
+  height: 50%; /* Ajuster la hauteur pour qu'elle soit visible mais pas trop grande */
+  z-index: 10; /* S'assurer qu'elle soit au-dessus des autres éléments */
  }
  
+ /*sol*/
+ .layer-4 {
+  background-image: url('/images/Cave/cave-bg-sol.svg');
+  width: 100%; /* Ajuster la largeur */
+  height: 30%; /* Ajuster la hauteur en pixels ou en pourcentages */
+  left: 0%; /* Centrer horizontalement */
+  top: 75%;
+  background-size: contain;
+  z-index: 5;
+}
+
+.layer-4.fixed {
+  position: fixed; /* Fixer l'élément lors du défilement */
+  left: 0; /* Ajuster la position pour remplir l'écran */
+  top: auto; /* Annuler la valeur top */
+  bottom: 0; /* Fixer en bas de la fenêtre */
+  width: 100vw; /* Occuper toute la largeur de la fenêtre */
+  height: 20%; /* Ajuster la hauteur pour qu'elle soit visible mais pas trop grande */
+  background-size: cover; /* Redimensionner l'image pour couvrir toute la zone */
+  z-index: 10; /* S'assurer qu'elle soit au-dessus des autres éléments */
+}
+
+/*mur droit*/
+.layer-5 {
+  background-image: url('/images/Cave/cave-bg-mur1.svg');
+  width: 30%; /* Ajustez la largeur à 30% pour un affichage vertical */
+  height: 100vh; /* Ajustez la hauteur à 100% du viewport pour un affichage complet */
+  left: -5%; /* Positionnez l'image à droite */
+  top: 0; /* Déplacez l'image vers le haut pour qu'elle commence en haut du conteneur */
+  background-size: contain; /* Assurez-vous que l'image est complètement visible */
+  background-repeat: no-repeat; /* Empêchez la répétition de l'image */
+  background-position: center; /* Centrez l'image dans le conteneur */
+  z-index: 3;
+}
+
+.layer-5.fixed {
+  width: 30%; /* Ajustez la largeur à 30% pour un affichage vertical */
+  height: 100vh; /* Ajustez la hauteur à 100% du viewport pour un affichage complet */
+  left: -5%; /* Positionnez l'image à droite */
+  top: 0; /* Déplacez l'image vers le haut pour qu'elle commence en haut du conteneur */
+  background-size: contain; /* Assurez-vous que l'image est complètement visible */
+  background-repeat: no-repeat; /* Empêchez la répétition de l'image */
+  background-position: center; /* Centrez l'image dans le conteneur */
+  z-index: 3;
+}
+
+.layer-6 {
+  background-image: url('/images/Cave/cave-bg-mur2.svg');
+  width: 30%; /* Ajustez la largeur à 30% pour un affichage vertical */
+  height: 100vh; /* Ajustez la hauteur à 100% du viewport pour un affichage complet */
+  left: 74%; /* Positionnez l'image à droite */
+  top: 0; /* Déplacez l'image vers le haut pour qu'elle commence en haut du conteneur */
+  background-size: contain; /* Assurez-vous que l'image est complètement visible */
+  background-repeat: no-repeat; /* Empêchez la répétition de l'image */
+  background-position: center; /* Centrez l'image dans le conteneur */
+  z-index: 3;
+}
+
+.layer-6.fixed {
+  width: 30%; /* Ajustez la largeur à 30% pour un affichage vertical */
+  height: 100vh; /* Ajustez la hauteur à 100% du viewport pour un affichage complet */
+  left: 73%; /* Positionnez l'image à droite */
+  top: 0; /* Déplacez l'image vers le haut pour qu'elle commence en haut du conteneur */
+  background-size: contain; /* Assurez-vous que l'image est complètement visible */
+  background-repeat: no-repeat; /* Empêchez la répétition de l'image */
+  background-position: center; /* Centrez l'image dans le conteneur */
+  z-index: 3;
+}
+
+
+
  .business-container {
    position: relative;
    text-align: center;

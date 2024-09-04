@@ -2,137 +2,151 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
 @import 'src/styles/variables';
 
-.text-home { 
-  position: absolute;
-  font-size: 2em;
-  top: 40%;
-  transform: translateX(110%);
-  z-index: 4;
+#home {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 97vh;
+  padding: 1rem;
 }
 
-
-#home {
+.text-home { 
   position: relative;
-  width: 100%;
-  height: 70vh;
+  font-size: 2.5rem;
+  font-weight: 200;
+  top: 28%;
+  z-index: 4;
+  text-shadow: 2px 7px 5px $bg-body;
 
-  .background-layer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 85vw;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-size: center;
-    pointer-events: none;
-    background-position: center;
-    object-fit: cover;
-
-    &.layer1 {
-      background-image: url('/images/home_land_1.svg');
-      z-index: 2;
-    margin: -10px 140px;
-    }
-
-    &.layer2 {
-      background-image: url('/images/home_land_2.svg');
-      z-index: 3;
-      margin: 130px 150px ;
-    }
-
-    &.layer3 {
-      background-image: url('/images/home_land_3.svg');
-      z-index: 1;
-      margin: 250px 150px;
-    }
-
-    &.layer8 {
-      background-image: url('/images/sol.svg');
-      z-index: 1;
-      width: 110%;
-      height: 50px;
-    }
+  .colored-text {
+    color: $main-blue
   }
 
+  h1 {
+    margin: 0;
+    font-weight: 900;
+  }
+} 
+
+.header-button {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
   .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: rem;
     z-index: 4;
-
+    display: flex;
+    justify-content: center;
+    
     .logo-head {
-      margin-top: 2%;
-      position: relative;
-      left: 50%;
-      transform: translateX(-50%);
-      max-width: 100%;
       transition: opacity 1s;
-      z-index: 4;
+      // z-index: 4;
     }
-
+  
     .hidden {
       opacity: 0;
     }
   }
 
-  .home-content {
-    transform: translateY(800%);
-
-    h1 {
-      font-size: 500px;
-    }
-
-    p {
-      font-size: 20px;
-    }
-
-    .colored-text {
-      color: $main-blue;
-    }
-  }
-}
-
-.bottom-home {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 39%;
-  width: 100%;
-
-  img {
+  .bottom-home {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-  }
-
-  .logo {
-    width: 10%;
-  }
+    // position: relative;
+    // top: 70%;
+    margin-top: auto;
+    // flex-wrap: wrap;
+    // gap: 1rem;
+  
+    .button-container {
+      display: flex;
+      justify-content: center;
+      width: auto;
+      position: relative;
+      left: 40%;
+      gap: 2rem;
+    }
+  
+    .logo-certif {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      // align-self: flex-end;
+      // position: absolute;
+      // right: 0;
+    }
+  }  
 }
 
-/* START SECTION HOME */
 .website-content {
   color: $main-text-color;
   text-align: center;
 }
 
-.button-container {
-  display: flex;
-  gap: 25px;
-}
-
 .buttontext {
   display: flex;
   align-items: center;
-  background: transparent;
-  border: none;
   color: $main-text-color;
   cursor: pointer;
-  font-size: 16px;
   font-family: $main-font;
   padding: 10px;
+  background-color: transparent;
+  border: none;
+  transition: color 0.3s ease;
 }
 
-.logo-certif {
-  position: absolute;
-  right: 0;
+/* RESPONSIVE */
+@media (max-width: 1440px) {
+  #home {
+    height: 95vh;
+  }
+
+  .text-home {
+    font-size: 2em;
+    top: 28%;
+  }
+
+  // .button-container {
+  //   gap: 0.5rem;
+  // }
+
+  // .logo-certif {
+  //   max-width: 10%;
+  // }
+}
+
+@media (max-width: 810px) {
+  #home {
+    height: 60vh;
+  }
+
+  .text-home{
+    font-size: 1.5em;
+  }
+
+  .bottom-home {
+    margin-top: 0;
+  }
+
+  .button-container {
+    flex-direction: column;
+      gap: 10px;
+  }
+
+  .buttontext {
+    font-size: 0.875rem;
+    padding: 8px;
+  }
+
+  .logo-certif {
+    right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .text-home {
+    font-size: 1.2rem;
+    top: 30%;
+  }
 }
