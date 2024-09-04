@@ -1,16 +1,14 @@
 @import 'src/styles/variables';
 
  #cave-container {
-   position: relative;
-   width: 100vw;
-   height: 100vh;
-   overflow: hidden;
-   right: 6%;
-   left: -2%;
+  //  position: relative;
+  //  width: 100vw;
+  //  height: 100vh;
+  //  overflow: hidden;
+  //  right: 6%;
+  //  left: -2%;
    z-index: -1;
    
-   
- 
    @media (max-width: 768px) {
      right: 0;
      left: 0;
@@ -22,7 +20,7 @@
  }
  
  .cave-layer {
-   position: absolute;
+  //  position: absolute;
    top: 0;
    left: 0;
    width: 100vw;
@@ -34,7 +32,7 @@
    will-change: transform, opacity;
    border: none;
    box-sizing: border-box;
-   mask-image: linear-gradient(to bottom, rgba(255, 0, 0, 0) 12%, rgb(0, 0, 0) 25%, rgb(0, 0, 0) 0%);
+  //  mask-image: linear-gradient(to bottom, rgba(255, 0, 0, 0) 12%, rgb(0, 0, 0) 25%, rgb(0, 0, 0) 0%);
  
    &.fixed {
      position: fixed;
