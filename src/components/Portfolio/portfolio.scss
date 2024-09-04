@@ -35,27 +35,32 @@
 .carousel {
   display: flex;
   align-items: center;
-  width: 60%;
+  width: 55%;
   height: 400px;
   position: relative;
 }
 
+.border-slide {
+  background-color: $bg-body;
+  border: 6px solid transparent;
+  border-radius: 40px;
+  background-image:
+  linear-gradient($bg-body, $bg-body),
+  linear-gradient(5deg, #0050c7a8, #0050c7a8, #9756fa, #73e177bd, #006afebb, #35d9ccd0);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  padding: 1%;
+}
+
 .slide {
   background-color: $bg-body;
-  border-radius: 20px;
-  box-shadow: 0 0 4px #D9D9D9;
+  border-radius: 35px;
   width: 100%;
-  height: 95%;
-  border: solid transparent 4px;
-  background-image: 
-  linear-gradient($bg-body, $bg-body),
-  linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe);
-  background-origin: border-box;
-  background-clip: content-box, border-box;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  object-fit: fill;
+  object-fit: cover;
 }
 
 .slide-hidden {
@@ -70,7 +75,7 @@
   border: solid transparent;
   border-radius: 50%;
   background-image: 
-  linear-gradient($bg-body, $main-text-color),
+  linear-gradient($main-text-color, $main-text-color),
   linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe);
   background-origin: border-box;
   background-clip: content-box, border-box;
@@ -92,6 +97,7 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+  margin-bottom: 2%;
 }
 
 

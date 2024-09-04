@@ -22,14 +22,16 @@ export const Carousel = ({ data, onSlideChange }) => {
   return (
     <div className="carousel">
       <BsArrowLeftCircleFill onClick={prevSlide} className="arrow arrow-left" />
-      {data.map((item, idx) => (
-        <img
-          src={item.src}
-          alt={item.alt}
-          key={idx}
-          className={slide === idx ? "slide" : "slide slide-hidden"}
-        />
-      ))}
+      <div className="border-slide">
+        {data.map((item, idx) => (
+          <img
+            src={item.src}
+            alt={item.alt}
+            key={idx}
+            className={slide === idx ? "slide" : "slide slide-hidden"}
+          />
+        ))}
+      </div>
       <BsArrowRightCircleFill onClick={nextSlide} className="arrow arrow-right" />
     </div>
   );
