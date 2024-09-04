@@ -1,11 +1,15 @@
 /* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+@import 'src/styles/variables';
 
-/* Variables */
-$bg-body: #141414;
-$main-text-color: #D9D9D9;
-$main-blue: #09C2FD;
-$main-font: "Roboto Slab", serif;
+.text-home { 
+  position: absolute;
+  font-size: 2em;
+  top: 40%;
+  transform: translateX(110%);
+  z-index: 4;
+}
+
 
 #home {
   position: relative;

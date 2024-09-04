@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
@@ -9,6 +9,8 @@ import { IoIosArrowForward } from "react-icons/io";
 import { TiThListOutline } from "react-icons/ti";
 import { HiArrowLongLeft } from "react-icons/hi2";
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 ChartJS.register(Title, Tooltip, Legend, ArcElement, ChartDataLabels);
 
@@ -185,16 +187,25 @@ const Contact = ({ selectedLanguage, changeLanguage }) => {
     return highestJob ? `${highestJob}` : '';
   };
 
+  useEffect(() => {
+    AOS.init({
+      duration: 1050,
+      once: true,
+    });
+  }, []);
+
   return (
     <section id="contact">
-      <LanguageSwitcher
-        selectedLanguage={selectedLanguage}
-        changeLanguage={changeLanguage}
-      />
-
       {!showChart ? (
         <>
-          <h2>{t('needs')}</h2>
+           <div className="header-container">
+              <h2>{t('needs')}</h2>
+              <LanguageSwitcher
+                selectedLanguage={selectedLanguage}
+                changeLanguage={changeLanguage}
+              />
+            </div>
+
           <div className="needs-head">
             <div>
               <p>{t('describe-needs1')}</p>
@@ -288,7 +299,14 @@ const Contact = ({ selectedLanguage, changeLanguage }) => {
         </>
       ) : (
         <>
-          <h2>{t('result')}</h2>
+           <div className="header-container">
+            <h2>{t('result')}</h2>
+            <LanguageSwitcher
+              selectedLanguage={selectedLanguage}
+              changeLanguage={changeLanguage}
+            />
+          </div>
+
           <div className="highest-job">
             <p> {t('yourNeeds1')} {getHighestPercentageJob()} {t('yourNeeds2')} </p>
           </div>
@@ -313,40 +331,43 @@ const Contact = ({ selectedLanguage, changeLanguage }) => {
             </div>
 
             <form onSubmit={handleSubmit} className="form-container">
-              <div className="form-group">
-                <label htmlFor="email">{t('placeholderEmail')}</label>
-                <input
-                  type="email"
-                  id="email"
-                  value={email}
-                  placeholder={t('placeholderEmail')}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="name">{t('placeholderName')}</label>
-                <input
-                  type="text"
-                  id="name"
-                  value={name}
-                  placeholder={t('placeholderName')}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="description">{t('describe')}</label>
-                <textarea
-                  id="description"
-                  value={description}
-                  placeholder={t('placeholderDescription')}
-                  onChange={(e) => setDescription(e.target.value)}
-                  required
-                />
-              </div>
-              <button type="submit" className='submit'> <img src='images/send-card.svg' alt='postcard' /> {t('request')} </button>
-            </form>
+  <div className="form-group" data-aos="fade-right">
+    <label htmlFor="email">{t('placeholderEmail')}</label>
+    <input
+      type="email"
+      id="email"
+      value={email}
+      placeholder={t('placeholderEmail')}
+      onChange={(e) => setEmail(e.target.value)}
+      required
+    />
+  </div>
+  <div className="form-group" data-aos="fade-left">
+    <label htmlFor="name">{t('placeholderName')}</label>
+    <input
+      type="text"
+      id="name"
+      value={name}
+      placeholder={t('placeholderName')}
+      onChange={(e) => setName(e.target.value)}
+      required
+    />
+  </div>
+  <div className="form-group" data-aos="fade-right">
+    <label htmlFor="description">{t('describe')}</label>
+    <textarea
+      id="description"
+      value={description}
+      placeholder={t('placeholderDescription')}
+      onChange={(e) => setDescription(e.target.value)}
+      required
+    />
+  </div>
+  <button type="submit" className='submit'> 
+    <img src='images/send-card.svg' alt='postcard' /> {t('request')} 
+  </button>
+</form>
+
 
             <div className="arrow-container-restart">
               <div className={restartButtonClass} onClick={handleRestart}>

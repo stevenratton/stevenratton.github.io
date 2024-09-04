@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaHome, FaUser, FaBriefcase, FaFolderOpen, FaEnvelope } from 'react-icons/fa';
+import { BsChevronDown } from 'react-icons/bs';
 import '../Navbar/navbar.scss';
 import { useTranslation } from 'react-i18next';
 
@@ -7,6 +8,7 @@ const Navbar = () => {
   const { t } = useTranslation();
   const [hoveredText, setHoveredText] = useState('');
   const [activeSection, setActiveSection] = useState('');
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const handleMouseEnter = (text) => {
     setHoveredText(text);
@@ -16,9 +18,13 @@ const Navbar = () => {
     setHoveredText('');
   };
 
+  const toggleNavbar = () => {
+    setIsExpanded(!isExpanded);
+  };
+
   const getText = () => {
     return hoveredText || activeSection;
-  }
+  };
 
   const getIconClassName = (text) => {
     if (activeSection === text) {
@@ -80,53 +86,56 @@ const Navbar = () => {
   return (
     <div>
       <div className="hover-text">{getText()}</div>
-      <div className="navbar-text">
-        <div className="navbar">
-          <div className="navbar-icons">
-            <a href="#home" 
-              onMouseEnter={() => handleMouseEnter(homeText)} 
-              onMouseLeave={handleMouseLeave}
-              className="nav-link"
-            >
-              <FaHome className={getIconClassName(homeText)} />
-            </a>
-            <a 
-              href="#about" 
-              onMouseEnter={() => handleMouseEnter(aboutText)} 
-              onMouseLeave={handleMouseLeave}
-              className="nav-link"
-            >
-              <FaUser className={getIconClassName(aboutText)} />
-            </a>
-            <a 
-              href="#work" 
-              onMouseEnter={() => handleMouseEnter(workText)} 
-              onMouseLeave={handleMouseLeave}
-              className="nav-link"
-            >
-              <FaBriefcase className={getIconClassName(workText)} />
-            </a>
-            <a 
-              href="#portfolio" 
-              onMouseEnter={() => handleMouseEnter(portfolioText)} 
-              onMouseLeave={handleMouseLeave}
-              className="nav-link"
-            >
-              <FaFolderOpen className={getIconClassName(portfolioText)} />
-            </a>
-            <a 
-              href="#contact" 
-              onMouseEnter={() => handleMouseEnter(contactText)} 
-              onMouseLeave={handleMouseLeave}
-              className="nav-link"
-            >
-              <FaEnvelope className={getIconClassName(contactText)} />
-            </a>
-          </div>
+      <div className={`navbar ${isExpanded ? 'expanded' : ''}`}>
+        <div className="navbar-icons">
+          <a
+            href="#home"
+            onMouseEnter={() => handleMouseEnter(homeText)}
+            onMouseLeave={handleMouseLeave}
+            className={`nav-link ${activeSection === homeText ? 'active' : ''}`}
+          >
+            <FaHome className={getIconClassName(homeText)} />
+          </a>
+          <a
+            href="#about"
+            onMouseEnter={() => handleMouseEnter(aboutText)}
+            onMouseLeave={handleMouseLeave}
+            className={`nav-link ${activeSection === aboutText ? 'active' : ''}`}
+          >
+            <FaUser className={getIconClassName(aboutText)} />
+          </a>
+          <a
+            href="#work"
+            onMouseEnter={() => handleMouseEnter(workText)}
+            onMouseLeave={handleMouseLeave}
+            className={`nav-link ${activeSection === workText ? 'active' : ''}`}
+          >
+            <FaBriefcase className={getIconClassName(workText)} />
+          </a>
+          <a
+            href="#portfolio"
+            onMouseEnter={() => handleMouseEnter(portfolioText)}
+            onMouseLeave={handleMouseLeave}
+            className={`nav-link ${activeSection === portfolioText ? 'active' : ''}`}
+          >
+            <FaFolderOpen className={getIconClassName(portfolioText)} />
+          </a>
+          <a
+            href="#contact"
+            onMouseEnter={() => handleMouseEnter(contactText)}
+            onMouseLeave={handleMouseLeave}
+            className={`nav-link ${activeSection === contactText ? 'active' : ''}`}
+          >
+            <FaEnvelope className={getIconClassName(contactText)} />
+          </a>
         </div>
+        <BsChevronDown className="arrow-icon" onClick={toggleNavbar} />
       </div>
-    </div>   
+    </div>
   );
 };
 
 export default Navbar;
+
+
+
