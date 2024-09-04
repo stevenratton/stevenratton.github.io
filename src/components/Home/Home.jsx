@@ -21,8 +21,8 @@ const Home = () => {
 
   return (
     <section id='home'>
-      <City setIsScrolled={setIsScrolled}/>
-      {isEnglish ? (
+      {/* <City setIsScrolled={setIsScrolled}/> */}
+      {/* {isEnglish ? (
         <div className='text-home'>
           <h1>{t('head1')} <span className='colored-text'> {t('head2')} </span> {t('head3')} </h1>
           <h1> {t('head4')} </h1>
@@ -32,17 +32,17 @@ const Home = () => {
           <h1> {t('head1')} </h1>
           <h1> <span className='colored-text'> {t('head2')} </span> {t('head3')} </h1>
         </div>
-      )}
+      )} */}
 
       <div className='header-button'>
         <div className='header'>
-          <img 
-            src='/images/logo-head.svg' 
-            alt='Logo' 
-            className={`logo-head ${isScrolled ? 'hidden' : ''}`} 
+          <img
+            src='/images/logo-head.svg'
+            alt='Logo'
+            className={`logo-head ${isScrolled ? 'hidden' : ''}`}
           />
         </div>
-
+      
         <div className='bottom-home'>
           <div className="button-container">
             <button className="buttontext" onClick={handleClick}>
@@ -58,6 +58,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+
     </section>
   );
 };
