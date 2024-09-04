@@ -32,6 +32,25 @@
 }
 
 /* RESPONSIVE */
+@media (max-width: 1440px) {
+ .background-layer {
+  background-size: 90%;
+
+  &.layer1 {
+    margin: 3% 5%;
+    width: 80%;
+  }
+
+  &.layer2 {
+    margin: 12% 0;
+  }
+
+  &.layer3 {
+    margin: 18% 0;
+  }
+ }
+}
+
 @media (max-width: 810px) {
     .background-layer {
       background-size: contain;

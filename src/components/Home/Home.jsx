@@ -21,8 +21,8 @@ const Home = () => {
 
   return (
     <section id='home'>
-      <City setIsScrolled={setIsScrolled}/>
-    
+      <City setIsScrolled={setIsScrolled} />
+
       <div className='header-button'>
         <div className='header'>
           <img
@@ -33,17 +33,17 @@ const Home = () => {
         </div>
 
         {isEnglish ? (
-        <div className='text-home'>
-          <h1>{t('head1')} <span className='colored-text'> {t('head2')} </span> {t('head3')} </h1>
-          <h1> {t('head4')} </h1>
-        </div>
-      ) : (
-        <div className='text-home'>
-          <h1> {t('head1')} </h1>
-          <h1> <span className='colored-text'> {t('head2')} </span> {t('head3')} </h1>
-        </div>
-      )}
-      
+          <div className='text-home'>
+            <h1>{t('head1')} <span className='colored-text'> {t('head2')} </span> {t('head3')} </h1>
+            <h1> {t('head4')} </h1>
+          </div>
+        ) : (
+          <div className='text-home'>
+            <h1> {t('head1')} </h1>
+            <h1> <span className='colored-text'> {t('head2')} </span> {t('head3')} </h1>
+          </div>
+        )}
+
         <div className='bottom-home'>
           <div className="button-container">
             <button className="buttontext" onClick={handleClick}>
