@@ -9,16 +9,21 @@
 }
 
 .needs-head {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+  position: absolute;
+  top: 50px;
+  left: 15%;
+  text-align: left; /* Vous pouvez aussi utiliser `center` ou `right` */ 
+  font-size: 20px; /* Ajustez selon la taille du texte souhaitée */
+  line-height: 1.5; /* Espace entre les lignes */
+  margin-top: 1%;
 }
 
 .button-container2 {
   right: 2%;
   position: absolute;
+  top: 15%; /* Ajustez la distance depuis le haut */
+  left: 105%; /* Ajustez la distance depuis la droite */
+  width: 60%;
 }
 
 .buttontext {
@@ -39,6 +44,7 @@
   justify-content: center;
   width: 100%;
   height: auto;
+  margin-top: 5%;
 }
 
 .checklist {
@@ -59,7 +65,7 @@
   margin: 2%;
 
   label {
-    font-size: 14px;
+    font-size: 16px;
     font-family: $main-font;
   }
 }

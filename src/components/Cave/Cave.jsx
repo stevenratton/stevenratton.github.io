@@ -14,7 +14,7 @@ const Cave = () => {
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      const maxScroll = 999; // Point où l'image devient fixe
+      const maxScroll = 1250; // Point où l'image devient fixe
 
       if (scrollPosition > maxScroll) {
         setIsFixed(true);
