@@ -1,0 +1,21 @@
+body {
+  cursor: none;
+}
+
+.cursor {
+  position: fixed;
+  border-radius: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  pointer-events: none;
+  left: -100px;
+  top: 50%;
+  background-color: white;
+  z-index: 10000;
+  height: 30px;
+  width: 30px;
+  transition: all 110ms ease-out;
+  box-shadow: 0 0 15px rgb(255, 255, 255),
+              0 0 30px rgb(255, 255, 255),
+              0 0 45px rgb(255, 255, 255),
+              0 0 60px rgb(255, 255, 255),
+}
