@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import './cursor.scss';
 
 const Cursor = () => {
-  const cursorRef = useRef(null); // Référence au div du curseur
+  const cursorRef = useRef(null);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -15,7 +15,7 @@ const Cursor = () => {
     document.addEventListener("mousemove", handleMouseMove);
 
     return () => {
-      document.removeEventListener("mousemove", handleMouseMove); // Nettoyage
+      document.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
 
