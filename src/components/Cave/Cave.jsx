@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './cave.scss';
 
-const Cave = () => {
+const Cave = ({ showLogo }) => {  // Ajout du prop showLogo
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isFixed, setIsFixed] = useState(false);
   const [opacityLogoHead, setOpacityLogoHead] = useState(0);
@@ -14,15 +14,13 @@ const Cave = () => {
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      const maxScroll = 990; // Point où l'image devient fixe
+      const maxScroll = 1250; // Point où l'image devient fixe
 
       if (scrollPosition > maxScroll) {
         setIsFixed(true);
-        setOpacityLogoHead(1); // Afficher le logo et le paragraphe
         setOpacityLayer3(0); // Masquer le layer 3
       } else {
         setIsFixed(false);
-        setOpacityLogoHead(0); // Cacher le logo et le paragraphe
         setOpacityLayer3(1); // Afficher le layer 3
       }
     };
@@ -35,6 +33,15 @@ const Cave = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  useEffect(() => {
+    // Contrôle de l'affichage du logo via le prop showLogo
+    if (showLogo) {
+      setOpacityLogoHead(1); // Afficher le logo
+    } else {
+      setOpacityLogoHead(0); // Cacher le logo
+    }
+  }, [showLogo]);
 
   return (
     <div id="cave-container">
@@ -50,6 +57,7 @@ const Cave = () => {
         <p> BUSINESS ANALYST / UX DESIGNER <br />FREELANCE </p>
       </div>
 
+      {/* Les autres layers */}
       <div
         className={`cave-layer layer-1 ${isFixed ? 'fixed' : ''}`}
         style={{ transform: `translate(${mousePos.x * 0.020}px, ${mousePos.y * 0.020}px)` }}
@@ -63,7 +71,7 @@ const Cave = () => {
         style={{
           transform: `translate(${mousePos.x * 0.020}px, ${mousePos.y * 0.020}px)`,
           opacity: opacityLayer3,
-          transition: 'opacity 0.5s ease-in-out' // Transition fluide pour le layer 3
+          transition: 'opacity 0.5s ease-in-out',
         }}
       ></div>
       <div
@@ -83,5 +91,4 @@ const Cave = () => {
 };
 
 export default Cave;
-
 

@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { Observer } from 'gsap/Observer';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+import '../pages/singlePage.scss';
 
 import Navbar from '../components/Navbar/Navbar.jsx';
 import Home from '../components/Home/Home.jsx';
@@ -19,124 +20,130 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
   const sections = useRef([]);
   const [currentSection, setCurrentSection] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
-  const scrollDelay = 500; // Délai pour éviter le défilement trop rapide
+  const [showLogo, setShowLogo] = useState(false); 
+  const scrollDelay = 500;
 
   useEffect(() => {
     let scrollTimeout = null;
-
+    let autoScrollTimeout = null; 
+  
     const scrollToSection = (index) => {
       if (index >= 0 && index < sections.current.length) {
+        // Animer le défilement vers la section cible
         gsap.to(window, {
-          scrollTo: { y: sections.current[index], autoKill: false, ease: "power1.inOut" },
+          scrollTo: { y: sections.current[index], autoKill: false, ease: 'power1.inOut' },
           duration: 1,
         });
+
+        // Gérer l'opacité des sections avec GSAP, mais ignorer "Cave" (index 1)
+        sections.current.forEach((section, i) => {
+          if (i === index) {
+            gsap.to(section, { opacity: 1, duration: 0.5, ease: 'power1.inOut' });
+            section.classList.add('active'); // Ajouter la classe active
+          } else if (i !== 1) { // Ignorer l'index 1 (Cave)
+            gsap.to(section, { opacity: 0, duration: 0.5, ease: 'power1.inOut' });
+            section.classList.remove('active'); // Retirer la classe active
+          }
+        });
+
         setCurrentSection(index);
         setIsScrolling(true);
         clearTimeout(scrollTimeout);
         scrollTimeout = setTimeout(() => setIsScrolling(false), scrollDelay);
+
+        // Afficher le logo si on atteint la section Cave
+        if (index === 1) { 
+          setShowLogo(true);
+          clearTimeout(autoScrollTimeout);
+          autoScrollTimeout = setTimeout(() => {
+            scrollToSection(2); 
+          }, 1500);
+        } else {
+          setShowLogo(false);
+        }
       }
     };
-
+  
     const handleScroll = (event) => {
       if (isScrolling) return;
-
+  
       if (event.deltaY > 0) {
-        // Scroll Down
         if (currentSection < sections.current.length - 1) {
-          console.log('Scrolling down to section:', currentSection + 1);
           scrollToSection(currentSection + 1);
         }
       } else if (event.deltaY < 0) {
-        // Scroll Up
         if (currentSection > 0) {
-          console.log('Scrolling up to section:', currentSection - 1);
           scrollToSection(currentSection - 1);
         }
       }
     };
-
+  
     Observer.create({
       target: window,
-      type: "wheel,touch",
+      type: 'wheel,touch',
       onWheel: handleScroll,
       onTouch: handleScroll,
       tolerance: 10,
     });
-
+  
     const handleKeyDown = (event) => {
       if (event.key === 'ArrowDown') {
         if (currentSection < sections.current.length - 1) {
-          console.log('Key down: Scrolling to section:', currentSection + 1);
           scrollToSection(currentSection + 1);
         }
       } else if (event.key === 'ArrowUp') {
         if (currentSection > 0) {
-          console.log('Key up: Scrolling to section:', currentSection - 1);
           scrollToSection(currentSection - 1);
         }
       }
     };
-
+  
     window.addEventListener('keydown', handleKeyDown);
-
+  
     return () => {
-      Observer.getAll().forEach(observer => observer.kill());
+      Observer.getAll().forEach((observer) => observer.kill());
       window.removeEventListener('keydown', handleKeyDown);
+      clearTimeout(autoScrollTimeout);
     };
   }, [currentSection, isScrolling]);
-
+  
   const addToRefs = (el) => {
     if (el && !sections.current.includes(el)) {
       sections.current.push(el);
-      console.log('Section added:', el);
     }
   };
 
   return (
     <div className='website-content'>
       <Navbar />
-      {/* Home section */}
-      <div ref={addToRefs}>
+      <div className="section-wrapper" ref={addToRefs}>
         <Home selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
       </div>
-
-      {/* Cave section - séparée de About */}
-      <div ref={addToRefs}>
-        <Cave />
+      <div className="section-wrapper" ref={addToRefs}>
+        <Cave showLogo={showLogo} />
       </div>
-
-      {/* About section */}
-      <div ref={addToRefs}>
+      <div className="section-wrapper" ref={addToRefs}>
         <About selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
       </div>
-
-      {/* Work section */}
-      <div ref={addToRefs}>
+      <div className="section-wrapper" ref={addToRefs}>
         <Work selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
       </div>
-
-      {/* Activities section */}
-      <div ref={addToRefs}>
+      <div className="section-wrapper" ref={addToRefs}>
         <Activities selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
       </div>
-
-      {/* Portfolio section */}
-      <div ref={addToRefs}>
+      <div className="section-wrapper" ref={addToRefs}>
         <Portfolio selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
       </div>
-
-      {/* Contact section */}
-      <div ref={addToRefs}>
+      <div className="section-wrapper" ref={addToRefs}>
         <Contact selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
       </div>
-
-      {/* Footer */}
       <Footer selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
     </div>
   );
 };
 
 export default SinglePage;
+
 
 
 
