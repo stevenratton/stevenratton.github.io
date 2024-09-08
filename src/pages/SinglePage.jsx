@@ -3,7 +3,6 @@ import gsap from 'gsap';
 import { Observer } from 'gsap/Observer';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import '../pages/singlePage.scss';
-
 import Navbar from '../components/Navbar/Navbar.jsx';
 import Home from '../components/Home/Home.jsx';
 import Cave from '../components/Cave/Cave.jsx';
@@ -29,20 +28,18 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
   
     const scrollToSection = (index) => {
       if (index >= 0 && index < sections.current.length) {
-        // Animer le défilement vers la section cible
         gsap.to(window, {
           scrollTo: { y: sections.current[index], autoKill: false, ease: 'power1.inOut' },
           duration: 1,
         });
 
-        // Gérer l'opacité des sections avec GSAP, mais ignorer "Cave" (index 1)
         sections.current.forEach((section, i) => {
           if (i === index) {
             gsap.to(section, { opacity: 1, duration: 0.5, ease: 'power1.inOut' });
-            section.classList.add('active'); // Ajouter la classe active
-          } else if (i !== 1) { // Ignorer l'index 1 (Cave)
+            section.classList.add('active');
+          } else if (i !== 1) { 
             gsap.to(section, { opacity: 0, duration: 0.5, ease: 'power1.inOut' });
-            section.classList.remove('active'); // Retirer la classe active
+            section.classList.remove('active');
           }
         });
 
@@ -51,7 +48,6 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
         clearTimeout(scrollTimeout);
         scrollTimeout = setTimeout(() => setIsScrolling(false), scrollDelay);
 
-        // Afficher le logo si on atteint la section Cave
         if (index === 1) { 
           setShowLogo(true);
           clearTimeout(autoScrollTimeout);
@@ -116,7 +112,7 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
   return (
     <div className='website-content'>
       <Navbar />
-      <div className="section-wrapper" ref={addToRefs}>
+       <div className="section-wrapper" ref={addToRefs}>
         <Home selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
       </div>
       <div className="section-wrapper" ref={addToRefs}>
@@ -125,13 +121,13 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
       <div className="section-wrapper" ref={addToRefs}>
         <About selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
       </div>
-      <div className="section-wrapper" ref={addToRefs}>
+      <div className="section-wrapper sw-work" ref={addToRefs}>
         <Work selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
       </div>
-      <div className="section-wrapper" ref={addToRefs}>
+      <div className="section-wrapper sw-act" ref={addToRefs}>
         <Activities selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
       </div>
-      <div className="section-wrapper" ref={addToRefs}>
+      <div className="section-wrapper sw-port" ref={addToRefs}>
         <Portfolio selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
       </div>
       <div className="section-wrapper" ref={addToRefs}>

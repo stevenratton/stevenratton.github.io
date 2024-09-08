@@ -43,12 +43,21 @@
      z-index: 0;
      transition: none;
    }
+
+   @media (max-width: 480px) {
+    width: 80vw;
+    position: relative;
+  }
  }
  
  /*fond*/
  .layer-1 {
    background-image: url('/images/Cave/cave-bg.svg');
    z-index: 1;
+
+   @media (max-width: 480px) {
+    width: 120vw;
+  }
  }
 
  /*contour*/
