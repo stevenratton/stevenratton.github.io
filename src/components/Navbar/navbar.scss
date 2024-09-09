@@ -145,7 +145,6 @@
     width: 6%;
     height: 43%;
     border-radius: 20px;
-    top: 15%;
   }
 
   .nav-link {
@@ -158,19 +157,8 @@
   }
 
   .hover-text {
-    top: 10%;
+    top: 20%;
     transform: translate(45%, -20%);
-  }
-}
-
-@media (max-width: 1280px) {
-  .navbar {
-    top: 15%;
-  }
-
-  .hover-text {
-    top: 10%;
-    transform: translate(30%, -20%);
   }
 }
 
