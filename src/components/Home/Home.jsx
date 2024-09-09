@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from '../LangSwitcher/LangSwitcher.jsx';
 import '../Home/home.scss';
-import { TiThListOutline } from "react-icons/ti";
+import { FaRegRectangleList } from "react-icons/fa6";
 import { IoIosArrowForward } from "react-icons/io";
 import City from '../City/City.jsx';
 
@@ -51,7 +51,7 @@ const Home = () => {
               {t('contactMe')} <IoIosArrowForward />
             </button>
             <button className="button-text" onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>
-              <TiThListOutline /> {t('wishlist')} <IoIosArrowForward />
+              <FaRegRectangleList /> {t('wishlist')} <IoIosArrowForward />
             </button>
           </div>
           <div className='logo-certif'>
