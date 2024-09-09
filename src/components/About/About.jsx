@@ -1,7 +1,6 @@
 import React from 'react';
 import './about.scss';
 import { useTranslation } from 'react-i18next';
-import Cave from '../Cave/Cave';
 
 const About = () => {
   const { t } = useTranslation();
@@ -16,8 +15,6 @@ const About = () => {
 
   return (
     <section id="about">
-      <Cave />
-
       <div className="about-content">
         <div className="about-avatar">
           <img src="/images/avatar.svg" alt="avatar" className="avatar" />

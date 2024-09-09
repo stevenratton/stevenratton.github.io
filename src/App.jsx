@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import SinglePage from './pages/SinglePage';
 import './App.scss';
+import Cursor from './components/Cursor/Cursor';
 
 function App() {
   const { i18n } = useTranslation();
@@ -15,17 +16,24 @@ function App() {
 
   return (
     <>
+      <Cursor />
       <Routes>
-        <Route path="/" element={<SinglePage 
-          selectedLanguage={selectedLanguage} 
-          changeLanguage={changeLanguage}
-        />} />
+        <Route
+          path="/"
+          element={
+            <SinglePage
+              selectedLanguage={selectedLanguage}
+              changeLanguage={changeLanguage}
+            />
+          }
+        />
       </Routes>
     </>
   );
 }
 
 export default App;
+
 
 
 

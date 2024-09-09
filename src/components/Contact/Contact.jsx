@@ -314,7 +314,7 @@ const Contact = ({ selectedLanguage, changeLanguage }) => {
           <div className='result'>
             <div className="chart-container">
               <div className="chart-wishlist">
-                <Doughnut 
+                <Doughnut
                   data={chartData} 
                   options={chartOptions}
                 />
@@ -331,43 +331,42 @@ const Contact = ({ selectedLanguage, changeLanguage }) => {
             </div>
 
             <form onSubmit={handleSubmit} className="form-container">
-  <div className="form-group" data-aos="fade-right">
-    <label htmlFor="email">{t('placeholderEmail')}</label>
-    <input
-      type="email"
-      id="email"
-      value={email}
-      placeholder={t('placeholderEmail')}
-      onChange={(e) => setEmail(e.target.value)}
-      required
-    />
-  </div>
-  <div className="form-group" data-aos="fade-left">
-    <label htmlFor="name">{t('placeholderName')}</label>
-    <input
-      type="text"
-      id="name"
-      value={name}
-      placeholder={t('placeholderName')}
-      onChange={(e) => setName(e.target.value)}
-      required
-    />
-  </div>
-  <div className="form-group" data-aos="fade-right">
-    <label htmlFor="description">{t('describe')}</label>
-    <textarea
-      id="description"
-      value={description}
-      placeholder={t('placeholderDescription')}
-      onChange={(e) => setDescription(e.target.value)}
-      required
-    />
-  </div>
-  <button type="submit" className='submit'> 
-    <img src='images/send-card.svg' alt='postcard' /> {t('request')} 
-  </button>
-</form>
-
+              <div className="form-group" data-aos="fade-right">
+                <label htmlFor="email">{t('placeholderEmail')}</label>
+                <input
+                  type="email"
+                  id="email"
+                  value={email}
+                  placeholder={t('placeholderEmail')}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="form-group" data-aos="fade-left">
+                <label htmlFor="name">{t('placeholderName')}</label>
+                <input
+                  type="text"
+                  id="name"
+                  value={name}
+                  placeholder={t('placeholderName')}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="form-group" data-aos="fade-right">
+                <label htmlFor="description">{t('describe')}</label>
+                <textarea
+                  id="description"
+                  value={description}
+                  placeholder={t('placeholderDescription')}
+                  onChange={(e) => setDescription(e.target.value)}
+                  required
+                />
+              </div>
+              <button type="submit" className='submit'> 
+                <img src='images/send-card.svg' alt='postcard' /> {t('request')} 
+              </button>
+            </form>
 
             <div className="arrow-container-restart">
               <div className={restartButtonClass} onClick={handleRestart}>

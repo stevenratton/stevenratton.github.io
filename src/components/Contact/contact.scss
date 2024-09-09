@@ -6,39 +6,80 @@
   margin-top: 10%;
   position: relative;
   z-index: 10;
+  margin-left: 6%;
 }
 
 .needs-head {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+  position: absolute;
+  top: 50px;
+  left: 16%;
+  text-align: left;
+  font-size: 20px;
+  line-height: 1.5;
+  margin-top: 2%;
+
+  @media (max-width: 480px) {
+    left: 19%;
+    font-size: 18px;
+    margin-top: 2%;
+    width: 100vh;
+  }
 }
 
 .button-container2 {
   right: 2%;
   position: absolute;
+  top: 30%;
+  left: 102%;
+  width: 60%;
+
+  @media (max-width: 480px) {
+    top: 35%;
+    width: 30%;
+  }
 }
 
 .buttontext {
   border: 3px solid transparent;
   background-image:
-    linear-gradient($bg-body, $bg-body),
+    linear-gradient(#1E1E1E, #1E1E1E),
     linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe);
   background-origin: border-box;
   background-clip: padding-box, border-box;
-  border-radius: 25px;
+  border-radius: 50px;
+  padding: 3%;
   gap: 10px;
   cursor: pointer;
+
+  @media (max-width: 480px) {
+    padding: 6%;
+    border-radius: 50px;
+  }
 }
 
 /* WISHLIST */
 .checklist-container {
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 160vh;
   height: auto;
+  margin-top: 5%;
+  margin-left: 1%;
+
+  @media (max-width: 1400px) {
+    margin-top: 6%;
+    width: 140vh;
+  }
+
+  @media (max-width: 1280px) {
+    margin-top: 6%;
+    width: 140vh;
+  }
+
+  @media (max-width: 480px) {
+    margin-top: 30%;
+    width: 150vh;
+  }
 }
 
 .checklist {
@@ -54,12 +95,20 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
-  padding: 2% 3% ;
+  padding: 2% 2.5%;
   width: 65%;
   margin: 2%;
 
+  @media (max-width: 480px) {
+    padding: 4% 5%;
+    margin-left: -4%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+
   label {
-    font-size: 14px;
+    font-size: 16px;
     font-family: $main-font;
   }
 }
@@ -67,9 +116,14 @@
 .option {
   display: flex;
   position: relative;
-  padding-left: 8%;
+  padding-left: 16%;
   cursor: pointer;
-  margin: 8px;
+  margin: 2%;
+  top: 1.7%;
+
+  @media (max-width: 480px) {
+    margin: 1%;
+  }
 }
 
 /* Masquer la vraie checkbox */
@@ -127,14 +181,15 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 2%;
+  margin-right: 4%;
 }
 
 .buttonwish {
   display: flex;
   align-items: center;
-  border-radius: 25px;
   background: $bg-body;
-  padding: 0.4% 0.6%;
+  border-radius: 50px;
+  padding: 1.1% 1.3%;
   cursor: pointer;
   border: 2px solid transparent;
   background-image:
@@ -142,6 +197,11 @@
     linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe);
   background-origin: border-box;
   background-clip: padding-box, border-box;
+
+  @media (max-width: 480px) {
+    padding: 4% 6%;
+    margin-left: 90vh;
+  }
 }
 
 .buttonwish.disabled {
@@ -151,11 +211,12 @@
 }
 
 .icon1 {
-  margin-right: 0.5rem;
+  margin-right: 0.7rem;
 }
 
 .icon2 {
-  margin-left: 0.5rem;
+  margin-left: 0.3rem;
+  margin-top: 3%;
 }
 
 /* GRAPHIQUE */
@@ -183,11 +244,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 20px;
+  margin-bottom: 3%;
 }
 
 .chart-wishlist {
   width: 100%;
-  height: 300px;
+  height: 320px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -199,6 +262,7 @@
   justify-content: center;
   align-items: start;
   gap: 5px;
+  font-size: 18px;
 }
 
 .label-chart {
@@ -220,7 +284,7 @@
   display: flex;
   margin-top: 6%;
   margin-bottom: 2%;
-  font-size: 14px;
+  font-size: 16px;
   font-family: $main-font;
 }
 
@@ -233,6 +297,7 @@
   padding: 3%;
   color: $main-text-color;
   font: $main-font;
+  font-size: 16px;
 }
 
 .form-group textarea {
@@ -244,6 +309,7 @@
   padding: 3%;
   color: $main-text-color;
   font: $main-font;
+  font-size: 16px;
 }
 
 .form-group input::placeholder,
@@ -252,19 +318,21 @@
   font-family: $main-font;
   font-style: italic;
   opacity: 0.6;
+  font-size: 16px;
 }
 
 .submit {
   color: $main-text-color;
   font-family: $main-font;
-  width: 50%;
-  padding: 2%;
+  font-size: 16px;
+  width: 60%;
+  padding: 4%;
   margin-top: 4%;
-  margin-left: 32%;
+  margin-left: 26%;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  border-radius: 25px;
+  border-radius: 50px;
   background: $bg-body;
   cursor: pointer;
   border: 1px solid transparent;
@@ -277,7 +345,7 @@
 
 .arrow-container-restart {
   position: absolute;
-  bottom: 0;
+  top : 0;
   left: 1%;
   padding: 2%;
 }
@@ -290,7 +358,7 @@
   &::after {
     content: 'Back to wishlist'; // Texte par défaut
     position: absolute;
-    bottom: -110%;
+    top : -120%;
     left: 100%;
     transform: translateX(-50%);
     background-color: transparent;
@@ -323,4 +391,13 @@
   justify-content: space-around;
   margin-bottom: $header-title;
   font-size: $header-size;
+}
+
+.highest-job {
+  position: absolute;
+  top: 50px;
+  left: 30%;
+  font-size: 20px;
+  line-height: 1.5;
+  margin-top: 2%;
 }

@@ -70,7 +70,7 @@ const resources = {
     "tests" : "Define the tests to be carried out",
     "follow" : "Functional acceptance follow-up",
     "project" : "Project management",
-    "valWishlist" : "Validate my needs",
+    "valWishlist" : "Validate",
 
     "POS" : "Project Owner Support",
     "FC" : "Functional Consultant",
@@ -156,7 +156,7 @@ const resources = {
     "tests" : "Définir les tests à mener",
     "follow" : "Suivi de recette fonctionnelle",
     "project" : "Gestion projet",
-    "valWishlist" : "Valider mes besoins",
+    "valWishlist" : "Valider",
 
     "POS" : "Support Responsable de Projet",
     "FC" : "Consultant Fonctionnel",

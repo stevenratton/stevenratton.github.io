@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import LanguageSwitcher from '../LangSwitcher/LangSwitcher.jsx';
 import { Doughnut } from 'react-chartjs-2';
 import '../Work/work.scss';
@@ -6,12 +6,12 @@ import { useTranslation } from 'react-i18next';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
-// Enregistrement des composants nécessaires
 ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
 const Work = () => {
   const { t, i18n } = useTranslation();
   const [hoveredIndex, setHoveredIndex] = useState(0);
+  const sectionRef = useRef(null);
 
   const data = {
     labels: [
@@ -38,7 +38,7 @@ const Work = () => {
         borderWidth: 0,
         hoverOffset: 25,
         spacing: 10,
-        offset: [30, 0, 0, 0, 0, 0, 0], // Détache le segment "energy"
+        offset: [30, 0, 0, 0, 0, 0, 0],
       },
     ],
   };
@@ -67,14 +67,14 @@ const Work = () => {
         color: 'transparent',
       },
     },
-    rotation: -90, // Commencer le demi-cercle à 180 degrés
-    circumference: 180, // Afficher seulement la moitié du cercle
+    rotation: -90,
+    circumference: 180,
     onHover: (event, chartElement) => {
       if (chartElement.length > 0) {
         const { index } = chartElement[0];
         setHoveredIndex(index);
       } else {
-        setHoveredIndex(0); // Toujours revenir au segment "energy"
+        setHoveredIndex(0);
       }
     },
   };
@@ -92,7 +92,7 @@ const Work = () => {
   const experienceYears = [4, 2, 1, 1, 1, 1, 1];
 
   useEffect(() => {
-    setHoveredIndex(0); // Mettre en avant le segment "energy" au chargement
+    setHoveredIndex(0);
   }, []);
 
   const handleLanguageChange = (lng) => {
@@ -100,7 +100,7 @@ const Work = () => {
   };
 
   return (
-    <section id="work">
+    <section id="work" ref={sectionRef}>
       <div className="header-container">
         <h2>{t('sectors')}</h2>
         <LanguageSwitcher 
@@ -129,4 +129,6 @@ const Work = () => {
 };
 
 export default Work;
+
+
 
