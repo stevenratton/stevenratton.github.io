@@ -46,11 +46,11 @@ const Home = () => {
 
         <div className='bottom-home'>
           <div className="button-container">
-            <button className="buttontext" onClick={handleClick}>
+            <button className="button-text" onClick={handleClick}>
               <img src='/images/logotel.svg' alt='Logo certified' className='logo' />
               {t('contactMe')} <IoIosArrowForward />
             </button>
-            <button className="buttontext" onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>
+            <button className="button-text" onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>
               <TiThListOutline /> {t('wishlist')} <IoIosArrowForward />
             </button>
           </div>

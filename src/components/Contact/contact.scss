@@ -41,9 +41,7 @@
 
 .buttontext {
   border: 3px solid transparent;
-  background-image:
-    linear-gradient(#1E1E1E, #1E1E1E),
-    linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe);
+  background-image: $gradient-border;
   background-origin: border-box;
   background-clip: padding-box, border-box;
   border-radius: 50px;
