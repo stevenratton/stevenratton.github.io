@@ -52,6 +52,10 @@ const resources = {
     "project1" : "FIFA Club Pro competition platform to promote e-Sport in amateur clubs in France. (Sold)",
     "project2" : "Market place and rental functionalities UX Rework for Openloot platform users.",
     "project3" : "Time Explorer Single-play mode research and prototype for Big Time MMORPG Web3 game.",
+    "project4" : "Research into identity issues and on-chain reputation systems and Echo Attestation dApp prototyping.",
+    "project5" : "Research into on-chain Optimism identity issues for Dynamic Delegate Attestations.",
+    "ressource" : "Resource",
+    "ressource2" : "Resource 2",
 
     "needs" : "YOUR NEEDS",
     "describe-needs1" : "You can check whether your requirements match the profile you're looking for before contacting me.",
@@ -140,6 +144,10 @@ const resources = {
     "project1" : "Plateforme de compétition FIFA Club Pro visant à promouvoir l'e-Sport dans les clubs amateurs en France. (Sold)",
     "project2" : "Rework de la marketplace et des fonctionnalités de locations pour les utilisateurs de la plateforme Openloot.",
     "project3" : "Recherche et prototypage du mode solo Time Explorer pour le MMORPG Web3 Big Time.",
+    "project4" : "Recherche sur les problématiques d'identité et système de réputation on-chain et prototypage de la dApp Echo Attestation.",
+    "project5" : "Recherche sur les problématiques d'identité on-chain Optimism pour les Attestations de délégués dynamiques.",
+    "ressource" : "Ressource",
+    "ressource2" : "Ressource 2",
 
     "needs" : "VOS BESOINS",
     "describe-needs1" : "Vous pouvez vérifier si vos besoins correspondent au profil recherché avant de me contacter.",
