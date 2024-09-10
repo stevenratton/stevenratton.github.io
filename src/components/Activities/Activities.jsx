@@ -1,24 +1,15 @@
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
-import LanguageSwitcher from '../LangSwitcher/LangSwitcher.jsx';
 import { useTranslation } from 'react-i18next';
 import '../Activities/activities.scss';
 
 const Activities = () => {
-  const { t, i18n } = useTranslation();
-
-  const handleLanguageChange = (lng) => {
-    i18n.changeLanguage(lng);
-  };
+  const { t } = useTranslation();
 
   return(
     <div className='activities'>
       <div className="header-container">
         <h2>{t('activities')}</h2>
-        <LanguageSwitcher 
-              selectedLanguage={i18n.language} 
-              changeLanguage={handleLanguageChange} 
-        />
       </div>
 
       <div className="act-cards-container">

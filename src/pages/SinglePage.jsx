@@ -12,6 +12,7 @@ import Activities from '../components/Activities/Activities.jsx';
 import Portfolio from '../components/Portfolio/Portfolio.jsx';
 import Contact from '../components/Contact/Contact.jsx';
 import Footer from '../components/Footer/Footer.jsx';
+import LangSwitcher from '../components/LangSwitcher/LangSwitcher.jsx';
 
 gsap.registerPlugin(Observer, ScrollToPlugin);
 
@@ -25,7 +26,7 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
   useEffect(() => {
     let scrollTimeout = null;
     let autoScrollTimeout = null; 
-  
+
     const scrollToSection = (index) => {
       if (index >= 0 && index < sections.current.length) {
         gsap.to(window, {
@@ -111,6 +112,7 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
 
   return (
     <div className='website-content'>
+      <LangSwitcher selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
       <Navbar />
       <div className="section-wrapper" ref={addToRefs}>
         <Home selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />

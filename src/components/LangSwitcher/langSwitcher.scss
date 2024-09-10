@@ -2,11 +2,12 @@
 @import 'src/styles/variables';
 
 .lang-btn {
-  position: absolute;
+  position: fixed;
   display: flex;
   align-items: center;
-  right: 1%;
-  margin-top: 1rem;
+  right: 1rem;
+  top: 1rem;
+  z-index: 1000;
 
   button {
     position: relative;
@@ -15,7 +16,6 @@
     color: $main-text-color;
     cursor: none;
     font-size: 1.3rem;
-    font-weight: bold;
     padding-left: 1.5rem;
     margin: 0;
     font-family: $main-font;
