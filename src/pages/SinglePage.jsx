@@ -74,7 +74,7 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
         }
       }
     };
-  
+
     Observer.create({
       target: window,
       type: 'wheel,touch',
@@ -82,7 +82,7 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
       onTouch: handleScroll,
       tolerance: 10,
     });
-  
+
     const handleKeyDown = (event) => {
       if (event.key === 'ArrowDown') {
         if (currentSection < sections.current.length - 1) {
@@ -94,16 +94,16 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
         }
       }
     };
-  
+
     window.addEventListener('keydown', handleKeyDown);
-  
+
     return () => {
       Observer.getAll().forEach((observer) => observer.kill());
       window.removeEventListener('keydown', handleKeyDown);
       clearTimeout(autoScrollTimeout);
     };
   }, [currentSection, isScrolling]);
-  
+
   const addToRefs = (el) => {
     if (el && !sections.current.includes(el)) {
       sections.current.push(el);
