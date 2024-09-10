@@ -15,10 +15,16 @@ const Portfolio = ({ selectedLanguage, changeLanguage }) => {
       description: t('project1')
     },
     {
-      src: './images/portfolio1.png',
+      src: './images/portfolio2.jpg',
       alt: 'Projet 2',
-      title: '',
-      description: ''
+      title: 'Openloot - UX Research & design Web3',
+      description: t('project2')
+    },
+    {
+      src: './images/portfolio3.jpg',
+      alt: 'Projet 3',
+      title: 'Big Time - UX Research & design Web3',
+      description: t('project3')
     }
   ];
 
@@ -34,7 +40,7 @@ const Portfolio = ({ selectedLanguage, changeLanguage }) => {
         <h2>{t('recent')}</h2>
         <LanguageSwitcher selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
       </div>
-      
+
       <Carousel 
         data={carouselData} 
         onSlideChange={handleSlideChange} 
