@@ -22,7 +22,7 @@ export const Carousel = ({ data, onSlideChange }) => {
   return (
     <div className="carousel">
       <BsArrowLeftCircleFill onClick={prevSlide} className="arrow arrow-left" />
-      <div className="border-slide">
+      <div className="border-slide slide">
         {data.map((item, idx) => (
           <img
             src={item.src}
