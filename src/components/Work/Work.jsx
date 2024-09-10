@@ -27,13 +27,13 @@ const Work = () => {
       {
         data: [4, 2, 1, 1, 1, 1, 1],
         backgroundColor: [
-          '#0068ff',
-          '#a055fa',
-          '#73e176',
-          '#2190ed',
-          '#00cee4',
-          '#9fadc7',
-          '#73e176'
+          '#27ae60',
+          '#3498db',
+          '#f39c12',
+          '#1abc9c',
+          '#bdc3c7',
+          '#e74c3c',
+          '#8e44ad'
         ],
         borderWidth: 0,
         hoverOffset: 25,
