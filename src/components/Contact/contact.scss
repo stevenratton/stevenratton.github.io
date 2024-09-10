@@ -49,7 +49,7 @@
   border-radius: 50px;
   padding: 3%;
   gap: 10px;
-  cursor: pointer;
+  cursor: none;
 
   @media (max-width: 480px) {
     padding: 6%;
@@ -117,7 +117,7 @@
   display: flex;
   position: relative;
   padding-left: 16%;
-  cursor: pointer;
+  cursor: none;
   margin: 2%;
   top: 1.7%;
 
@@ -135,7 +135,7 @@
   width: 20px;
   height: 20px;
   margin: 0;
-  cursor: pointer;
+  cursor: none;
 }
 
 /* Créer la case à cocher personnalisée */
@@ -190,7 +190,7 @@
   background: $bg-body;
   border-radius: 50px;
   padding: 1.1% 1.3%;
-  cursor: pointer;
+  cursor: none;
   border: 2px solid transparent;
   background-image:
     linear-gradient(#1E1E1E, #1E1E1E),
@@ -205,7 +205,7 @@
 }
 
 .buttonwish.disabled {
-  cursor: not-allowed;
+  cursor: none;
   opacity: 0.6;
   pointer-events: none;
 }
@@ -334,7 +334,7 @@
   justify-content: space-evenly;
   border-radius: 50px;
   background: $bg-body;
-  cursor: pointer;
+  cursor: none;
   border: 1px solid transparent;
   background-image:
     linear-gradient($bg-body, $bg-body),
@@ -352,7 +352,7 @@
 
 .restart-button {
   font-size: 2rem;
-  cursor: pointer;
+  cursor: none;
   position: relative;
 
   &::after {
