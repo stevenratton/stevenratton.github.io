@@ -4,7 +4,6 @@ import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import '../Contact/contact.scss';
 import { useTranslation } from 'react-i18next';
-import LanguageSwitcher from '../LangSwitcher/LangSwitcher.jsx';
 import { IoIosArrowForward } from "react-icons/io";
 import { TiThListOutline } from "react-icons/ti";
 import { HiArrowLongLeft } from "react-icons/hi2";
@@ -166,24 +165,24 @@ const Contact = ({ selectedLanguage, changeLanguage }) => {
 
   const getHighestPercentageJob = () => {
     if (!chartData || !chartData.datasets || !chartData.datasets.length) return '';
-  
+
     const dataset = chartData.datasets[0];
     const labels = chartData.labels;
     const data = dataset.data;
-  
+
     let maxPercentage = -1;
     let highestJob = '';
-  
+
     data.forEach((value, index) => {
       const total = data.reduce((sum, val) => sum + val, 0);
       const percentage = (value / total * 100).toFixed(2);
-  
+
       if (percentage > maxPercentage) {
         maxPercentage = percentage;
         highestJob = labels[index];
       }
     });
-  
+
     return highestJob ? `${highestJob}` : '';
   };
 
@@ -200,10 +199,6 @@ const Contact = ({ selectedLanguage, changeLanguage }) => {
         <>
            <div className="header-container">
               <h2>{t('needs')}</h2>
-              <LanguageSwitcher
-                selectedLanguage={selectedLanguage}
-                changeLanguage={changeLanguage}
-              />
             </div>
 
           <div className="needs-head">

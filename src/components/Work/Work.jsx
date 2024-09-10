@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import LanguageSwitcher from '../LangSwitcher/LangSwitcher.jsx';
 import { Doughnut } from 'react-chartjs-2';
 import '../Work/work.scss';
 import { useTranslation } from 'react-i18next';
@@ -95,18 +94,10 @@ const Work = () => {
     setHoveredIndex(0);
   }, []);
 
-  const handleLanguageChange = (lng) => {
-    i18n.changeLanguage(lng);
-  };
-
   return (
     <section id="work" ref={sectionRef}>
       <div className="header-container">
         <h2>{t('sectors')}</h2>
-        <LanguageSwitcher 
-            selectedLanguage={i18n.language} 
-            changeLanguage={handleLanguageChange} 
-        />
       </div>
 
       <div id="chartdiv">

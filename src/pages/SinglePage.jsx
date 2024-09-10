@@ -12,6 +12,7 @@ import Activities from '../components/Activities/Activities.jsx';
 import Portfolio from '../components/Portfolio/Portfolio.jsx';
 import Contact from '../components/Contact/Contact.jsx';
 import Footer from '../components/Footer/Footer.jsx';
+import LangSwitcher from '../components/LangSwitcher/LangSwitcher.jsx';
 
 gsap.registerPlugin(Observer, ScrollToPlugin);
 
@@ -25,7 +26,7 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
   useEffect(() => {
     let scrollTimeout = null;
     let autoScrollTimeout = null; 
-  
+
     const scrollToSection = (index) => {
       if (index >= 0 && index < sections.current.length) {
         gsap.to(window, {
@@ -73,7 +74,7 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
         }
       }
     };
-  
+
     Observer.create({
       target: window,
       type: 'wheel,touch',
@@ -81,7 +82,7 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
       onTouch: handleScroll,
       tolerance: 10,
     });
-  
+
     const handleKeyDown = (event) => {
       if (event.key === 'ArrowDown') {
         if (currentSection < sections.current.length - 1) {
@@ -93,16 +94,16 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
         }
       }
     };
-  
+
     window.addEventListener('keydown', handleKeyDown);
-  
+
     return () => {
       Observer.getAll().forEach((observer) => observer.kill());
       window.removeEventListener('keydown', handleKeyDown);
       clearTimeout(autoScrollTimeout);
     };
   }, [currentSection, isScrolling]);
-  
+
   const addToRefs = (el) => {
     if (el && !sections.current.includes(el)) {
       sections.current.push(el);
@@ -111,6 +112,7 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
 
   return (
     <div className='website-content'>
+      <LangSwitcher selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
       <Navbar />
       <div className="section-wrapper" ref={addToRefs}>
         <Home selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
