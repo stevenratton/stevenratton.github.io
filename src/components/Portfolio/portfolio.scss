@@ -33,6 +33,29 @@
   font-size: $header-size;
 }
 
+.project-links {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.project-link {
+  color: $main-blue;
+  text-decoration: none;
+  font-size: 1rem;
+  margin: 0 0.5rem;
+  transition: transform 0.3 ease;
+}
+
+.project-link:hover {
+  transform: scale(1.1);
+  cursor: none;
+}
+
+.separator {
+  color: $main-blue;
+}
+
 
 /* Carousel details */
 .carousel {
@@ -64,7 +87,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  object-fit: cover;
+
+  img {
+    width: 100%; /* Fixe la largeur à 100% de son conteneur */
+    height: 100%; /* Fixe la hauteur à 100% de son conteneur */
+    object-fit: cover; /* Permet de recadrer l'image tout en remplissant le cadre */
+    border-radius: 35px;
+  }
 }
 
 .slide-hidden {
@@ -96,6 +125,8 @@
 .arrow-right {
   right: -0.9rem;
 }
+
+
 
 
 
