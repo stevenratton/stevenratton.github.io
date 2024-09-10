@@ -111,7 +111,8 @@ const Work = () => {
 
       <div id="chartdiv">
         <Doughnut data={data} options={options} className="doughnut-chart"/>
-        {hoveredIndex !== null && (
+      </div>
+      {hoveredIndex !== null && (
           <div className="center-content">
             <img
               src={categoryImages[hoveredIndex]}
@@ -123,7 +124,6 @@ const Work = () => {
             </div>
           </div>
         )}
-      </div>
     </section>
   );
 };
