@@ -112,7 +112,7 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
   return (
     <div className='website-content'>
       <Navbar />
-       <div className="section-wrapper" ref={addToRefs}>
+      <div className="section-wrapper" ref={addToRefs}>
         <Home selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
       </div>
       <div className="section-wrapper" ref={addToRefs}>
