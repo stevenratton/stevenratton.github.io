@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import '../Portfolio/portfolio.scss';
 import { useTranslation } from 'react-i18next';
-import LanguageSwitcher from '../LangSwitcher/LangSwitcher.jsx';
 import { Carousel } from '../Portfolio/Carousel.jsx';
 
 const Portfolio = ({ selectedLanguage, changeLanguage }) => {
@@ -64,7 +63,6 @@ const Portfolio = ({ selectedLanguage, changeLanguage }) => {
     <section id="portfolio">
       <div className="header-container">
         <h2>{t('recent')}</h2>
-        <LanguageSwitcher selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
       </div>
 
       <Carousel 

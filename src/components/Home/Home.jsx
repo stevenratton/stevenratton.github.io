@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import LanguageSwitcher from '../LangSwitcher/LangSwitcher.jsx';
 import '../Home/home.scss';
 import { FaRegRectangleList } from "react-icons/fa6";
 import { IoIosArrowForward } from "react-icons/io";
@@ -13,10 +12,6 @@ const Home = () => {
 
   const handleClick = () => {
     window.location.href = 'https://cal.com/omiage';
-  };
-
-  const handleLanguageChange = (lng) => {
-    i18n.changeLanguage(lng);
   };
 
   return (

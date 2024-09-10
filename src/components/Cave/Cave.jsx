@@ -81,17 +81,17 @@ const Cave = ({ showLogo }) => {  // Ajout du prop showLogo
         className={`cave-layer layer-4 ${isFixed ? 'fixed' : ''}`}
         style={{ transform: `translate(${mousePos.x/2 * 0.005}px, ${mousePos.y/2 * 0.005}px)` }}
       ></div>
-      
+
       <div //Rochers à gauche
         className={`cave-layer layer-5 ${isFixed ? 'fixed' : ''}`}
         style={{ transform: `translate(${mousePos.x/3 * 0.020}px, ${mousePos.y/2 * 0.015}px)` }}
       ></div>
-      
+
       <div //Rochers à droite
         className={`cave-layer layer-6 ${isFixed ? 'fixed' : ''}`}
         style={{ transform: `translate(${mousePos.x/2 * 0.015}px, ${mousePos.y/3 * 0.020}px)` }}
       ></div>
-      
+
     </div>
   );
 };
