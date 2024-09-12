@@ -35,15 +35,15 @@
 <path d="M129.425 125.662L102.602 109.056L99.7578 113.226L126.957 130.068L126.581 129.832L129.425 125.662Z" fill="#C2D6D8"/>
 <path d="M135.525 124.214C135.537 124.185 135.556 124.156 135.568 124.128C135.622 124.012 135.671 123.891 135.713 123.776C135.756 123.654 135.798 123.527 135.829 123.406L135.319 124.156C133.948 126.163 131.377 126.885 129.576 125.766L129.419 125.667L126.574 129.844L126.95 130.08C128.757 131.199 131.329 130.478 132.693 128.471L135.156 124.86C135.234 124.739 135.313 124.618 135.38 124.497C135.429 124.404 135.477 124.318 135.519 124.226L135.525 124.214Z" fill="#CC0816"/>
 <!-- Animation de la loupe : grossissement et rétrécissement -->
-  <animateTransform 
+  <animateTransform
     attributeName="transform"
     attributeType="XML"
-    type="rotate"
-    from="0 40 40"
-    to="-2 40 40"
-    dur="2s"
-    keyTimes="0;0.5;1"
-    values="0 40 40;5 40 40;-5 40 40"
+    type="scale"
+    dur="5000ms"
+    calcMode="spline" 
+    keyTimes="0; 0.50; 1"
+    keySplines="0.42 0 1 1; 0.42 0 1 1"
+    values="0.95; 1; 0.95"
     repeatCount="indefinite"
     begin="0s"
   />
@@ -59,33 +59,61 @@
 <path d="M46.267 34.3313L22.74 17.631L19.7861 21.8299L43.3131 38.5302L46.267 34.3313Z" fill="#FFDF85"/>
 <path d="M40.2827 42.7917L16.7557 26.0914L13.8017 30.2903L37.3287 46.9906L40.2827 42.7917Z" fill="#FF8736"/>
 <!-- Animation du crayon de gauche à droite -->
-  <animateTransform attributeName="transform"
+  <animateTransform
+    attributeName="transform"
     attributeType="XML"
-    type="translate"
-    from="-2 0" 
-    to="10 0"
-    dur="2s"
-    repeatCount="indefinite"/>
+    type="scale"
+    dur="6500ms"
+    calcMode="spline" 
+    keyTimes="0; 0.50; 1"
+    keySplines="0.42 0 1 1; 0.42 0 1 1"
+    values="0.9; 1; 0.9"
+    repeatCount="indefinite"
+    begin="0s"
+    />
+    <animateTransform 
+    attributeName="transform"
+    type="rotate"
+    dur="6500ms"
+    values="1 30 30; -15 30 30; 1 30 30"
+    keyTimes="0; 0.5; 1"
+    keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"
+    repeatCount="indefinite"
+    begin="0s"
+    additive="sum"
+  />
 </g>
 
 <path d="M103.391 45.4096L105.292 47.3192L109.387 43.2062L110.41 44.2344L105.292 49.3757L102.367 46.4378L103.391 45.4096Z" fill="#509131"/>
 <path d="M103.391 34.3926L105.292 36.3022L109.387 32.1892L110.41 33.2175L105.292 38.3587L102.367 35.4208L103.391 34.3926Z" fill="#509131"/>
 <path d="M57.0312 59.8834H68.2449V52.2969H57.0312V59.8834ZM71.0434 53.2441V55.143H90.6657V53.2441H71.0434ZM71.0434 58.9362H90.6657V57.0374H71.0434V58.9362ZM71.0434 64.6283H90.6657V62.7295H71.0434V64.6283ZM71.0434 68.4216H90.6657V66.5227H71.0434V68.4216ZM57.0312 69.3732H68.2449V61.7823H57.0312V69.3732Z" fill="white"/>
 
-<g id="head" transform="translate(50, 100)"> <!-- Translation pour centrer la tête -->
+<g id="head">
   <rect width="38.6753" height="15.7232" transform="matrix(0.994403 -0.105658 0.14291 0.989736 7.36328 90.4167)" fill="#FBDE48"/>
   <path d="M3.12712 100.776L3.50542 100.217L3.44785 99.5334C2.56986 89.1005 11.3342 79.3644 24.3224 77.9843C37.7025 76.5626 49.2754 84.7052 50.8288 95.4632C51.9584 103.287 47.6367 110.721 40.0283 114.856L38.8622 115.49L39.0544 116.821L40.8938 129.56L19.2625 131.858L18.1889 124.423L17.9031 122.443L15.9143 122.655L12.2558 123.043C9.00565 123.389 6.61407 121.437 6.30733 119.312L4.9479 109.897L4.66208 107.918L2.67328 108.129L-2.19867 108.647L3.12712 100.776ZM10.5861 99.7391C11.0316 102.824 14.1495 104.557 16.9723 104.257C19.3983 103.999 21.6087 102.24 21.8995 99.792C22.8776 102.105 25.5216 103.348 27.9476 103.091C30.3736 102.833 32.584 101.074 32.8747 98.6258C33.8529 100.939 36.4969 102.182 38.9229 101.925C41.7456 101.625 44.2766 99.2919 43.8311 96.2067C43.3856 93.1215 40.2677 91.389 37.4449 91.689C35.019 91.9467 32.8085 93.7059 32.5178 96.1538C31.5396 93.8407 28.8956 92.5974 26.4697 92.8551C24.0437 93.1129 21.8333 94.8721 21.5425 97.32C20.5643 95.0069 17.9204 93.7635 15.4944 94.0213C12.6716 94.3212 10.1406 96.6539 10.5861 99.7391Z" fill="#FEFEFE" stroke="#0D1544" stroke-width="4"/>
+  
   <!-- Animation de rotation de la tête -->
   <animateTransform 
     attributeName="transform"
-    attributeType="XML"
     type="rotate"
-    from="-5 40 40"
-    to="0 40 40"
-    dur="2s"
+    dur="7000ms"
+    values="1 30 30; -8 30 30; 0.6 30 30"
+    keyTimes="0; 0.5; 1"
+    keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"
     repeatCount="indefinite"
     begin="0s"
-    fill="freeze"
+  />
+  <!-- Animation de mise à l'échelle (scale) de la tête -->
+  <animateTransform
+    attributeName="transform"
+    type="scale"
+    dur="7000ms"
+    values="1; 0.9; 1"
+    keyTimes="0; 0.5; 1"
+    keySplines="0.42 0 1 1; 0.42 0 1 1"
+    repeatCount="indefinite"
+    begin="0s"
+    additive="sum"
   />
 </g>
 </g>
