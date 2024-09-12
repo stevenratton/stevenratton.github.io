@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { FaHome, FaUser, FaBriefcase, FaFolderOpen, FaEnvelope } from 'react-icons/fa';
-import { BsChevronDown } from 'react-icons/bs';
 import '../Navbar/navbar.scss';
 import { useTranslation } from 'react-i18next';
 
@@ -8,7 +7,6 @@ const Navbar = () => {
   const { t } = useTranslation();
   const [hoveredText, setHoveredText] = useState('');
   const [activeSection, setActiveSection] = useState('');
-  const [isExpanded, setIsExpanded] = useState(false);
 
   const handleMouseEnter = (text) => {
     setHoveredText(text);
@@ -16,10 +14,6 @@ const Navbar = () => {
 
   const handleMouseLeave = () => {
     setHoveredText('');
-  };
-
-  const toggleNavbar = () => {
-    setIsExpanded(!isExpanded);
   };
 
   const getText = () => {
@@ -84,9 +78,9 @@ const Navbar = () => {
   const contactText = t('CONTACT');
 
   return (
-    <div>
+    <div className='full-nav'>
       <div className="hover-text">{getText()}</div>
-      <div className={`navbar ${isExpanded ? 'expanded' : ''}`}>
+      <div className="navbar">
         <div className="navbar-icons">
           <a
             href="#home"
@@ -129,13 +123,11 @@ const Navbar = () => {
             <FaEnvelope className={getIconClassName(contactText)} />
           </a>
         </div>
-        <BsChevronDown className="arrow-icon" onClick={toggleNavbar} />
       </div>
     </div>
   );
 };
 
 export default Navbar;
-
 
 
