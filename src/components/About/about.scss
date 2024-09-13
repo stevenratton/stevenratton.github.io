@@ -47,9 +47,7 @@
   border: 5px solid transparent;
   border-radius: 50%;
   background-color: $bg-body;
-  background-image:
-    linear-gradient($bg-body, $bg-body),
-    linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe);
+  background-image: $gradient-border;
   background-origin: border-box;
   background-clip: content-box, border-box;
   z-index: -1;
@@ -150,8 +148,12 @@
   max-width: 40%;
   text-align: start;
   padding: 100px;
-  font-size: 20px;
+  font-size: 16px;
   z-index: 1;
+
+  .colored-text {
+    color: $main-blue
+  }
 
   @media (max-width: 1400px) {
     max-width: 40%;
