@@ -13,7 +13,7 @@ import 'aos/dist/aos.css';
 
 ChartJS.register(Title, Tooltip, Legend, ArcElement, ChartDataLabels);
 
-const Contact = ({ selectedLanguage, changeLanguage }) => {
+const Contact = ({}) => {
   const { t } = useTranslation();
   const [chartData, setChartData] = useState(null);
   const [showChart, setShowChart] = useState(false);
@@ -296,10 +296,6 @@ const Contact = ({ selectedLanguage, changeLanguage }) => {
         <>
            <div className="header-container">
             <h2>{t('result')}</h2>
-            <LanguageSwitcher
-              selectedLanguage={selectedLanguage}
-              changeLanguage={changeLanguage}
-            />
           </div>
 
           <div className="highest-job">
