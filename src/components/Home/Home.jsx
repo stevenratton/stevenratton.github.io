@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import '../Home/home.scss';
-import { TiThListOutline } from "react-icons/ti";
 import { IoIosArrowForward } from "react-icons/io";
 import City from '../City/City.jsx';
 
@@ -41,12 +40,13 @@ const Home = () => {
 
         <div className='bottom-home'>
           <div className="button-container">
-            <button className="buttontext" onClick={handleClick}>
+            <button className="button-text" onClick={handleClick}>
               <img src='/images/logotel.svg' alt='Logo certified' className='logo' />
               {t('contactMe')} <IoIosArrowForward />
             </button>
-            <button className="buttontext" onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>
-              <TiThListOutline /> {t('wishlist')} <IoIosArrowForward />
+            <button className="button-text" onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>
+              <img src='/images/logo-wishlist.svg' alt='Logo certified' className='logo' />
+              {t('wishlist')} <IoIosArrowForward />
             </button>
           </div>
           <div className='logo-certif'>

@@ -23,7 +23,7 @@ const Contact = ({}) => {
   const [anyChecked, setAnyChecked] = useState(false);
   const [recaptchaToken, setRecaptchaToken] = useState('');
   const { executeRecaptcha } = useGoogleReCaptcha();
-  const restartButtonClass = `restart-button ${selectedLanguage}`;
+  const restartButtonClass = `restart-button`;
 
   const handleCheckboxChange = () => {
     const checkboxes = document.querySelectorAll('.checklist input[type="checkbox"]');
