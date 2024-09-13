@@ -46,7 +46,8 @@ const Home = () => {
               {t('contactMe')} <IoIosArrowForward />
             </button>
             <button className="button-text" onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>
-              <FaRegRectangleList /> {t('wishlist')} <IoIosArrowForward />
+              <img src='/images/logo-wishlist.svg' alt='Logo certified' className='logo' />
+              {t('wishlist')} <IoIosArrowForward />
             </button>
           </div>
           <div className='logo-certif'>
