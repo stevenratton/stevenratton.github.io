@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import '../Home/home.scss';
-import { FaRegRectangleList } from "react-icons/fa6";
 import { IoIosArrowForward } from "react-icons/io";
 import City from '../City/City.jsx';
 
