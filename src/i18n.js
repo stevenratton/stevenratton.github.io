@@ -50,12 +50,10 @@ const resources = {
 
     "recent" : "RECENT WORKS",
     "project1" : "FIFA Club Pro competition platform to promote e-Sport in amateur clubs in France. (Sold)",
-    "project2" : "Market place and rental functionalities UX Rework for Openloot platform users.",
-    "project3" : "Time Explorer Single-play mode research and prototype for Big Time MMORPG Web3 game.",
-    "project4" : "Research into identity issues and on-chain reputation systems and Echo Attestation dApp prototyping.",
-    "project5" : "Research into on-chain Optimism identity issues for Dynamic Delegate Attestations.",
-    "ressource" : "Resource",
-    "ressource2" : "Resource 2",
+    "project2" : "Market place and rental functionalities UX <a class='styled-link' href='https://www.figma.com/proto/Bz7fSHL6RlJj2Lf0RXffje/Big-Time?node-id=128-838&node-type=canvas&t=roHPn4McwvnwnW0t-1&scaling=contain&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=128%3A838&show-proto-sidebar=1' target='_blank' rel='noopener noreferrer'>Rework</a> for Openloot platform users.",
+    "project3" : "<a class='styled-link' href='https://www.figma.com/proto/Bz7fSHL6RlJj2Lf0RXffje/Big-Time?node-id=86-3294&t=nlhvzT8u3xPHH1qb-1' target='_blank' rel='noopener noreferrer'>Time Explorer</a> Single-play mode research and prototype for Big Time MMORPG Web3 game. <a class='styled-link' href='https://whimsical.com/bigtime-time-explorer-mod-PQGB8LbwHcx8r2x4qRjnk2' target='_blank' rel='noopener noreferrer'>Functional scope</a>",
+    "project4" : "Research into identity issues and on-chain reputation systems and <a class='styled-link' href='https://www.figma.com/proto/3pqvAqiD8XrGMmPZOwDtix/ECHO-ATTESTATION?node-id=5-133&t=q7ujSdlPgh9hAzd6-1' target='_blank' rel='noopener noreferrer'>Echo Attestation</a> dApp prototyping.",
+    "project5" : "Research into on-chain Optimism identity issues for <a class='styled-link' href='https://github.com/ethereum-optimism/ecosystem-contributions/issues/60' target='_blank' rel='noopener noreferrer'>Dynamic Delegate Attestations</a>.",
 
     "needs" : "YOUR NEEDS",
     "describe-needs1" : "You can check whether your requirements match the profile you're looking for before contacting me.",
@@ -142,12 +140,10 @@ const resources = {
 
     "recent" : "TRAVAUX RÉCENTS",
     "project1" : "Plateforme de compétition FIFA Club Pro visant à promouvoir l'e-Sport dans les clubs amateurs en France. (Sold)",
-    "project2" : "Rework de la marketplace et des fonctionnalités de locations pour les utilisateurs de la plateforme Openloot.",
-    "project3" : "Recherche et prototypage du mode solo Time Explorer pour le MMORPG Web3 Big Time.",
-    "project4" : "Recherche sur les problématiques d'identité et système de réputation on-chain et prototypage de la dApp Echo Attestation.",
-    "project5" : "Recherche sur les problématiques d'identité on-chain Optimism pour les Attestations de délégués dynamiques.",
-    "ressource" : "Ressource",
-    "ressource2" : "Ressource 2",
+    "project2" : "<a class='styled-link' href='https://www.figma.com/proto/Bz7fSHL6RlJj2Lf0RXffje/Big-Time?node-id=128-838&node-type=canvas&t=roHPn4McwvnwnW0t-1&scaling=contain&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=128%3A838&show-proto-sidebar=1' target='_blank' rel='noopener noreferrer'>Rework</a> de la marketplace et des fonctionnalités de locations pour les utilisateurs de la plateforme Openloot.",
+    "project3" : "Recherche et prototypage du mode solo <a class='styled-link' href='https://www.figma.com/proto/Bz7fSHL6RlJj2Lf0RXffje/Big-Time?node-id=86-3294&t=nlhvzT8u3xPHH1qb-1' target='_blank' rel='noopener noreferrer'>Time Explorer</a> pour le MMORPG Web3 Big Time. <a class='styled-link' href='https://whimsical.com/bigtime-time-explorer-mod-PQGB8LbwHcx8r2x4qRjnk2' target='_blank' rel='noopener noreferrer'>Scope fonctionnel</a>",
+    "project4" : "Recherche sur les problématiques d'identité et système de réputation on-chain et prototypage de la dApp <a class='styled-link' href='https://www.figma.com/proto/3pqvAqiD8XrGMmPZOwDtix/ECHO-ATTESTATION?node-id=5-133&t=q7ujSdlPgh9hAzd6-1' target='_blank' rel='noopener noreferrer'>Echo Attestation</a>.",
+    "project5" : "Recherche sur les problématiques d'identité on-chain Optimism pour les <a class='styled-link' href='https://github.com/ethereum-optimism/ecosystem-contributions/issues/60' target='_blank' rel='noopener noreferrer'>Attestations de délégués dynamiques</a>.",
 
     "needs" : "VOS BESOINS",
     "describe-needs1" : "Vous pouvez vérifier si vos besoins correspondent au profil recherché avant de me contacter.",
