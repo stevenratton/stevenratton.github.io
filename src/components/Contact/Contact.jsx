@@ -102,18 +102,17 @@ const Contact = ({}) => {
     window.location.href = 'https://cal.com/omiage';
   };
 
-  // Fonction pour envoyer un email avec EmailJS
+  // Envoyer un email avec EmailJS
   const sendEmail = (e) => {
     e.preventDefault();
 
-    // Prépare les paramètres de l'email
+    // Paramètres de l'email
     const templateParams = {
       email: email,
       name: name,
       description: description,
     };
 
-    // Utilise EmailJS pour envoyer l'email
     emailjs.send(
       SERVICE_ID,
       TEMPLATE_ID,
@@ -128,7 +127,6 @@ const Contact = ({}) => {
         alert('Erreur lors de l\'envoi du message.');
       });
 
-    // Remet le formulaire à zéro
     setEmail('');
     setName('');
     setDescription('');
