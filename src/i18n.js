@@ -84,7 +84,7 @@ const resources = {
     "yourNeeds1" : "Your needs are best met by a ",
     "yourNeeds2" : ". Feel free to contact me !",
     "placeholderEmail" : "Email address",
-    "placeholderName" : "Name",
+    "placeholderName" : "Company Name",
     "placeholderDescription" : "Write here...",
     "describe" : "Describe your needs",
     "request" : "Send a request",
@@ -175,7 +175,7 @@ const resources = {
     "yourNeeds2" : ". N'hésitez pas à me contacter !",
     "describe" : "Decrivez vos besoins",
     "placeholderEmail" : "Adresse email",
-    "placeholderName" : "Nom",
+    "placeholderName" : "Nom de la société",
     "placeholderDescription" : "Écrivez ici...",
     "request" : "Envoyer une demande",
 

@@ -19,6 +19,7 @@
     "aos": "^2.3.4",
     "chart.js": "^4.4.3",
     "chartjs-plugin-datalabels": "^2.2.0",
+    "dotenv": "^16.4.5",
     "emailjs-com": "^3.2.0",
     "framer-motion": "^11.3.31",
     "gsap": "^3.12.5",

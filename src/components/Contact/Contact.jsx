@@ -9,6 +9,7 @@ import { TiThListOutline } from "react-icons/ti";
 import { HiArrowLongLeft } from "react-icons/hi2";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import emailjs from 'emailjs-com';
 
 ChartJS.register(Title, Tooltip, Legend, ArcElement, ChartDataLabels);
 
@@ -21,18 +22,14 @@ const Contact = ({}) => {
   const [description, setDescription] = useState('');
   const [anyChecked, setAnyChecked] = useState(false);
   const restartButtonClass = `restart-button`;
+  const SERVICE_ID = 'service_p5i6esg';
+  const TEMPLATE_ID = 'template_nidvx1t';
+  const USER_ID = 'E5khxYIiZt34MdmhP';
 
   const handleCheckboxChange = () => {
     const checkboxes = document.querySelectorAll('.checklist input[type="checkbox"]');
     const isAnyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
     setAnyChecked(isAnyChecked);
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    setEmail('');
-    setName('');
-    setDescription('');
   };
 
   const jobAssociations = {
@@ -103,6 +100,38 @@ const Contact = ({}) => {
 
   const handleClick = () => {
     window.location.href = 'https://cal.com/omiage';
+  };
+
+  // Fonction pour envoyer un email avec EmailJS
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    // Prépare les paramètres de l'email
+    const templateParams = {
+      email: email,
+      name: name,
+      description: description,
+    };
+
+    // Utilise EmailJS pour envoyer l'email
+    emailjs.send(
+      SERVICE_ID,
+      TEMPLATE_ID,
+      templateParams,
+      USER_ID
+    )
+      .then((result) => {
+        console.log(result.text);
+        alert('Message envoyé avec succès !');
+      }, (error) => {
+        console.log(error.text);
+        alert('Erreur lors de l\'envoi du message.');
+      });
+
+    // Remet le formulaire à zéro
+    setEmail('');
+    setName('');
+    setDescription('');
   };
 
   const chartOptions = {
@@ -178,9 +207,9 @@ const Contact = ({}) => {
     <section id="contact">
       {!showChart ? (
         <>
-           <div className="header-container">
-              <h2>{t('needs')}</h2>
-            </div>
+          <div className="header-container">
+            <h2>{t('needs')}</h2>
+          </div>
 
           <div className="needs-head">
             <div>
@@ -235,59 +264,118 @@ const Contact = ({}) => {
               </div>
               <div className="option">
                 <input type="checkbox" id="tenth" name="scales" className='button' onChange={handleCheckboxChange} />
-                <label htmlFor="tenth">{t('communication')}</label>
+                <label htmlFor="tenth">{t('innov')}</label>
               </div>
               <div className="option">
                 <input type="checkbox" id="eleventh" name="scales" className='button' onChange={handleCheckboxChange} />
-                <label htmlFor="eleventh">{t('productivity')}</label>
+                <label htmlFor="eleventh">{t('market')}</label>
               </div>
               <div className="option">
                 <input type="checkbox" id="twelfth" name="scales" className='button' onChange={handleCheckboxChange} />
-                <label htmlFor="twelfth">{t('budget')}</label>
+                <label htmlFor="twelfth">{t('brain')}</label>
               </div>
               <div className="option">
                 <input type="checkbox" id="thirteenth" name="scales" className='button' onChange={handleCheckboxChange} />
-                <label htmlFor="thirteenth">{t('data')}</label>
+                <label htmlFor="thirteenth">{t('orga')}</label>
               </div>
               <div className="option">
                 <input type="checkbox" id="fourteenth" name="scales" className='button' onChange={handleCheckboxChange} />
-                <label htmlFor="fourteenth">{t('performance')}</label>
+                <label htmlFor="fourteenth">{t('improve')}</label>
               </div>
               <div className="option">
                 <input type="checkbox" id="fifteenth" name="scales" className='button' onChange={handleCheckboxChange} />
-                <label htmlFor="fifteenth">{t('miscellaneous')}</label>
+                <label htmlFor="fifteenth">{t('ref')}</label>
               </div>
               <div className="option">
                 <input type="checkbox" id="sixteenth" name="scales" className='button' onChange={handleCheckboxChange} />
-                <label htmlFor="sixteenth">{t('other')}</label>
+                <label htmlFor="sixteenth">{t('project')}</label>
               </div>
             </div>
+          </div>
 
-            <div className={`chart-container ${anyChecked ? 'fade-in' : 'hidden'}`} onClick={handleButtonClick}>
-              <div className="btn-content">
-                <p className="btn-text">{t('results')}</p>
-                <IoIosArrowForward />
-              </div>
+          <div className="buttonwish-container">
+            <div 
+              className={`buttonwish ${!anyChecked ? 'disabled' : ''}`} 
+              onClick={anyChecked ? handleButtonClick : undefined}
+            >
+              <TiThListOutline className='icon1' /> {t('valWishlist')} <IoIosArrowForward className='icon2' />
             </div>
           </div>
         </>
       ) : (
-        <div className="chart-section">
-          <h2>{t('proposed')}</h2>
-          <div className="chart-wrapper">
-            <Doughnut data={chartData} options={chartOptions} />
-            <div className="job-description">
-              <h3>{t('bestPropose')}</h3>
-              <p>{getHighestPercentageJob()}</p>
-            </div>
+        <>
+           <div className="header-container">
+            <h2>{t('result')}</h2>
           </div>
 
-          <div className="button-container">
-            <button className="restart-button" onClick={handleRestart}>
-              {t('restart')} <HiArrowLongLeft />
-            </button>
+          <div className="highest-job">
+            <p> {t('yourNeeds1')} {getHighestPercentageJob()} {t('yourNeeds2')} </p>
           </div>
-        </div>
+
+          <div className='result'>
+            <div className="chart-container">
+              <div className="chart-wishlist">
+                <Doughnut
+                  data={chartData} 
+                  options={chartOptions}
+                />
+              </div>
+
+              <div className="chart-labels-container">
+                {chartData && chartData.labels.map((label, index) => (
+                  <div className="label-chart" key={index}>
+                    <span style={{ backgroundColor: chartData.datasets[0].backgroundColor[index] }}></span>
+                    {label}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <form className="form-container" onSubmit={sendEmail}>
+              <div className="form-group" data-aos="fade-right">
+                <label htmlFor="email">{t('placeholderEmail')}</label>
+                <input
+                  type="email"
+                  id="email"
+                  value={email}
+                  placeholder={t('placeholderEmail')}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="form-group" data-aos="fade-left">
+                <label htmlFor="name">{t('placeholderName')}</label>
+                <input
+                  type="text"
+                  id="name"
+                  value={name}
+                  placeholder={t('placeholderName')}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="form-group" data-aos="fade-right">
+                <label htmlFor="description">{t('describe')}</label>
+                <textarea
+                  id="description"
+                  value={description}
+                  placeholder={t('placeholderDescription')}
+                  onChange={(e) => setDescription(e.target.value)}
+                  required
+                />
+              </div>
+              <button type="submit" className='submit'> 
+                <img src='images/send-card.svg' alt='postcard' /> {t('request')} 
+              </button>
+            </form>
+
+            <div className="arrow-container-restart">
+              <div className={restartButtonClass} onClick={handleRestart}>
+                <HiArrowLongLeft />
+              </div>
+            </div>
+          </div>
+        </>
       )}
     </section>
   );
