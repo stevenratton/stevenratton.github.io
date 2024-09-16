@@ -7,9 +7,9 @@ import { useTranslation } from 'react-i18next';
 import { IoIosArrowForward } from "react-icons/io";
 import { TiThListOutline } from "react-icons/ti";
 import { HiArrowLongLeft } from "react-icons/hi2";
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import emailjs from 'emailjs-com';
 
 ChartJS.register(Title, Tooltip, Legend, ArcElement, ChartDataLabels);
 
@@ -21,37 +21,15 @@ const Contact = ({}) => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [anyChecked, setAnyChecked] = useState(false);
-  const [recaptchaToken, setRecaptchaToken] = useState('');
-  const { executeRecaptcha } = useGoogleReCaptcha();
   const restartButtonClass = `restart-button`;
+  const SERVICE_ID = 'service_p5i6esg';
+  const TEMPLATE_ID = 'template_nidvx1t';
+  const USER_ID = 'E5khxYIiZt34MdmhP';
 
   const handleCheckboxChange = () => {
     const checkboxes = document.querySelectorAll('.checklist input[type="checkbox"]');
     const isAnyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
     setAnyChecked(isAnyChecked);
-  };
-
-  const handleRecaptcha = async () => {
-    if (!executeRecaptcha) {
-      return;
-    }
-    const token = await executeRecaptcha('contact_form');
-    setRecaptchaToken(token);
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    await handleRecaptcha();
-
-    if (!recaptchaToken) {
-      alert('Please complete the reCAPTCHA.');
-      return;
-    }
-
-    setEmail('');
-    setName('');
-    setDescription('');
-    setRecaptchaToken('');
   };
 
   const jobAssociations = {
@@ -122,6 +100,36 @@ const Contact = ({}) => {
 
   const handleClick = () => {
     window.location.href = 'https://cal.com/omiage';
+  };
+
+  // Envoyer un email avec EmailJS
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    // Paramètres de l'email
+    const templateParams = {
+      email: email,
+      name: name,
+      description: description,
+    };
+
+    emailjs.send(
+      SERVICE_ID,
+      TEMPLATE_ID,
+      templateParams,
+      USER_ID
+    )
+      .then((result) => {
+        console.log(result.text);
+        alert('Message envoyé avec succès !');
+      }, (error) => {
+        console.log(error.text);
+        alert('Erreur lors de l\'envoi du message.');
+      });
+
+    setEmail('');
+    setName('');
+    setDescription('');
   };
 
   const chartOptions = {
@@ -197,9 +205,9 @@ const Contact = ({}) => {
     <section id="contact">
       {!showChart ? (
         <>
-           <div className="header-container">
-              <h2>{t('needs')}</h2>
-            </div>
+          <div className="header-container">
+            <h2>{t('needs')}</h2>
+          </div>
 
           <div className="needs-head">
             <div>
@@ -321,7 +329,7 @@ const Contact = ({}) => {
               </div>
             </div>
 
-            <form onSubmit={handleSubmit} className="form-container">
+            <form className="form-container" onSubmit={sendEmail}>
               <div className="form-group" data-aos="fade-right">
                 <label htmlFor="email">{t('placeholderEmail')}</label>
                 <input

@@ -33,27 +33,16 @@
   font-size: $header-size;
 }
 
-.project-links {
-  display: flex;
-  align-items: center;
-  margin-top: 0.5rem;
-}
-
-.project-link {
+.styled-link {
   color: $main-blue;
   text-decoration: none;
-  font-size: 1rem;
-  margin: 0 0.5rem;
-  transition: transform 0.3 ease;
-}
+  font-weight: bold;
+  transition: transform 0.3s ease;
 
-.project-link:hover {
-  transform: scale(1.1);
-  cursor: none;
-}
-
-.separator {
-  color: $main-blue;
+  &:hover {
+    text-decoration: none;
+    transform: scale(1.1);
+  }
 }
 
 
