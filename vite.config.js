@@ -8,4 +8,3 @@ export default defineConfig({
     include: ['gsap'],  // Ajoute GSAP pour l'optimisation des dépendances
   },
 });
-
