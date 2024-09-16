@@ -114,6 +114,30 @@
   }
 }
 
+@media (max-width: 1250px) {
+  .button-text {
+    width: 37%;
+    height: 5%;
+    font-size: 12px;
+  }
+
+  .logo-certif img {
+    width: 70% !important;
+  }
+}
+
+@media (max-width: 1144px) {
+  .button-container {
+    left: 30% !important
+  }
+
+  .button-text {
+    width: 37%;
+    height: 5%;
+    font-size: 12px;
+  }
+}
+
 @media (max-width: 810px) {
   #home {
     height: 60vh;

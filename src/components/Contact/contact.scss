@@ -40,6 +40,10 @@
 }
 
 .buttontext {
+  display: flex;
+  align-items: center;
+  color: $main-text-color;
+  font-family: $main-font;
   border: 3px solid transparent;
   background-image: $gradient-border;
   background-origin: border-box;

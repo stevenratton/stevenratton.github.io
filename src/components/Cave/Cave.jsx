@@ -73,13 +73,13 @@ const Cave = ({ showLogo }) => {  // Ajout du prop showLogo
         style={{
           transform: `translate(${mousePos.x/3 * 0.020}px, ${mousePos.y * 0.020}px)`,
           opacity: opacityLayer3,
-          transition: 'opacity 0.5s ease-in-out',
+          transition: 'opacity 1.5s ease-in-out',
         }}
       ></div>
 
       <div //Rochers en bas
         className={`cave-layer layer-4 ${isFixed ? 'fixed' : ''}`}
-        style={{ transform: `translate(${mousePos.x/2 * 0.005}px, ${mousePos.y/2 * 0.005}px)` }}
+        style={{ transform: `translate(${mousePos.x / 2 * 0.005}px, ${mousePos.y / 2 * 0.005}px)` }}
       ></div>
 
       <div //Rochers à gauche
