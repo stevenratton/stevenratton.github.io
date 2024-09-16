@@ -7,7 +7,6 @@ import { useTranslation } from 'react-i18next';
 import { IoIosArrowForward } from "react-icons/io";
 import { TiThListOutline } from "react-icons/ti";
 import { HiArrowLongLeft } from "react-icons/hi2";
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -21,8 +20,6 @@ const Contact = ({}) => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [anyChecked, setAnyChecked] = useState(false);
-  const [recaptchaToken, setRecaptchaToken] = useState('');
-  const { executeRecaptcha } = useGoogleReCaptcha();
   const restartButtonClass = `restart-button`;
 
   const handleCheckboxChange = () => {
@@ -31,27 +28,11 @@ const Contact = ({}) => {
     setAnyChecked(isAnyChecked);
   };
 
-  const handleRecaptcha = async () => {
-    if (!executeRecaptcha) {
-      return;
-    }
-    const token = await executeRecaptcha('contact_form');
-    setRecaptchaToken(token);
-  };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await handleRecaptcha();
-
-    if (!recaptchaToken) {
-      alert('Please complete the reCAPTCHA.');
-      return;
-    }
-
     setEmail('');
     setName('');
     setDescription('');
-    setRecaptchaToken('');
   };
 
   const jobAssociations = {
@@ -254,118 +235,59 @@ const Contact = ({}) => {
               </div>
               <div className="option">
                 <input type="checkbox" id="tenth" name="scales" className='button' onChange={handleCheckboxChange} />
-                <label htmlFor="tenth">{t('innov')}</label>
+                <label htmlFor="tenth">{t('communication')}</label>
               </div>
               <div className="option">
                 <input type="checkbox" id="eleventh" name="scales" className='button' onChange={handleCheckboxChange} />
-                <label htmlFor="eleventh">{t('market')}</label>
+                <label htmlFor="eleventh">{t('productivity')}</label>
               </div>
               <div className="option">
                 <input type="checkbox" id="twelfth" name="scales" className='button' onChange={handleCheckboxChange} />
-                <label htmlFor="twelfth">{t('brain')}</label>
+                <label htmlFor="twelfth">{t('budget')}</label>
               </div>
               <div className="option">
                 <input type="checkbox" id="thirteenth" name="scales" className='button' onChange={handleCheckboxChange} />
-                <label htmlFor="thirteenth">{t('orga')}</label>
+                <label htmlFor="thirteenth">{t('data')}</label>
               </div>
               <div className="option">
                 <input type="checkbox" id="fourteenth" name="scales" className='button' onChange={handleCheckboxChange} />
-                <label htmlFor="fourteenth">{t('improve')}</label>
+                <label htmlFor="fourteenth">{t('performance')}</label>
               </div>
               <div className="option">
                 <input type="checkbox" id="fifteenth" name="scales" className='button' onChange={handleCheckboxChange} />
-                <label htmlFor="fifteenth">{t('ref')}</label>
+                <label htmlFor="fifteenth">{t('miscellaneous')}</label>
               </div>
               <div className="option">
                 <input type="checkbox" id="sixteenth" name="scales" className='button' onChange={handleCheckboxChange} />
-                <label htmlFor="sixteenth">{t('project')}</label>
+                <label htmlFor="sixteenth">{t('other')}</label>
               </div>
             </div>
-          </div>
 
-          <div className="buttonwish-container">
-            <div 
-              className={`buttonwish ${!anyChecked ? 'disabled' : ''}`} 
-              onClick={anyChecked ? handleButtonClick : undefined}
-            >
-              <TiThListOutline className='icon1' /> {t('valWishlist')} <IoIosArrowForward className='icon2' />
+            <div className={`chart-container ${anyChecked ? 'fade-in' : 'hidden'}`} onClick={handleButtonClick}>
+              <div className="btn-content">
+                <p className="btn-text">{t('results')}</p>
+                <IoIosArrowForward />
+              </div>
             </div>
           </div>
         </>
       ) : (
-        <>
-           <div className="header-container">
-            <h2>{t('result')}</h2>
-          </div>
-
-          <div className="highest-job">
-            <p> {t('yourNeeds1')} {getHighestPercentageJob()} {t('yourNeeds2')} </p>
-          </div>
-
-          <div className='result'>
-            <div className="chart-container">
-              <div className="chart-wishlist">
-                <Doughnut
-                  data={chartData} 
-                  options={chartOptions}
-                />
-              </div>
-
-              <div className="chart-labels-container">
-                {chartData && chartData.labels.map((label, index) => (
-                  <div className="label-chart" key={index}>
-                    <span style={{ backgroundColor: chartData.datasets[0].backgroundColor[index] }}></span>
-                    {label}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <form onSubmit={handleSubmit} className="form-container">
-              <div className="form-group" data-aos="fade-right">
-                <label htmlFor="email">{t('placeholderEmail')}</label>
-                <input
-                  type="email"
-                  id="email"
-                  value={email}
-                  placeholder={t('placeholderEmail')}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="form-group" data-aos="fade-left">
-                <label htmlFor="name">{t('placeholderName')}</label>
-                <input
-                  type="text"
-                  id="name"
-                  value={name}
-                  placeholder={t('placeholderName')}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="form-group" data-aos="fade-right">
-                <label htmlFor="description">{t('describe')}</label>
-                <textarea
-                  id="description"
-                  value={description}
-                  placeholder={t('placeholderDescription')}
-                  onChange={(e) => setDescription(e.target.value)}
-                  required
-                />
-              </div>
-              <button type="submit" className='submit'> 
-                <img src='images/send-card.svg' alt='postcard' /> {t('request')} 
-              </button>
-            </form>
-
-            <div className="arrow-container-restart">
-              <div className={restartButtonClass} onClick={handleRestart}>
-                <HiArrowLongLeft />
-              </div>
+        <div className="chart-section">
+          <h2>{t('proposed')}</h2>
+          <div className="chart-wrapper">
+            <Doughnut data={chartData} options={chartOptions} />
+            <div className="job-description">
+              <h3>{t('bestPropose')}</h3>
+              <p>{getHighestPercentageJob()}</p>
             </div>
           </div>
-        </>
+
+          <div className="button-container">
+            <button className="restart-button" onClick={handleRestart}>
+              {t('restart')} <HiArrowLongLeft />
+            </button>
+          </div>
+        </div>
       )}
     </section>
   );
