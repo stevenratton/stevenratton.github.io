@@ -17,12 +17,12 @@ cd [folder_name]
 Use pnpm
 ```bash
 pnpm install
-pnpm run develop
+pnpm run dev
 ```
 Use npm
 ```bash
 npm install
-npm run develop
+npm run dev
 ```
 ## About Us
 * [Anelise GAMBINI](https://github.com/Gambizzz)
