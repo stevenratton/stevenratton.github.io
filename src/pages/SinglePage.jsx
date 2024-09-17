@@ -170,4 +170,3 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
 };
 
 export default SinglePage;
-
