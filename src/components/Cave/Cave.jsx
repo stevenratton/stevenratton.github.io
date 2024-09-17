@@ -47,12 +47,13 @@ const Cave = ({ showLogo }) => {  // Ajout du prop showLogo
     <div id="cave-container">
       <div
         className={`business-container ${isFixed ? 'visible' : 'hidden'}`}
-        style={{ opacity: opacityLogoHead, transition: 'opacity 0.5s ease-in-out' }}
+        style={{ opacity: opacityLogoHead, transition: 'opacity 1.5s ease-in-out' }}
       >
         <img
           src='/images/logo-head.svg'
           alt='Logo'
           className='logo-head2'
+          style={{ transition: 'opacity 1.5s ease-in-out' }}
         />
         <p> BUSINESS ANALYST / UX DESIGNER <br />FREELANCE </p>
       </div>
