@@ -1,9 +1,10 @@
 body {
-  overflow: hidden; /* Supprime le défilement */
+  overflow: hidden;
 }
 
 .section-wrapper {
   padding: 0;
+  position: relative;
 }
 
 .sw-work {
@@ -17,3 +18,17 @@ body {
 .sw-port {
   padding: -1.8% 0 0 0;
 }
+
+.cave-titre-wrapper {
+  position: relative;
+}
+
+.titre {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+

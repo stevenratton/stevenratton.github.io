@@ -14,16 +14,21 @@ const Titre = ({ showLogo }) => {
   }, [showLogo]);
 
   return (
-    <section id="about"
-      className="business-container" 
-      style={{ opacity: opacityLogoHead, transition: 'opacity 1.5s ease-in-out' }}
-      >
-      <img
-        src='/images/logo-head.svg'
-        alt='Logo'
-        className='logo-head2'
-        style={{ transition: 'opacity 1.5s ease-in-out' }}
-      />
+
+    <section id="about" className="business-container">
+      <div>
+        <img
+          src='/images/logo-head.svg'
+          alt='Logo'
+          className='logo-head2'
+          style={{ transition: 'opacity 1.5s ease-in-out' }}
+        />
+        <p> BUSINESS ANALYST / UX DESIGNER <br />FREELANCE </p>
+      </div>
+
+      <div>
+        <div className="cave-layer layer-3"></div>
+      </div>
     </section>
   )
 };

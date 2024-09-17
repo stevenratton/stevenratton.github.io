@@ -22,11 +22,12 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
   const [currentSection, setCurrentSection] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
   const [showLogo, setShowLogo] = useState(false);
+  const caveSectionRef = useRef(null);
+  const titreRef = useRef(null);
   const scrollDelay = 500;
 
   useEffect(() => {
     let scrollTimeout = null;
-    let autoScrollTimeout = null;
 
     const scrollToSection = (index) => {
       if (index >= 0 && index < sections.current.length) {
@@ -50,12 +51,9 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
         clearTimeout(scrollTimeout);
         scrollTimeout = setTimeout(() => setIsScrolling(false), scrollDelay);
 
+        // For Cave and Titre to appear together
         if (index === 1) {
           setShowLogo(true);
-          clearTimeout(autoScrollTimeout);
-          autoScrollTimeout = setTimeout(() => {
-            scrollToSection(2);
-          }, 1500);
         } else {
           setShowLogo(false);
         }
@@ -101,9 +99,31 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
     return () => {
       Observer.getAll().forEach((observer) => observer.kill());
       window.removeEventListener('keydown', handleKeyDown);
-      clearTimeout(autoScrollTimeout);
     };
   }, [currentSection, isScrolling]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (caveSectionRef.current && titreRef.current) {
+        const caveRect = caveSectionRef.current.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+
+        // Adjust TITRE's opacity as CAVE moves in and out of view
+        if (caveRect.top <= windowHeight && caveRect.bottom >= 0) {
+          const progress = Math.min(1, Math.max(0, (windowHeight - caveRect.top) / windowHeight));
+          gsap.to(titreRef.current, { opacity: progress, duration: 0.3, ease: 'power1.out' });
+        } else {
+          // Ensure TITRE remains visible when CAVE is fully out of view
+          gsap.to(titreRef.current, { opacity: 0, duration: 0.3, ease: 'power1.out' });
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const addToRefs = (el) => {
     if (el && !sections.current.includes(el)) {
@@ -118,12 +138,17 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
       <div className="section-wrapper" ref={addToRefs}>
         <Home selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
       </div>
-      <div className="section-wrapper" ref={addToRefs}>
-        <Cave />
+
+      {/* Combine Cave and Titre into one wrapper */}
+      <div className="section-wrapper cave-titre-wrapper" ref={addToRefs}>
+        <div ref={caveSectionRef}>
+          <Cave />
+        </div>
+        <div ref={titreRef} className="titre">
+          <Titre showLogo={showLogo} />
+        </div>
       </div>
-      <div className="section-wrapper" ref={addToRefs}>
-        <Titre showLogo={showLogo} />
-      </div>
+
       <div className="section-wrapper" ref={addToRefs}>
         <About selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
       </div>
