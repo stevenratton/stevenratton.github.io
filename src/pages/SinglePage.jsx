@@ -13,6 +13,7 @@ import Portfolio from '../components/Portfolio/Portfolio.jsx';
 import Contact from '../components/Contact/Contact.jsx';
 import Footer from '../components/Footer/Footer.jsx';
 import LangSwitcher from '../components/LangSwitcher/LangSwitcher.jsx';
+import Titre from '../components/Titre/Titre.jsx';
 
 gsap.registerPlugin(Observer, ScrollToPlugin);
 
@@ -20,12 +21,12 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
   const sections = useRef([]);
   const [currentSection, setCurrentSection] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
-  const [showLogo, setShowLogo] = useState(false); 
+  const [showLogo, setShowLogo] = useState(false);
   const scrollDelay = 500;
 
   useEffect(() => {
     let scrollTimeout = null;
-    let autoScrollTimeout = null; 
+    let autoScrollTimeout = null;
 
     const scrollToSection = (index) => {
       if (index >= 0 && index < sections.current.length) {
@@ -38,7 +39,7 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
           if (i === index) {
             gsap.to(section, { opacity: 1, duration: 0.5, ease: 'power1.inOut' });
             section.classList.add('active');
-          } else if (i !== 1) { 
+          } else if (i !== 1) {
             gsap.to(section, { opacity: 0, duration: 0.5, ease: 'power1.inOut' });
             section.classList.remove('active');
           }
@@ -49,21 +50,21 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
         clearTimeout(scrollTimeout);
         scrollTimeout = setTimeout(() => setIsScrolling(false), scrollDelay);
 
-        if (index === 1) { 
+        if (index === 1) {
           setShowLogo(true);
           clearTimeout(autoScrollTimeout);
           autoScrollTimeout = setTimeout(() => {
-            scrollToSection(2); 
+            scrollToSection(2);
           }, 1500);
         } else {
           setShowLogo(false);
         }
       }
     };
-  
+
     const handleScroll = (event) => {
       if (isScrolling) return;
-  
+
       if (event.deltaY > 0) {
         if (currentSection < sections.current.length - 1) {
           scrollToSection(currentSection + 1);
@@ -118,7 +119,10 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
         <Home selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
       </div>
       <div className="section-wrapper" ref={addToRefs}>
-        <Cave showLogo={showLogo} />
+        <Cave />
+      </div>
+      <div className="section-wrapper" ref={addToRefs}>
+        <Titre showLogo={showLogo} />
       </div>
       <div className="section-wrapper" ref={addToRefs}>
         <About selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />

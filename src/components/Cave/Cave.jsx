@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './cave.scss';
 
-const Cave = ({ showLogo }) => {  // Ajout du prop showLogo
+const Cave = () => {  // Ajout du prop showLogo
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isFixed, setIsFixed] = useState(false);
-  const [opacityLogoHead, setOpacityLogoHead] = useState(0);
   const [opacityLayer3, setOpacityLayer3] = useState(1);
 
   useEffect(() => {
@@ -34,30 +33,8 @@ const Cave = ({ showLogo }) => {  // Ajout du prop showLogo
     };
   }, []);
 
-  useEffect(() => {
-    // Contrôle de l'affichage du logo via le prop showLogo
-    if (showLogo) {
-      setOpacityLogoHead(1); // Afficher le logo
-    } else {
-      setOpacityLogoHead(0); // Cacher le logo
-    }
-  }, [showLogo]);
-
   return (
     <div id="cave-container">
-      <div
-        className={`business-container ${isFixed ? 'visible' : 'hidden'}`}
-        style={{ opacity: opacityLogoHead, transition: 'opacity 1.5s ease-in-out' }}
-      >
-        <img
-          src='/images/logo-head.svg'
-          alt='Logo'
-          className='logo-head2'
-          style={{ transition: 'opacity 1.5s ease-in-out' }}
-        />
-        <p> BUSINESS ANALYST / UX DESIGNER <br />FREELANCE </p>
-      </div>
-
       {/* Les autres layers */}
       <div // Transition gradient
         className={`cave-layer layer-0 ${isFixed ? 'fixed' : ''}`}
