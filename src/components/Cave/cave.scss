@@ -6,15 +6,7 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-
-  @media (max-width: 768px) {
-    right: 0;
-    left: 0;
-  }
-
-  @media (max-width: 480px) {
-    width: 100vw;
-  }
+  margin: 0;
 }
 
 .cave-layer {
@@ -40,46 +32,40 @@
     z-index: 0;
     transition: none;
   }
-
-  @media (max-width: 480px) {
-    width: 80vw;
-    position: relative;
-  }
 }
 
-/*fond*/
-.layer-0 {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 160px;
-  background: linear-gradient(to bottom, rgba(20, 20, 20, 1) 0%, rgba(20, 20, 20, 0.9) 50%, rgba(20, 20, 20, 0) 100%);
-  z-index: 10;
 
-  @media (max-width: 480px) {
-    width: 120vw;
-  }
-}
 
-/*fond*/
+/* FOND */
 .layer-1 {
   background-image: url('/images/Cave/cave-bg.svg');
   z-index: 1;
-
-  @media (max-width: 480px) {
-    width: 120vw;
-  }
 }
 
-/*contour*/
+/* CONTOUR */
 .layer-2 {
   background-image: url('/images/Cave/cave-contour.svg');
   z-index: 2;
 }
 
-/*bureau*/
+.layer-2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  background: linear-gradient(
+    to bottom,
+    rgba(20, 20, 20, 1) 0%,
+    rgba(20, 20, 20, 0.9) 50%,
+    rgba(20, 20, 20, 0) 100%
+  );
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* BUREAU */
 .layer-3 {
   background-image: url('/images/Cave/cave-layer4.svg');
   z-index: 3;
@@ -92,144 +78,119 @@
 .layer-3.fixed {
   position: fixed;
   left: 37.3%;
-  top: 50%;
+  top: 51%;
   width: 50%;
   height: 50%;
-  z-index: 10;
+  z-index: 3;
 }
 
-/*sol*/
+/* SOL */
 .layer-4 {
   background-image: url('/images/Cave/cave-bg-sol.svg');
-  width: 100%;
-  height: 30%;
-  left: 0%;
-  top: 75%;
-  background-size: contain;
+  // position: fixed;
+  top: 76%;
+  bottom: 0;
+  width: 99.8%;
+  height: 27%;
+  background-size: cover;
   z-index: 5;
+  border: 2px red solid
 }
 
 .layer-4.fixed {
+  // background-image: url('/images/Cave/cave-bg-sol.svg');
   position: fixed;
-  /* Fixer l'élément lors du défilement */
-  left: 0;
-  /* Ajuster la position pour remplir l'écran */
-  top: auto;
-  /* Annuler la valeur top */
+  top: 76%;
   bottom: 0;
-  /* Fixer en bas de la fenêtre */
-  width: 100vw;
-  /* Occuper toute la largeur de la fenêtre */
-  height: 20%;
-  /* Ajuster la hauteur pour qu'elle soit visible mais pas trop grande */
+  width: 99.8%;
+  height: 27%;
   background-size: cover;
-  /* Redimensionner l'image pour couvrir toute la zone */
-  z-index: 10;
-  /* S'assurer qu'elle soit au-dessus des autres éléments */
+  z-index: 5;
+  border: 2px red solid
 }
 
-/* mur droite */
+/* MUR GAUCHE */
 .layer-5 {
   background-image: url('/images/Cave/cave-bg-mur1.svg');
   width: 30%;
-  /* Ajustez la largeur à 30% pour un affichage vertical */
   height: 100vh;
-  /* Ajustez la hauteur à 100% du viewport pour un affichage complet */
   left: -5%;
-  /* Positionnez l'image à droite */
   top: 0;
-  /* Déplacez l'image vers le haut pour qu'elle commence en haut du conteneur */
   background-size: contain;
-  /* Assurez-vous que l'image est complètement visible */
   background-repeat: no-repeat;
-  /* Empêchez la répétition de l'image */
   background-position: center;
-  /* Centrez l'image dans le conteneur */
   z-index: 3;
 }
 
-.layer-5.fixed {
+.layer-5::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  background: linear-gradient(
+    to bottom,
+    rgba(20, 20, 20, 1) 0%,
+    rgba(20, 20, 20, 0.9) 50%,
+    rgba(20, 20, 20, 0) 100%
+  );
+  z-index: 10;
+  pointer-events: none;
+}
+
+ .layer-5.fixed {
+  // background-image: url('/images/Cave/cave-bg-mur1.svg');
+  position: fixed;
   width: 30%;
-  /* Ajustez la largeur à 30% pour un affichage vertical */
   height: 100vh;
-  /* Ajustez la hauteur à 100% du viewport pour un affichage complet */
   left: -5%;
-  /* Positionnez l'image à droite */
   top: 0;
-  /* Déplacez l'image vers le haut pour qu'elle commence en haut du conteneur */
   background-size: contain;
-  /* Assurez-vous que l'image est complètement visible */
   background-repeat: no-repeat;
-  /* Empêchez la répétition de l'image */
   background-position: center;
-  /* Centrez l'image dans le conteneur */
   z-index: 3;
 }
 
+/* MUR DROIT */
 .layer-6 {
   background-image: url('/images/Cave/cave-bg-mur2.svg');
-  width: 100%;
-  /* Ajustez la largeur à 30% pour un affichage vertical */
+  width: 30%;
   height: 100vh;
-  /* Ajustez la hauteur à 100% du viewport pour un affichage complet */
-  left: 36%;
-  /* Positionnez l'image à droite */
+  left: 73%;
   top: 0;
-  /* Déplacez l'image vers le haut pour qu'elle commence en haut du conteneur */
-  background-size: contain;
-  /* Assurez-vous que l'image est complètement visible */
+  overflow: hidden;
   background-repeat: no-repeat;
-  /* Empêchez la répétition de l'image */
   background-position: center;
-  /* Centrez l'image dans le conteneur */
   z-index: 3;
+}
+
+.layer-6::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  background: linear-gradient(
+    to bottom,
+    rgba(20, 20, 20, 1) 0%,
+    rgba(20, 20, 20, 0.9) 50%,
+    rgba(20, 20, 20, 0) 100%
+  );
+  z-index: 10;
+  pointer-events: none;
 }
 
 .layer-6.fixed {
+  // background-image: url('/images/Cave/cave-bg-mur2.svg');
+  position: fixed;
   width: 30%;
-  /* Ajustez la largeur à 30% pour un affichage vertical */
   height: 100vh;
-  /* Ajustez la hauteur à 100% du viewport pour un affichage complet */
   left: 73%;
-  /* Positionnez l'image à droite */
   top: 0;
-  /* Déplacez l'image vers le haut pour qu'elle commence en haut du conteneur */
   overflow: hidden;
   background-repeat: no-repeat;
-  /* Empêchez la répétition de l'image */
   background-position: center;
-  /* Centrez l'image dans le conteneur */
   z-index: 3;
-}
-
-.business-container {
-  position: relative;
-  text-align: center;
-  margin-bottom: 50%;
-  z-index: 4;
-  transition: opacity 2s;
-
-  p {
-    font-family: $title-font;
-    font-size: 3rem;
-    color: $main-blue;
-    margin-left: 4%;
-  }
-
-  &.fixed {
-    position: fixed;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-.logo-head2 {
-  position: relative;
-  left: 52%;
-  transform: translateX(-50%);
-  transition: opacity 2s ease-out, transform 1s ease-out;
-  width: 100%;
-  z-index: 4;
-  margin-top: 10%;
 }
