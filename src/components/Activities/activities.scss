@@ -1,13 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
 @import 'src/styles/variables';
 
-/* Card activities */
 .activities {
   position: relative;
   z-index: 5;
 
+  @media (max-width: 1024px) {
+    margin-top: 4%;
+  }
+
+  @media (min-width: 1025px) {
+    margin-top: 2%;
+  }
+
   h2 {
-    margin-bottom: -2%;
+    @media (max-width: 1024px) {
+      margin-bottom: 8%;
+      margin-left: 4%;
+    }
   }
 }
 
@@ -17,7 +27,6 @@
   justify-content: center;
   align-items: center;
   gap: 8rem;
-  margin-top: 4%;
   margin-right: 2%;
 
   @media (max-width: 1024px) {
@@ -27,7 +36,7 @@
   }
 
   @media (min-width: 1025px) {
-    margin-top: 8%;
+    margin-top: 0;
   }
 }
 
@@ -44,7 +53,7 @@
 .card-image {
   position: absolute;
   top: -50px;
-  left: 50%;
+  left: 55%;
   transform: translateX(-50%);
   width: 80px;
   height: 80px;
@@ -61,8 +70,8 @@
   border: 6px solid transparent;
   border-radius: 40px;
   background-image:
-  linear-gradient($bg-body, $bg-body),
-  linear-gradient(5deg, #0050c7a8, #0050c7a8, #9756fa, #73e177bd, #006afebb, #35d9ccd0);
+    linear-gradient($bg-body, $bg-body),
+    linear-gradient(5deg, #0050c7a8, #0050c7a8, #9756fa, #73e177bd, #006afebb, #35d9ccd0);
   background-origin: border-box;
   background-clip: padding-box, border-box;
   padding: 4%;
@@ -127,4 +136,11 @@
     justify-content: center;
     gap: 15px;
   }
+
+  @media (max-width: 1024px) {
+    margin-top: 6%;
+    margin-left: 4%;
+  }
 }
+
+
