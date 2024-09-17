@@ -65,24 +65,24 @@
   pointer-events: none;
 }
 
-/* BUREAU */
-.layer-3 {
-  background-image: url('/images/Cave/cave-layer4.svg');
-  z-index: 3;
-  left: 37.3%;
-  top: 51%;
-  width: 50%;
-  height: 50%;
-}
+// /* BUREAU */
+// .layer-3 {
+//   background-image: url('/images/Cave/cave-layer4.svg');
+//   z-index: 3;
+//   left: 37.3%;
+//   top: 51%;
+//   width: 50%;
+//   height: 50%;
+// }
 
-.layer-3.fixed {
-  position: fixed;
-  left: 37.3%;
-  top: 51%;
-  width: 50%;
-  height: 50%;
-  z-index: 3;
-}
+// .layer-3.fixed {
+//   position: fixed;
+//   left: 37.3%;
+//   top: 51%;
+//   width: 50%;
+//   height: 50%;
+//   z-index: 3;
+// }
 
 /* SOL */
 .layer-4 {
@@ -94,7 +94,6 @@
   height: 27%;
   background-size: cover;
   z-index: 5;
-  border: 2px red solid
 }
 
 .layer-4.fixed {
@@ -106,7 +105,6 @@
   height: 27%;
   background-size: cover;
   z-index: 5;
-  border: 2px red solid
 }
 
 /* MUR GAUCHE */

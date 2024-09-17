@@ -4,7 +4,7 @@ import './cave.scss';
 const Cave = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isFixed, setIsFixed] = useState(false);
-  const [opacityLayer3, setOpacityLayer3] = useState(1);
+  // const [opacityLayer3, setOpacityLayer3] = useState(1);
 
   useEffect(() => {
     const handleMouseMove = (event) => {
@@ -18,10 +18,10 @@ const Cave = () => {
 
       if (scrollPosition >= windowHeight) {
         setIsFixed(true);
-        setOpacityLayer3(0); // Masquer le layer 3
+        // setOpacityLayer3(0); // Masquer le layer 3
       } else {
         setIsFixed(false);
-        setOpacityLayer3(1); // Afficher le layer 3
+        // setOpacityLayer3(1); // Afficher le layer 3
       }
     };
 
@@ -49,14 +49,14 @@ const Cave = () => {
         className={`cave-layer layer-2 ${isFixed ? 'fixed' : ''}`}
       ></div>
 
-      <div // Bureau
+      {/* <div // Bureau
         className={`cave-layer layer-3 ${isFixed ? 'fixed' : ''}`}
         style={{
           transform: `translate(${mousePos.x/3 * 0.020}px, ${mousePos.y * 0.020}px)`,
-          opacity: opacityLayer3,
+         
           transition: 'opacity 1.5s ease-in-out',
         }}
-      ></div>
+      ></div> */}
 
       <div // Sol
         className={`cave-layer layer-4 ${isFixed ? 'fixed' : ''}`}
