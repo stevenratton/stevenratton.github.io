@@ -31,7 +31,7 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
       if (index >= 0 && index < sections.current.length) {
         gsap.to(window, {
           scrollTo: { y: sections.current[index], autoKill: false, ease: 'power1.inOut' },
-          duration: 1,
+          duration: 1.5,
         });
 
         sections.current.forEach((section, i) => {
@@ -141,15 +141,3 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
 };
 
 export default SinglePage;
-
-
-
-
-
-
-
-
-
-
-
-
