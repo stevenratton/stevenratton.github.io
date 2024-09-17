@@ -3,7 +3,6 @@ import './titre.scss'
 
 const Titre = ({ showLogo }) => {
   const [opacityLogoHead, setOpacityLogoHead] = useState(0);
-  const [isFixed, setIsFixed] = useState(false);
 
   useEffect(() => {
     // Contrôle de l'affichage du logo via le prop showLogo
@@ -15,17 +14,17 @@ const Titre = ({ showLogo }) => {
   }, [showLogo]);
 
   return (
-    <div
-      className={`business-container ${isFixed ? 'visible' : 'hidden'}`}
+    <section id="about"
+      className="business-container" 
       style={{ opacity: opacityLogoHead, transition: 'opacity 1.5s ease-in-out' }}
-    >
+      >
       <img
         src='/images/logo-head.svg'
         alt='Logo'
         className='logo-head2'
         style={{ transition: 'opacity 1.5s ease-in-out' }}
       />
-    </div>
+    </section>
   )
 };
 

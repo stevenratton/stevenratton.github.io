@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './cave.scss';
 
-const Cave = () => {  // Ajout du prop showLogo
+const Cave = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isFixed, setIsFixed] = useState(false);
   const [opacityLayer3, setOpacityLayer3] = useState(1);
@@ -13,9 +13,10 @@ const Cave = () => {  // Ajout du prop showLogo
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      const maxScroll = 1250; // Point où l'image devient fixe
+      const windowHeight = window.innerHeight;
+      // const maxScroll = 940;
 
-      if (scrollPosition > maxScroll) {
+      if (scrollPosition >= windowHeight) {
         setIsFixed(true);
         setOpacityLayer3(0); // Masquer le layer 3
       } else {
@@ -35,17 +36,19 @@ const Cave = () => {  // Ajout du prop showLogo
 
   return (
     <div id="cave-container">
-      {/* Les autres layers */}
       <div // Transition gradient
         className={`cave-layer layer-0 ${isFixed ? 'fixed' : ''}`}
       ></div>
+
       <div // Background
         className={`cave-layer layer-1 ${isFixed ? 'fixed' : ''}`}
         style={{ transform: `translate(${mousePos.x * 0.015}px, ${mousePos.y * 0.015}px)` }}
       ></div>
+
       <div // Cadre
         className={`cave-layer layer-2 ${isFixed ? 'fixed' : ''}`}
       ></div>
+
       <div // Bureau
         className={`cave-layer layer-3 ${isFixed ? 'fixed' : ''}`}
         style={{
@@ -55,21 +58,20 @@ const Cave = () => {  // Ajout du prop showLogo
         }}
       ></div>
 
-      <div //Rochers en bas
+      <div // Sol
         className={`cave-layer layer-4 ${isFixed ? 'fixed' : ''}`}
         style={{ transform: `translate(${mousePos.x / 2 * 0.005}px, ${mousePos.y / 2 * 0.005}px)` }}
       ></div>
 
-      <div //Rochers à gauche
+      <div // Pilier gauche
         className={`cave-layer layer-5 ${isFixed ? 'fixed' : ''}`}
         style={{ transform: `translate(${mousePos.x/3 * 0.020}px, ${mousePos.y/2 * 0.015}px)` }}
       ></div>
 
-      <div //Rochers à droite
+      <div // Pilier droit
         className={`cave-layer layer-6 ${isFixed ? 'fixed' : ''}`}
         style={{ transform: `translate(${mousePos.x/2 * 0.015}px, ${mousePos.y/3 * 0.020}px)` }}
       ></div>
-
     </div>
   );
 };

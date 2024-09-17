@@ -14,7 +14,7 @@ const About = () => {
   };
 
   return (
-    <section id="about">
+    <div className='about'>
       <div className="about-content">
         <div className="about-avatar">
           <img src="/images/avatar.svg" alt="avatar" className="avatar" />
@@ -43,7 +43,7 @@ const About = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
