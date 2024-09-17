@@ -76,7 +76,7 @@ const resources = {
     "project" : "Project management",
     "valWishlist" : "Validate",
 
-    "POS" : "Project Owner Support",
+    "POS" : "Product Owner Support",
     "FC" : "Functional Consultant",
     "BA" : "Business Analyst",
 
@@ -166,7 +166,7 @@ const resources = {
     "project" : "Gestion projet",
     "valWishlist" : "Valider",
 
-    "POS" : "Support Responsable de Projet",
+    "POS" : "Support Responsable de Produit",
     "FC" : "Consultant Fonctionnel",
     "BA" : "Business Analyste",
 
