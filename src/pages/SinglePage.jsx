@@ -51,7 +51,6 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
         clearTimeout(scrollTimeout);
         scrollTimeout = setTimeout(() => setIsScrolling(false), scrollDelay);
 
-        // For Cave and Titre to appear together
         if (index === 1) {
           setShowLogo(true);
         } else {
@@ -108,12 +107,10 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
         const caveRect = caveSectionRef.current.getBoundingClientRect();
         const windowHeight = window.innerHeight;
 
-        // Adjust TITRE's opacity as CAVE moves in and out of view
         if (caveRect.top <= windowHeight && caveRect.bottom >= 0) {
           const progress = Math.min(1, Math.max(0, (windowHeight - caveRect.top) / windowHeight));
           gsap.to(titreRef.current, { opacity: progress, duration: 0.3, ease: 'power1.out' });
         } else {
-          // Ensure TITRE remains visible when CAVE is fully out of view
           gsap.to(titreRef.current, { opacity: 0, duration: 0.3, ease: 'power1.out' });
         }
       }
@@ -164,7 +161,10 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
       <div className="section-wrapper" ref={addToRefs}>
         <Contact selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
       </div>
-      <Footer selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
+      {/* Footer Section */}
+      <div className="section-wrapper" ref={addToRefs}>
+        <Footer selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
+      </div>
     </div>
   );
 };

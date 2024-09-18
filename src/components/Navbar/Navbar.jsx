@@ -10,67 +10,115 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const Navbar = () => {
   const { t } = useTranslation();
+  const [hoveredText, setHoveredText] = useState('');
   const [activeSection, setActiveSection] = useState('home');
-
   const sections = useRef([]);
 
-  // Function to handle click and smooth scroll to the section
+  // Gestion du survol de texte
+  const handleMouseEnter = (text) => {
+    setHoveredText(text);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredText('');
+  };
+
+  const getText = () => {
+    return (hoveredText || activeSection).toUpperCase();
+  };
+
   const handleNavClick = (sectionId) => {
     gsap.to(window, {
-      scrollTo: { y: `#${sectionId}`, offsetY: 50 }, // Adjust offsetY for navbar height
+      scrollTo: { y: `#${sectionId}`, offsetY: 50 },
       duration: 1.5,
+      onComplete: () => {
+        setActiveSection(sectionId);
+        ScrollTrigger.refresh(true); // Rafraîchir ScrollTrigger immédiatement
+      },
     });
-    setActiveSection(sectionId);
   };
 
   useEffect(() => {
-    // Select all sections
     const sectionElements = document.querySelectorAll('section');
+    sections.current = Array.from(sectionElements);
 
-    sectionElements.forEach((section) => {
-      sections.current.push(section);
-    });
+    sections.current.forEach((section) => {
+      const sectionId = section.getAttribute('id');
 
-    // Setup ScrollTrigger for each section
-    sections.current.forEach((section, index) => {
       ScrollTrigger.create({
         trigger: section,
-        start: 'top center', // When the top of the section hits the center of the viewport
+        start: 'top center',
         end: 'bottom center',
-        onEnter: () => {
-          const sectionId = section.getAttribute('id');
-          setActiveSection(sectionId); // Update active section based on scroll
+        onEnter: () => setActiveSection(sectionId),
+        onEnterBack: () => setActiveSection(sectionId),
+        onUpdate: self => {
+          // Synchroniser activeSection lors de la mise à jour de ScrollTrigger
+          if (self.isActive) {
+            setActiveSection(sectionId);
+          }
         },
       });
     });
 
+    // Nettoyer ScrollTrigger lors du démontage du composant
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill()); // Cleanup
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
 
-  // Get className for icons based on active section
   const getIconClassName = (sectionId) => {
-    return activeSection === sectionId ? 'icon active' : 'icon';
+    if (activeSection === sectionId) {
+      return 'icon active';
+    } else if (hoveredText === sectionId) {
+      return 'icon hovered';
+    }
+    return 'icon';
   };
+
+  const homeText = t('HOME');
+  const aboutText = t('ABOUT');
+  const workText = t('WORK');
+  const portfolioText = t('PORTFOLIO');
+  const contactText = t('CONTACT');
 
   return (
     <div className="full-nav">
+      <div className="hover-text">{getText()}</div>
       <div className="navbar">
         <div className="navbar-icons">
-          <a onClick={() => handleNavClick('home')}>
+          <a
+            onClick={() => handleNavClick('home')}
+            onMouseEnter={() => handleMouseEnter(homeText)}
+            onMouseLeave={handleMouseLeave}
+          >
             <FaHome className={getIconClassName('home')} />
           </a>
-          <a onClick={() => handleNavClick('about')}>
+          <a
+            onClick={() => handleNavClick('about')}
+            onMouseEnter={() => handleMouseEnter(aboutText)}
+            onMouseLeave={handleMouseLeave}
+          >
             <FaUser className={getIconClassName('about')} />
           </a>
-          <a onClick={() => handleNavClick('work')}>
+          <a
+            onClick={() => handleNavClick('work')}
+            onMouseEnter={() => handleMouseEnter(workText)}
+            onMouseLeave={handleMouseLeave}
+          >
             <FaBriefcase className={getIconClassName('work')} />
           </a>
-          <a onClick={() => handleNavClick('portfolio')}>
+          <a
+            onClick={() => handleNavClick('portfolio')}
+            onMouseEnter={() => handleMouseEnter(portfolioText)}
+            onMouseLeave={handleMouseLeave}
+          >
             <FaFolderOpen className={getIconClassName('portfolio')} />
           </a>
-          <a onClick={() => handleNavClick('contact')}>
+          <a
+            onClick={() => handleNavClick('contact')}
+            onMouseEnter={() => handleMouseEnter(contactText)}
+            onMouseLeave={handleMouseLeave}
+          >
             <FaEnvelope className={getIconClassName('contact')} />
           </a>
         </div>
@@ -80,5 +128,10 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
+
+
+
 
 
