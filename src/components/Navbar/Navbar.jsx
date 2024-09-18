@@ -1,126 +1,77 @@
-import React, { useState, useEffect } from 'react';
-import { FaHome, FaUser, FaBriefcase, FaFolderOpen, FaEnvelope } from 'react-icons/fa';
+import React, { useRef, useEffect, useState } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import '../Navbar/navbar.scss';
+import { FaHome, FaUser, FaBriefcase, FaFolderOpen, FaEnvelope } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
+
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const Navbar = () => {
   const { t } = useTranslation();
-  const [hoveredText, setHoveredText] = useState('');
-  const [activeSection, setActiveSection] = useState('');
+  const [activeSection, setActiveSection] = useState('home');
 
-  const handleMouseEnter = (text) => {
-    setHoveredText(text);
-  };
+  const sections = useRef([]);
 
-  const handleMouseLeave = () => {
-    setHoveredText('');
-  };
-
-  const getText = () => {
-    return hoveredText || activeSection;
-  };
-
-  const getIconClassName = (text) => {
-    if (activeSection === text) {
-      return 'icon active';
-    } else if (hoveredText === text) {
-      return 'icon hovered';
-    }
-    return 'icon';
+  // Function to handle click and smooth scroll to the section
+  const handleNavClick = (sectionId) => {
+    gsap.to(window, {
+      scrollTo: { y: `#${sectionId}`, offsetY: 50 }, // Adjust offsetY for navbar height
+      duration: 1.5,
+    });
+    setActiveSection(sectionId);
   };
 
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = document.querySelectorAll('section');
-      let currentSection = '';
+    // Select all sections
+    const sectionElements = document.querySelectorAll('section');
 
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        const scrollPosition = window.scrollY;
+    sectionElements.forEach((section) => {
+      sections.current.push(section);
+    });
 
-        if (scrollPosition >= sectionTop - sectionHeight / 3) {
-          currentSection = section.getAttribute('id');
-        }
+    // Setup ScrollTrigger for each section
+    sections.current.forEach((section, index) => {
+      ScrollTrigger.create({
+        trigger: section,
+        start: 'top center', // When the top of the section hits the center of the viewport
+        end: 'bottom center',
+        onEnter: () => {
+          const sectionId = section.getAttribute('id');
+          setActiveSection(sectionId); // Update active section based on scroll
+        },
       });
+    });
 
-      switch (currentSection) {
-        case 'home':
-          setActiveSection(t('HOME'));
-          break;
-        case 'about':
-          setActiveSection(t('ABOUT'));
-          break;
-        case 'work':
-          setActiveSection(t('WORK'));
-          break;
-        case 'portfolio':
-          setActiveSection(t('PORTFOLIO'));
-          break;
-        case 'contact':
-          setActiveSection(t('CONTACT'));
-          break;
-        default:
-          setActiveSection('');
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill()); // Cleanup
     };
-  }, [t]);
+  }, []);
 
-  const homeText = t('HOME');
-  const aboutText = t('ABOUT');
-  const workText = t('WORK');
-  const portfolioText = t('PORTFOLIO');
-  const contactText = t('CONTACT');
+  // Get className for icons based on active section
+  const getIconClassName = (sectionId) => {
+    return activeSection === sectionId ? 'icon active' : 'icon';
+  };
 
   return (
-    <div className='full-nav'>
-      <div className="hover-text">{getText()}</div>
+    <div className="full-nav">
       <div className="navbar">
         <div className="navbar-icons">
-          <a
-            href="#home"
-            onMouseEnter={() => handleMouseEnter(homeText)}
-            onMouseLeave={handleMouseLeave}
-            className={`nav-link ${activeSection === homeText ? 'active' : ''}`}
-          >
-            <FaHome className={getIconClassName(homeText)} />
+          <a onClick={() => handleNavClick('home')}>
+            <FaHome className={getIconClassName('home')} />
           </a>
-          <a
-            href="#about"
-            onMouseEnter={() => handleMouseEnter(aboutText)}
-            onMouseLeave={handleMouseLeave}
-            className={`nav-link ${activeSection === aboutText ? 'active' : ''}`}
-          >
-            <FaUser className={getIconClassName(aboutText)} />
+          <a onClick={() => handleNavClick('about')}>
+            <FaUser className={getIconClassName('about')} />
           </a>
-          <a
-            href="#work"
-            onMouseEnter={() => handleMouseEnter(workText)}
-            onMouseLeave={handleMouseLeave}
-            className={`nav-link ${activeSection === workText ? 'active' : ''}`}
-          >
-            <FaBriefcase className={getIconClassName(workText)} />
+          <a onClick={() => handleNavClick('work')}>
+            <FaBriefcase className={getIconClassName('work')} />
           </a>
-          <a
-            href="#portfolio"
-            onMouseEnter={() => handleMouseEnter(portfolioText)}
-            onMouseLeave={handleMouseLeave}
-            className={`nav-link ${activeSection === portfolioText ? 'active' : ''}`}
-          >
-            <FaFolderOpen className={getIconClassName(portfolioText)} />
+          <a onClick={() => handleNavClick('portfolio')}>
+            <FaFolderOpen className={getIconClassName('portfolio')} />
           </a>
-          <a
-            href="#contact"
-            onMouseEnter={() => handleMouseEnter(contactText)}
-            onMouseLeave={handleMouseLeave}
-            className={`nav-link ${activeSection === contactText ? 'active' : ''}`}
-          >
-            <FaEnvelope className={getIconClassName(contactText)} />
+          <a onClick={() => handleNavClick('contact')}>
+            <FaEnvelope className={getIconClassName('contact')} />
           </a>
         </div>
       </div>
