@@ -1,4 +1,3 @@
-/* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
 @import 'src/styles/variables';
 
@@ -38,11 +37,11 @@
     z-index: 4;
     display: flex;
     justify-content: center;
-    
+
     .logo-head {
       transition: opacity 1s;
     }
-  
+
     .hidden {
       opacity: 0;
     }
@@ -54,13 +53,12 @@
     align-items: flex-end;
     width: 100%;
     margin-top: auto;
-  
+
     .button-container {
       display: flex;
       justify-content: center;
-      width: auto;
+      width: 100%;
       position: relative;
-      left: 40%;
       gap: 5rem;
     }
 
@@ -73,7 +71,7 @@
         width: 85%;
       }
     }
-  }  
+  }
 }
 
 .website-content {

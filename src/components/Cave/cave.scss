@@ -63,25 +63,6 @@
   pointer-events: none;
 }
 
-// /* BUREAU */
-// .layer-3 {
-//   background-image: url('/images/Cave/cave-layer4.svg');
-//   z-index: 3;
-//   left: 37.3%;
-//   top: 51%;
-//   width: 50%;
-//   height: 50%;
-// }
-
-// .layer-3.fixed {
-//   position: fixed;
-//   left: 37.3%;
-//   top: 51%;
-//   width: 50%;
-//   height: 50%;
-//   z-index: 3;
-// }
-
 /* SOL */
 .layer-4 {
   background-image: url('/images/Cave/cave-bg-sol.svg');
@@ -95,7 +76,6 @@
 }
 
 .layer-4.fixed {
-  // background-image: url('/images/Cave/cave-bg-sol.svg');
   position: fixed;
   top: 76%;
   bottom: 0;
@@ -136,7 +116,6 @@
 }
 
  .layer-5.fixed {
-  // background-image: url('/images/Cave/cave-bg-mur1.svg');
   position: fixed;
   width: 30%;
   height: 100vh;
@@ -179,7 +158,6 @@
 }
 
 .layer-6.fixed {
-  // background-image: url('/images/Cave/cave-bg-mur2.svg');
   position: fixed;
   width: 30%;
   height: 100vh;
