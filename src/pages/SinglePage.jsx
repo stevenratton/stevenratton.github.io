@@ -107,23 +107,39 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
       if (caveSectionRef.current && titreRef.current) {
         const caveRect = caveSectionRef.current.getBoundingClientRect();
         const windowHeight = window.innerHeight;
-
-        // Adjust TITRE's opacity as CAVE moves in and out of view
-        if (caveRect.top <= windowHeight && caveRect.bottom >= 0) {
-          const progress = Math.min(1, Math.max(0, (windowHeight - caveRect.top) / windowHeight));
-          gsap.to(titreRef.current, { opacity: progress, duration: 0.3, ease: 'power1.out' });
-        } else {
-          // Ensure TITRE remains visible when CAVE is fully out of view
-          gsap.to(titreRef.current, { opacity: 0, duration: 0.3, ease: 'power1.out' });
+  
+        // Si la section Cave est visible, faire apparaitre Titre immédiatement
+        if (caveRect.top <= 0 && caveRect.bottom > windowHeight / 2) {
+          gsap.to(titreRef.current, {
+            opacity: 1,
+            position: 'fixed',
+            top: 0,
+            duration: 0.5,
+            ease: 'power1.out',
+          });
+        }
+  
+        // Si on commence à scroller pour quitter la section Cave, fade out Titre
+        if (caveRect.bottom <= windowHeight / 2) {
+          gsap.to(titreRef.current, {
+            opacity: 0,
+            duration: 0.5,
+            ease: 'power1.out',
+          });
         }
       }
     };
-
+  
+    // Ajouter l'événement de scroll
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+  
+  
+  
+  
 
   const addToRefs = (el) => {
     if (el && !sections.current.includes(el)) {
