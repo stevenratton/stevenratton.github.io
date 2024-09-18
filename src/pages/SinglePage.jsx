@@ -21,10 +21,9 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
   const sections = useRef([]);
   const [currentSection, setCurrentSection] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
-  const [showLogo, setShowLogo] = useState(false);
-  const caveSectionRef = useRef(null);
-  const titreRef = useRef(null);
   const scrollDelay = 500;
+
+  const caveRef = useRef(null);
 
   useEffect(() => {
     let scrollTimeout = null;
@@ -40,7 +39,7 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
           if (i === index) {
             gsap.to(section, { opacity: 1, duration: 0.5, ease: 'power1.inOut' });
             section.classList.add('active');
-          } else if (i !== 1) {
+          } else {
             gsap.to(section, { opacity: 0, duration: 0.5, ease: 'power1.inOut' });
             section.classList.remove('active');
           }
@@ -50,12 +49,6 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
         setIsScrolling(true);
         clearTimeout(scrollTimeout);
         scrollTimeout = setTimeout(() => setIsScrolling(false), scrollDelay);
-
-        if (index === 1) {
-          setShowLogo(true);
-        } else {
-          setShowLogo(false);
-        }
       }
     };
 
@@ -103,19 +96,20 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (caveSectionRef.current && titreRef.current) {
-        const caveRect = caveSectionRef.current.getBoundingClientRect();
+      if (caveRef.current) {
+        const homeRect = sections.current[0]?.getBoundingClientRect() || {};
+        const caveRect = caveRef.current.getBoundingClientRect();
         const windowHeight = window.innerHeight;
 
-        if (caveRect.top <= windowHeight && caveRect.bottom >= 0) {
-          const progress = Math.min(1, Math.max(0, (windowHeight - caveRect.top) / windowHeight));
-          gsap.to(titreRef.current, { opacity: progress, duration: 0.3, ease: 'power1.out' });
-        } else {
-          gsap.to(titreRef.current, { opacity: 0, duration: 0.3, ease: 'power1.out' });
+        if (homeRect.bottom > 0) {
+          caveRef.current.classList.add('hidden');
+        } else if (caveRect.top <= windowHeight && caveRect.bottom >= 0) {
+          caveRef.current.classList.remove('hidden');
         }
       }
     };
-
+    
+    // Ajouter l'événement de scroll
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -135,17 +129,14 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
       <div className="section-wrapper" ref={addToRefs}>
         <Home selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
       </div>
-
-      {/* Combine Cave and Titre into one wrapper */}
-      <div className="section-wrapper cave-titre-wrapper" ref={addToRefs}>
-        <div ref={caveSectionRef}>
+      <div className="cave-titre-wrapper">
+        <div className="cave-container" ref={caveRef}>
           <Cave />
         </div>
-        <div ref={titreRef} className="titre">
-          <Titre showLogo={showLogo} />
+        <div className="titre" ref={addToRefs}>
+          <Titre />
         </div>
       </div>
-
       <div className="section-wrapper" ref={addToRefs}>
         <About selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
       </div>
@@ -162,6 +153,8 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
       {/* Contact and Footer Section */}
       <div className="section-wrapper" ref={addToRefs}>
         <Contact selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
+      </div>
+      <div className="section-wrapper" ref={addToRefs}>
         <Footer selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
       </div>
     </div>
@@ -169,4 +162,3 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
 };
 
 export default SinglePage;
-
