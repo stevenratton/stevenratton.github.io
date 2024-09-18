@@ -149,6 +149,8 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
       <div className="section-wrapper sw-port" ref={addToRefs}>
         <Portfolio selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
       </div>
+
+      {/* Contact and Footer Section */}
       <div className="section-wrapper" ref={addToRefs}>
         <Contact selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
       </div>
