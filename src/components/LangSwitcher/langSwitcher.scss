@@ -5,8 +5,8 @@
   position: fixed;
   display: flex;
   align-items: center;
-  right: 1rem;
-  top: 1rem;
+  right: 5rem;
+  top: 3.5rem;
   z-index: 1000;
 
   button {
@@ -16,7 +16,7 @@
     color: $main-text-color;
     cursor: none;
     font-weight: bold;
-    font-size: 1.3rem;
+    font-size: 2.3rem;
     padding-left: 1.5rem;
     margin: 0;
     font-family: $main-font;
