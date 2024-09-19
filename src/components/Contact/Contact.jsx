@@ -210,9 +210,8 @@ const Contact = ({}) => {
           </div>
 
           <div className="needs-head">
-            <div>
-              <p>{t('describe-needs1')}</p>
-              <p>{t('describe-needs2')}</p>
+            <div className='text-needs'>
+              <p>{t('describe-needs1')} {t('describe-needs2')}</p>
             </div>
             <div className="button-container2">
               <button className="buttontext" onClick={handleClick}>
