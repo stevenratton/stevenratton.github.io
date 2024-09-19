@@ -153,8 +153,6 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
       {/* Contact and Footer Section */}
       <div className="section-wrapper" ref={addToRefs}>
         <Contact selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
-      </div>
-      <div className="section-wrapper" ref={addToRefs}>
         <Footer selectedLanguage={selectedLanguage} changeLanguage={changeLanguage} />
       </div>
     </div>

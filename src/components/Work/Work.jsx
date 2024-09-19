@@ -58,6 +58,7 @@ const Work = () => {
           },
           color: '#D9D9D9',
         },
+        onClick: () => {}, // Désactive le click sur la légende
       },
       tooltip: {
         enabled: false,
