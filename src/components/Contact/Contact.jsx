@@ -301,7 +301,7 @@ const Contact = ({}) => {
         </>
       ) : (
         <>
-           <div className="header-container">
+          <div className="header-container1">
             <h2>{t('result')}</h2>
           </div>
 
