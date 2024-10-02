@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useState, useEffect } from 'react';
 import './titre.scss'
 
 const Titre = ({ showLogo }) => {
@@ -7,29 +7,24 @@ const Titre = ({ showLogo }) => {
   useEffect(() => {
     // Contrôle de l'affichage du logo via le prop showLogo
     if (showLogo) {
-      setOpacityLogoHead(1); // Afficher le logo
+      setOpacityLogoHead(0); // Afficher le logo
     } else {
-      setOpacityLogoHead(0); // Cacher le logo
+      setOpacityLogoHead(1); // Cacher le logo
     }
   }, [showLogo]);
 
   return (
 
-    <section id="about" className="business-container">
-      <div>
-        <img
-          src='/images/logo-head.svg'
-          alt='Logo'
-          className='logo-head2'
-          style={{ transition: 'opacity 1.5s ease-in-out' }}
-        />
-        <p> BUSINESS ANALYST / UX DESIGNER <br />FREELANCE </p>
+    <section id="about">
+      <div className="business-container">
+        <img className='logo-head2' src='/images/logo-head.svg' alt='Logo'  />
+        <p> BUSINESS ANALYST / UX DESIGNER <br></br>FREELANCE</p>
       </div>
-
-      <div>
-        <div className="cave-layer layer-3"></div>
-      </div>
+      
+      <div className="desk"></div>
+      
     </section>
+    
   )
 };
 

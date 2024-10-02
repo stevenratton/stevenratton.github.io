@@ -37,10 +37,10 @@ const SinglePage = ({ selectedLanguage, changeLanguage }) => {
 
         sections.current.forEach((section, i) => {
           if (i === index) {
-            gsap.to(section, { opacity: 1, duration: 0.5, ease: 'power1.inOut' });
+            gsap.to(section, { opacity: 1, duration: 0.2, ease: 'power1.inOut' });
             section.classList.add('active');
           } else {
-            gsap.to(section, { opacity: 0, duration: 0.5, ease: 'power1.inOut' });
+            gsap.to(section, { opacity: 0, duration: 0.2, ease: 'power1.inOut' });
             section.classList.remove('active');
           }
         });

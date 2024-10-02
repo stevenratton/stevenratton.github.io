@@ -7,19 +7,39 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 12%;
   position: relative;
   z-index: 10;
+  text-align: center;
+
+  @media (max-width: 1025px) {
+    padding-top: 3rem;
+  }
 
   .text-portfolio {
-    margin-top: 2%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 60%;
+    text-align: justify;
+    width: 70%;
+    text-shadow: 2px 5px 5px #141414;
+    -moz-user-select: none; /* Firefox */
+    -webkit-user-select: none; /* Chrome, Safari, Opéra depuis la version 15 */
+    -ms-user-select: none; /* Internet explorer depuis la version 10 et Edge */
+    user-select: none; /* Propriété standard */
+
+    @media (max-width: 1270px) {
+      width: 90%;
+    }
+  
+    @media (max-width: 1025px) {
+      width: 70%;
+    }
+
+    @media (max-width: 768px) {
+      min-width: 350px;
+    }
 
     h2 {
-      margin-bottom: 0%;
       color: $main-blue;
     }
   }
@@ -30,6 +50,10 @@
   align-items: center;
   justify-content: space-around;
   font-size: $header-size;
+
+  @media (max-width: 768px) {
+    
+  }
 }
 
 .styled-link {
@@ -46,24 +70,27 @@
 
 /* Carousel details */
 .carousel {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 55%;
-  height: auto;
-  position: relative;
-  margin-top: 3%;
+  width: 50%;
 
-  @media (min-width: 1025px) {
-    width: 55%;
+  @media (max-width: 1600px) {
+    width: 60%;
   }
 
-  @media (max-width: 1025px) {
-    width: 80%;
+  @media (max-width: 1270px) {
+    width: 70%;
+  }
+
+  @media (max-width: 999px) {
+    width: 90%;
   }
 
   @media (max-width: 768px) {
-    width: 90%;
+    width: 88%;
+    min-width: 400px;
   }
 }
 
@@ -80,6 +107,7 @@
   background-origin: border-box;
   background-clip: padding-box, border-box;
   padding: 1%;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.8);
   
   /* La bordure doit s'adapter à la taille de l'image */
   width: 100%; /* La largeur suit la taille de l'image */
@@ -98,8 +126,7 @@
   img {
     width: 100%;
     height: auto; /* Garder le ratio et adapter la hauteur */
-    object-fit: contain; /* L'image reste entière sans être recadrée */
-    border-radius: 35px;
+    border-radius: 30px;
   }
 }
 
@@ -109,16 +136,17 @@
 
 .arrow {
   position: absolute;
-  width: 2rem;
-  height: 2rem;
+  width: 4rem;
+  height: 4rem;
   color: $bg-body;
-  border: solid transparent;
+  border: solid 4px transparent;
   border-radius: 50%;
   background-image: 
     linear-gradient($main-text-color, $main-text-color),
     linear-gradient(45deg, #0068ff, #a055fa, #73e176, #2190ed, #00cee4, #00bbe2, #9fadc7, #9756fa, #0068fe);
   background-origin: border-box;
   background-clip: content-box, border-box;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.8);
 }
 
 .arrow:hover {
@@ -126,11 +154,20 @@
 }
 
 .arrow-left {
-  left: -0.9rem;
+  left: -2rem;
+
+  @media (max-width: 768px) {
+    left: -1.5rem;
+  }
 }
 
 .arrow-right {
-  right: -0.9rem;
+  right: -2rem;
+
+  @media (max-width: 768px) {
+    right: -1.5rem;
+  }
+  
 }
 
 

@@ -2,6 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
 @import '/src/styles/variables';
 
+.city {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
 .background-layer {
   position: absolute;
   left: 5%;
@@ -15,7 +21,8 @@
   &.layer1 {
     background-image: url('/images/home_land_1.svg');
     z-index: 2;
-    margin-top: 3%;
+    margin-top: 3.4%;
+    margin-left: -0.5%;
   }
 
   &.layer2 {
@@ -32,51 +39,116 @@
 }
 
 /* RESPONSIVE */
-@media (max-width: 1440px) {
+@media (max-width: 1600px) {
  .background-layer {
   background-size: 90%;
 
   &.layer1 {
-    margin: 3% 5%;
-    width: 80%;
+    margin: 4% 7%;
+    width: 75%;
   }
 
   &.layer2 {
-    margin: 12% 0;
+    margin: 14% 0;
+    height: 52%;
   }
 
   &.layer3 {
-    margin: 18% 0;
+    margin: 15% 0;
   }
  }
 }
 
+@media (max-width: 1200px) {
+  .background-layer {
+   background-size: 90%;
+ 
+   &.layer1 {
+     margin: 3% 7%;
+     width: 75%;
+   }
+ 
+   &.layer2 {
+     margin: 14% 0;
+     height: 52%;
+   }
+ 
+   &.layer3 {
+     margin: 15% 0;
+   }
+  }
+ }
+
 @media (max-width: 810px) {
     .background-layer {
-      background-size: contain;
 
       &.layer1 {
-        margin-top: 5%; /* Adjust margins for better layout on smaller screens */
+        margin: 2% 7%;
+        width: 75%;
       }
   
       &.layer2 {
-        margin: 8% 0;
+        margin: 14% 0;
       }
   
       &.layer3 {
-        margin: 10% 0;
+        margin: 15% 0;
       }
+    }
+}
+
+@media (max-width: 730px) {
+  .background-layer {
+
+    &.layer1 {
+      margin: 1% 7%;
+      width: 75%;
+    }
+
+    &.layer2 {
+      margin: 14% 0;
+    }
+
+    &.layer3 {
+      margin: 15% 0;
     }
   }
+}
+
+@media (max-width: 630px) {
+  .background-layer {
+
+    &.layer1 {
+      margin: 0% 7%;
+      width: 75%;
+    }
+
+    &.layer2 {
+      margin: 14% 0;
+    }
+
+    &.layer3 {
+      margin: 15% 0;
+    }
+  }
+}
   
   @media (max-width: 480px) {
+
     .background-layer {
-      background-size: cover; /* Further adjust background size for very small screens */
-  
-      &.layer1,
-      &.layer2,
+
+      &.layer1 {
+        margin: -2% 7%;
+        width: 75%;
+      }
+
+      &.layer2 {
+        margin: 14% 0;
+      }
+
       &.layer3 {
-        margin: 5% 0; /* Uniform margin for all layers on very small screens */
+        margin: 15% 0;
       }
     }
+
   }

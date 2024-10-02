@@ -28,11 +28,11 @@ const City = ({ setIsScrolled }) => {
   }, []);
   
   return(
-    <>
+    <div className='city'>
       <div className='background-layer layer1' style={{ transform: `translate(${mousePos.x * 0.030}px, ${mousePos.y * 0.030}px)` }}></div>
       <div className='background-layer layer2' style={{ transform: `translate(${mousePos.x * 0.020}px, ${mousePos.y * 0.020}px)` }}></div>
       <div className='background-layer layer3' style={{ transform: `translate(${mousePos.x * 0.015}px, ${mousePos.y * 0.0}px)` }}></div>
-    </>
+    </div>
   )
 };
 
