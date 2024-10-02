@@ -214,7 +214,7 @@ const Contact = ({}) => {
               <p>{t('describe-needs1')} {t('describe-needs2')}</p>
             </div>
             <div className="button-container2">
-              <button className="buttontext" onClick={handleClick}>
+              <button className="button-text" onClick={handleClick}>
                 <img src='/images/logotel.svg' alt='Logo phone' className='logo' />
                 {t('contactMe')} <IoIosArrowForward />
               </button>
@@ -306,7 +306,7 @@ const Contact = ({}) => {
           </div>
 
           <div className="highest-job">
-            <p> {t('yourNeeds1')} {getHighestPercentageJob()} {t('yourNeeds2')} </p>
+            <p> {t('yourNeeds1')} <span className="role">{getHighestPercentageJob()}</span>{t('yourNeeds2')}<br></br> {t('yourNeeds3')}</p>
           </div>
 
           <div className='result'>

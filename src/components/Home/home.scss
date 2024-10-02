@@ -3,19 +3,23 @@
 
 #home {
   display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  height: 97vh;
-  padding: 1rem;
+  width: 100%;
+  height: 100vh;
 }
 
 .text-home { 
-  position: relative;
+  position: fixed;
+  width: 100%;
+  text-align: center;
   font-size: 2.5rem;
   font-weight: 200;
-  top: 28%;
+  top: 20rem;
   z-index: 4;
   text-shadow: 2px 7px 5px $bg-body;
+  -moz-user-select: none; /* Firefox */
+  -webkit-user-select: none; /* Chrome, Safari, Opéra depuis la version 15 */
+  -ms-user-select: none; /* Internet explorer depuis la version 10 et Edge */
+  user-select: none; /* Propriété standard */
 
   .colored-text {
     color: $main-blue
@@ -28,10 +32,12 @@
 } 
 
 .header-button {
+  position: fixed;
   display: flex;
+  width: 100%;
+  top: 2rem;
   flex-direction: column;
   flex-grow: 1;
-  margin: 2% 5%;
 
   .header {
     z-index: 4;
@@ -40,6 +46,11 @@
 
     .logo-head {
       transition: opacity 1s;
+
+      @media (max-width: 810px) {
+       width: 12rem;
+        margin-top: 8rem;
+      }
     }
 
     .hidden {
@@ -48,125 +59,186 @@
   }
 
   .bottom-home {
+    position: fixed;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     width: 100%;
-    margin-top: auto;
+    bottom: 2rem;
+    z-index: 2000;
 
     .button-container {
       display: flex;
+      flex-direction: row;
       justify-content: center;
       width: 100%;
       position: relative;
-      gap: 5rem;
+      gap: 50px;
+    }
+
+    @media (max-width: 810px) {
+      display: flex;
+      flex-direction: column; 
     }
 
     .logo-certif {
       display: flex;
-      justify-content: flex-end;
-      align-items: center;
+      flex-direction: row;
+      justify-content: center;
+      position: absolute;
+      right: 4%;
+      gap: 40px;
 
       img {
-        width: 85%;
+        height: 140px;
       }
     }
   }
 }
 
-.website-content {
-  color: $main-text-color;
-  text-align: center;
-}
-
 .button-text {
   display: flex;
-  align-items: center;
+  flex-direction: row;
+  justify-content: center;
   color: $main-text-color;
+  font-weight: bold;
   cursor: none;
   font-family: $main-font;
-  border: 3px solid transparent;
+  border: 4px solid transparent;
   background-image: $gradient-border;
   background-origin: border-box;
   background-clip: padding-box, border-box;
   border-radius: 50px;
   padding: 15px 30px 15px 30px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+  gap: 10px;
+  font-size: 16px;
 }
 
+.button-text:hover {
+  background-image: $gradient-border-hover;
+}
 
 /* RESPONSIVE */
+
 @media (max-width: 1440px) {
-  #home {
-    height: 95vh;
-  }
 
   .text-home {
     font-size: 2em;
-    top: 28%;
+    top: 20rem;
+  }
+
+  .header-button .bottom-home {
+    width: 100%;
+    height: 100%;
+
+   .button-container {
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      width: 100%;
+      position: relative;
+      
+   }
+
+   .logo-certif {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: absolute;
+      width: 120px;
+      z-index: 1000;
+
+      img {
+        height:auto;
+      }
+   }
   }
 }
 
 @media (max-width: 1280px) {
-  .button-container {
-    left: 35% !important
-  }
+
 }
 
 @media (max-width: 1250px) {
-  .button-text {
-    width: 37%;
-    height: 5%;
-    font-size: 12px;
-  }
 
-  .logo-certif img {
-    width: 70% !important;
-  }
+
 }
 
 @media (max-width: 1144px) {
-  .button-container {
-    left: 30% !important
-  }
 
-  .button-text {
-    width: 37%;
-    height: 5%;
-    font-size: 12px;
-  }
 }
 
-@media (max-width: 810px) {
-  #home {
-    height: 60vh;
-  }
+@media (max-width: 999px) {
 
   .text-home{
     font-size: 1.5em;
   }
 
-  .bottom-home {
-    margin-top: 0;
+  .button-container {
+    flex-direction: row;
+    margin: auto;
+  }
+
+  .header-button .bottom-home {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin-top: 30rem;
+
+   .button-container {
+      display: flex;
+      flex-direction: column;
+      width: 60%;
+      justify-content: center;
+      position: relative;
+   }
+
+   .logo-certif {
+      visibility: hidden;
+   }
+  }
+
+}
+
+@media (max-width: 810px) {
+
+  .text-home{
+    font-size: 1.5em;
   }
 
   .button-container {
-    flex-direction: column;
-      gap: 10px;
+    flex-direction: row;
+    margin: auto;
   }
 
-  .button-text {
-    font-size: 0.875rem;
-    padding: 8px;
+  .header-button .bottom-home {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin-top: 20rem;
+
+
+   .button-container {
+      display: flex;
+      flex-direction: column;
+      width: 60%;
+      justify-content: center;
+      position: relative;
+   }
+
+   .logo-certif {
+      visibility: hidden;
+   }
   }
 
-  .logo-certif {
-    right: 10px;
-  }
 }
 
+
 @media (max-width: 480px) {
-  .text-home {
-    font-size: 1.2rem;
-    top: 30%;
+
+  .text-home{
+    font-size: 1.0em;
   }
+
 }

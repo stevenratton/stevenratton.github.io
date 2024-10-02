@@ -12,14 +12,12 @@ const Footer = () => {
   return (
     <footer id="footer">
       <div className="footer-content">
-        <div>
         <img src='./images/logo_footer.svg' alt="Logo" className="footer-logo" />
-        </div>
-        <div className="footer-text">
+        <div >
           <p>{t('footer')}</p>
         </div>
         <div className="footer-logo2" onClick={handleClick}>
-          <img src='./images/in.svg' alt="Logo" className="footer-logo" />
+          <img src='./images/in.svg' alt="Logo"  />
         </div>
       </div>
     </footer>

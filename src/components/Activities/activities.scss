@@ -4,19 +4,19 @@
 .activities {
   position: relative;
   z-index: 5;
+  margin-top: 5rem;
 
   @media (max-width: 1024px) {
-    margin-top: 4%;
+
   }
 
   @media (min-width: 1025px) {
-    margin-top: 2%;
+
   }
 
   h2 {
     @media (max-width: 1024px) {
-      margin-bottom: 8%;
-      margin-left: 4%;
+
     }
   }
 }
@@ -26,42 +26,47 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 8rem;
-  margin-right: 2%;
+  gap: 6rem;
+  margin-top: 3rem;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1600px) {
     flex-direction: column;
     align-items: center;
     margin-right: 0;
   }
 
   @media (min-width: 1025px) {
-    margin-top: 0;
+
   }
 }
 
 .act-mini-container {
   position: relative;
-  width: 43%;
-  max-width: 450px;
+  max-width: 500px;
+  text-align: center;
+
+  @media (max-width: 1600px) {
+    width: 80%;
+    max-width: 700px;
+  }
 
   @media (max-width: 1024px) {
-    width: 80%;
+    max-width: 600px;
   }
+
 }
 
 .card-image {
   position: absolute;
   top: -50px;
-  left: 55%;
   transform: translateX(-50%);
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   z-index: 1;
 
   @media (max-width: 480px) {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
   }
 }
 
@@ -75,37 +80,29 @@
   background-origin: border-box;
   background-clip: padding-box, border-box;
   padding: 4%;
-  max-height: 400px;
-  min-height: 290px;
-  width: 100%;
 }
 
 .activities-card {
   background-color: #1E1E1E;
   border: 3px solid transparent;
-  border-radius: 30px;
+ border-radius: 30px;
   text-align: center;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   position: relative;
-  padding: 1%;
+  padding: 0;
   margin: -2%;
-  height: 360px;
+  -moz-user-select: none; /* Firefox */
+  -webkit-user-select: none; /* Chrome, Safari, Opéra depuis la version 15 */
+  -ms-user-select: none; /* Internet explorer depuis la version 10 et Edge */
+  user-select: none; /* Propriété standard */
 
   h3 {
     color: $main-blue;
     margin-bottom: 2%;
-    margin-top: 5%;
-    font-size: 36px;
-
-    @media (max-width: 1380px) {
-      font-size: 28px;
-    }
-
-    @media (max-width: 1280px) {
-      font-size: 24px;
-    }
+    margin-top: 3rem;
+    font-size: 30px;
   }
 
   p {

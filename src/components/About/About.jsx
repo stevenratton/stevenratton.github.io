@@ -26,23 +26,26 @@ const About = () => {
           <p>{t('about5')}</p>
           <p>{t('about6')}</p>
           <p>{t('about7')}</p>
+        </div>
+      </div>
 
-          <div className="btn-about">
+      <div className="btn-about">
             <div className="btn-container">
-              <button className="btn-cv" onClick={handleCvEnClick}>
+              <button className="button-text" onClick={handleCvEnClick}>
                 <img src="/images/usa-flag.svg" alt="USA Flag" className="flag-icon" />
                 {t('cvEn')}
               </button>
             </div>
             <div className="btn-container">
-              <button className="btn-cv" onClick={handleCvFrClick}>
+              <button className="button-text" onClick={handleCvFrClick}>
                 <img src="/images/france-flag.svg" alt="France Flag" className="flag-icon" />
                 {t('cvFr')}
               </button>
             </div>
-          </div>
-        </div>
       </div>
+
+
+
     </div>
   );
 };

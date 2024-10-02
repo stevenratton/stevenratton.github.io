@@ -50,7 +50,8 @@ const Home = () => {
             </button>
           </div>
           <div className='logo-certif'>
-            <img src='/images/certified.svg' alt='Logo certified' className='certified' />
+            <img src='/images/certifiedISTQB.png' alt='logoISTQBcertified' className='certified' />
+            <img src='/images/certifiedPSPO.svg' alt='logoPSPOcertified' className='certified' />
           </div>
         </div>
       </div>
