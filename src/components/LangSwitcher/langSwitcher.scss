@@ -5,8 +5,8 @@
   position: fixed;
   display: flex;
   align-items: center;
-  right: 4%;
-  top: 4%;
+  right: 1rem;
+  top: 1rem;
   z-index: 2100;
 
   button {
@@ -58,6 +58,7 @@
 
     span {
       visibility: hidden;
+      height: 10px;
     }
 
     button {

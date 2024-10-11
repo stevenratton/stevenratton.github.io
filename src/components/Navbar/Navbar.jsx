@@ -29,7 +29,7 @@ const Navbar = () => {
 
   const handleNavClick = (sectionId) => {
     gsap.to(window, {
-      scrollTo: { y: `#${sectionId}`, offsetY: 50 },
+      scrollTo: { y: `#${sectionId}`, offsetY: 0 },
       duration: 1.5,
       onComplete: () => {
         setActiveSection(sectionId);
@@ -128,10 +128,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
-
-
-
-
-

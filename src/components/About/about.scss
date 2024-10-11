@@ -80,13 +80,19 @@
     padding: 2rem;
   }
 
+  @media (max-width: 999px) {
+    height: 13rem;
+    margin-bottom: 1rem;
+    overflow-y: auto;
+  }
+
 }
 
 .btn-about {
   width: 100%;
   display: flex;
   justify-content: center;
-  gap: 4rem;
+  gap: 1rem;
 
   @media (max-width: 768px) {
     flex-direction: column;

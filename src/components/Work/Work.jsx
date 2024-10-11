@@ -4,7 +4,6 @@ import '../Work/work.scss';
 import { useTranslation } from 'react-i18next';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-import { autocompleteClasses } from '@mui/material';
 
 ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
@@ -50,11 +49,11 @@ const Work = () => {
       legend: {
         position: 'top',
         labels: {
-          boxWidth: 35,
+          boxWidth: 25,
           boxHeight: 25,
           padding: 26,
           font: {
-            size: 16,
+            size: 14,
             family: 'Roboto Slab',
             weight: 'bold',
           },
