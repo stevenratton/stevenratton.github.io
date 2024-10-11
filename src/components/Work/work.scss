@@ -5,6 +5,7 @@
 /* Styles pour le conteneur principal */
 #work {
   width: 100%;
+  height: 100%;
   margin: auto;
   margin-top: 4rem;
   display: flex;
@@ -16,8 +17,8 @@
   /* Styles pour le conteneur du graphique */
   #chartdiv {
     position: relative;
-    width: 600px;
-    height: 450px;
+    width: 45%;
+    height: 400px;
     margin: 0% auto 5% auto;
     display: flex;
     justify-content: center; 
@@ -34,13 +35,12 @@
   /* Styles pour le contenu central du graphique */
   .center-content {
     position: absolute;
-    top: 33.3rem;
+    top: 30rem;
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
     -moz-user-select: none; /* Firefox */
     -webkit-user-select: none; /* Chrome, Safari, Opéra depuis la version 15 */
     -ms-user-select: none; /* Internet explorer depuis la version 10 et Edge */
@@ -59,6 +59,7 @@
     font-size: 28px;
     font-weight: bold;
     text-align: center;
+    margin-top: 0.5rem;
   }
 }
 
@@ -75,17 +76,20 @@
 }
 
 /* RESPONSIVE */
-@media (max-width: 768px) {
+@media (max-width: 999px) {
   #work {
     width: 90%;
     margin: auto;
-    margin-top: 8rem;
+    margin-top: 5.5rem;
+    text-align: center;
 
     #chartdiv {
       position: relative;
-      width: 100%; 
-      height: 22rem;
-      margin: 2% auto 5% auto;
+      width: 100%;
+      height: 25rem;
+      display: flex;
+      justify-content: center; 
+      align-items: center;
     }
 
     .center-content {
